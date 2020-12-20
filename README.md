@@ -3,5 +3,5 @@
 - [Ray Tracing 101 Tutorial on youtube](http://bit.ly/3rh6cFU)
 
 # TODO
-- make a minimal raytracer
-- write a doc
+- [ ] Make a minimal raytracer
+- [ ] Write a good documentation
