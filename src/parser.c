@@ -6,14 +6,13 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 01:58:31 by omimouni          #+#    #+#             */
-/*   Updated: 2020/12/20 02:26:45 by omimouni         ###   ########.fr       */
+/*   Updated: 2020/12/20 02:32:09 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 void	parser(int argc, char **argv, t_conf *conf)
-
 {
 	
 }
