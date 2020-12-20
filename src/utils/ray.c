@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ray.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/19 03:37:43 by omimouni          #+#    #+#             */
-/*   Updated: 2020/12/20 02:25:17 by omimouni         ###   ########.fr       */
+/*   Created: 2020/12/20 02:13:43 by omimouni          #+#    #+#             */
+/*   Updated: 2020/12/20 02:20:43 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "utils.h"
 
-int	main(int argc, char **argv)
+t_ray3f 	*ray3f_new(double x, double y, double z, t_vec3f *d)
 {
-	t_conf	*conf;
+	t_ray3f	*tmp;
 
-	conf = malloc(sizeof(t_conf));
-	parser(argc, argv, conf);
-	win_init(conf);
-	win_hook(conf);
-	mlx_loop(conf->mlx);
-	return (0);
+	tmp = malloc(sizeof(t_ray3f));
+	tmp->start = vec3f_new(x, y, z);
+	tmp->dir = d;
+	return (tmp);
+}
+
+void	ray3f_free(t_ray3f *r)
+{
+	free(r->start);
+	free(r->dir);
+	free(r);
 }
