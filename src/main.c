@@ -6,12 +6,14 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 03:37:43 by omimouni          #+#    #+#             */
-/*   Updated: 2020/12/19 04:18:57 by omimouni         ###   ########.fr       */
+/*   Updated: 2020/12/20 01:55:17 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "minirt.h"
 #include <stdio.h>
 
 int	main(int argc, char **argv)
 {
+	return (0);
 }
