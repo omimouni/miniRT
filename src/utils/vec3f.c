@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 04:11:59 by omimouni          #+#    #+#             */
-/*   Updated: 2020/12/20 01:41:22 by omimouni         ###   ########.fr       */
+/*   Updated: 2020/12/22 01:28:41 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,14 @@ t_vec3f	*vec3f_cross(t_vec3f *v, t_vec3f *w)
 		v->y * w->z - v->z * w->y,
 		v->z * w->x - v->x * w->z,
 		v->x * w->y - v->y * w->x));
+}
+
+t_vec3f	*vec3f_normalize(t_vec3f *v)
+{
+	double	leng;
+
+	leng = vec3f_length(v);
+	return (vec3f_new(v->x / leng, v->y / leng, v->z / leng));
 }
 
 void	vec3f_free(t_vec3f *v)
