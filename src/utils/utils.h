@@ -6,14 +6,17 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 00:33:11 by omimouni          #+#    #+#             */
-/*   Updated: 2020/12/22 03:14:06 by omimouni         ###   ########.fr       */
+/*   Updated: 2020/12/22 04:30:56 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
+# define BUFFER_SIZE 100
 
 # include <math.h>
+# include <fcntl.h>
+# include <unistd.h>
 # include <stdlib.h>
 
 typedef struct	s_vec3f {
@@ -30,6 +33,7 @@ typedef struct	s_ray3f {
 	t_vec3f		*dir;
 }				t_ray3f;
 
+int				gnl(int fd, char **line);
 t_vec3f			*vec3f_new(double x, double y, double z);
 t_vec3f			*vec3f_add(t_vec3f *v, t_vec3f *w);
 t_vec3f			*vec3f_scalar(double n, t_vec3f *v);
