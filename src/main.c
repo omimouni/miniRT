@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 03:37:43 by omimouni          #+#    #+#             */
-/*   Updated: 2020/12/22 04:31:13 by omimouni         ###   ########.fr       */
+/*   Updated: 2020/12/22 05:59:57 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ int	main_prod(int argc, char **argv)
 
 int	main_test(int argc, char **argv)
 {
-	printf("Hello World");
+	t_conf	*conf;
+
+	conf = malloc(sizeof(t_conf));
+	parser(argc, argv, conf);
+	render(conf);
 	return (0);
 }
 
