@@ -6,13 +6,13 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:24 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/19 16:14:59 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/19 16:19:55 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int	main(int argc, char **argv)
-{
-	return (0);
-}
+// int	main(int argc, char **argv)
+// {
+// 	return (0);
+// }
