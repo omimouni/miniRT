@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray.c                                              :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/20 02:13:43 by omimouni          #+#    #+#             */
-/*   Updated: 2020/12/22 03:13:55 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/19 16:15:07 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/19 16:15:23 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "minirt.h"
 
-t_ray3f		*ray3f_new(t_vec3f *p, t_vec3f *d)
+int	main(int argc, char **argv)
 {
-	t_ray3f	*tmp;
-
-	tmp = malloc(sizeof(t_ray3f));
-	tmp->start = p;
-	tmp->dir = d;
-	return (tmp);
-}
-
-void		ray3f_free(t_ray3f *r)
-{
-	free(r->start);
-	free(r->dir);
-	free(r);
+	
 }
