@@ -6,13 +6,13 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:15:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/19 23:59:32 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/20 11:53:42 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_conf	g_conf;
+t_conf	*g_conf;
 
 int main(int argc, char **argv)
 {
@@ -22,5 +22,7 @@ int main(int argc, char **argv)
 
 	mrt_init();
 	mrt_parser(argc, argv);
+	if (!g_conf->is_save)
+		mrt_window_loop();
 	return (0);
 }

@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/20 11:52:16 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/20 11:41:18 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/20 11:51:55 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
-# include "libft/libft.h"
-# include "conf_struct.h"
-# include <mlx.h>
+#include "../minirt.h"
 
+extern t_conf *g_conf;
 
-void	mrt_init();
-void	mrt_parser(int argc, char **argv);
-
-void	mrt_window_loop();
-#endif
+void	mrt_window_loop()
+{
+	g_conf->mlx.ptr = mlx_init();
+	g_conf->mlx.win = mlx_new_window(g_conf->mlx.ptr, 200, 200, "miniRT");
+	
+	mlx_loop(g_conf->mlx.ptr);
+}
