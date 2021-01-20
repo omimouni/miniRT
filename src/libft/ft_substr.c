@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:13:04 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/19 17:13:14 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/19 23:59:45 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	l;
 
 	l = 0;
-	if (start > strlen(s))
+	if (start > ft_strlen(s))
 	{
 		if (!(ptr = (char *)malloc(1)))
 			return (NULL);
