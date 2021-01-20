@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 00:10:48 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/20 01:30:31 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/20 11:38:21 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@ static int ft_split_nwords(char *str)
 		if (str[i] != ' ' && str[i] != '\t')
 		{
 			n_words++;
-			while (str[i] != ' ' && str[i] != '\t' && str[i] != '\0')
+			while (str[i] != ' ' && str[i] != '\t' && str[i] != '\0' 
+				&& str[i] != '\n' && str[i] != '\0')
 				i++;
 		}
 		i++;
 	}
+	printf("x%dx\n", n_words);
 	return (n_words);
 }
 
@@ -65,7 +67,5 @@ char **ft_split(char *str)
 
 	n_words = ft_split_nwords(str);
 	keywords = ft_split_fill(str, n_words);
-	i = 0;
-	while (i < n_words)
-		printf("%s\n", keywords[i++]);
+
 }
