@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 17:37:33 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/24 21:38:08 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ typedef	struct	s_mlx {
 	t_mlx_img	img;
 }				t_mlx;
 
+typedef struct	s_mrt_camera {
+	t_point3	origin;
+	t_vector3	normal;
+	int			fov;
+}				t_mrt_camera;
+
 typedef struct	s_mrt_ray {
 	t_point3	origin;
 	t_vector3	direction;
@@ -38,6 +44,7 @@ typedef	struct	s_conf {
 	unsigned int	width;
 	unsigned char	is_save;
 	t_mlx			mlx;
+	t_generic_list	*cameras;
 } 				t_conf;
 
 #endif 

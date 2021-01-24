@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   camera.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 16:24:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 21:20:13 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/24 21:10:16 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/24 21:40:53 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# define BUFFER_SIZE 255
-# include <stdlib.h>
-# include <string.h>
-# include <sys/stat.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include <unistd.h>
+#include "../../minirt.h"
 
-# include "string/ft_string.h"
-# include "ft_maths/ft_maths.h"
-# include "linked_list/linked_list.h"
+t_mrt_camera	*camera_new(t_point3 origin, t_vector3 normal, int fov)
+{
+	t_mrt_camera	*camera;
 
-int		gnl(int fd, char **line);
+	camera = malloc(sizeof(t_mrt_camera));
+	camera->origin = origin;
+	camera->normal = normal;
+	camera->fov = fov;
+	return (camera);
+}
 
-double	ft_parsefloat(char *s);
-#endif
