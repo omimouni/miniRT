@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   ft_maths.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 17:00:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 17:13:29 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/24 17:24:43 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/24 17:30:38 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minirt.h"
+#ifndef	FT_MATHS_H
+# define FT_MATHS_H
 
-extern t_conf	*g_conf;
+typedef struct	s_vector3 {
+	double		x;
+	double		y;
+	double		z;
+}				t_vector3;
 
-void	mrt_render(void)
-{
-	size_t	i;
-	size_t	j;
+typedef	t_vector3	t_point3;
 
-	i = 0;
-	while (i < g_conf->width)
-	{
-		j = 0;
-		while (j < g_conf->height)
-		{
-			mrt_put_pixel(i, j, 0xFFFFFF);
-			j++;
-		}
-		i++;
-	}
-
-}
+t_vector3	vec3_new(double x, double y, double z);
+t_vector3	vec3_add(t_vector3 v, t_vector3 w);
+#endif
