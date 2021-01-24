@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:15:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/20 21:50:54 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/24 16:41:54 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ int main(int argc, char **argv)
 {
 	int 	fd;
 	char	*line;
-	int		r;
 
 	mrt_init();
 	mrt_parser(argc, argv);
-	if (!g_conf->is_save)
+	mrt_mlx_init();
+	if (g_conf->is_save)
+		mrt_save_image();
+	else
 		mrt_window_loop();
 	return (0);
 }
