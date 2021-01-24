@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 17:38:42 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/24 18:03:34 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,6 @@ void	mrt_put_pixel(size_t x, size_t y, int color);
 
 t_mrt_ray	*mrt_ray_init(t_point3 orig, t_vector3 dir);
 void		mrt_ray_free(t_mrt_ray *ray);
+
+int	mrt_key_handler(int keycode);
 #endif

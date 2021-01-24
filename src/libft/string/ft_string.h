@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_string.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 16:24:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 18:07:13 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/24 18:05:13 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/24 18:08:00 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# define BUFFER_SIZE 255
-# include <stdlib.h>
-# include <string.h>
-# include <sys/stat.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include <unistd.h>
+#ifndef FT_STRING_H
+# define FT_STRING_H
 
-# include "string/ft_string.h"
-# include "ft_maths/ft_maths.h"
+#include <stdlib.h>
 
-int		gnl(int fd, char **line);
-
-double	ft_parsefloat(char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	ft_strlen(const char *str);
+char	**ft_split(char *str);
 #endif

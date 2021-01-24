@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_parsefloat.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 16:24:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 18:07:13 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/24 17:50:42 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/24 17:55:59 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# define BUFFER_SIZE 255
-# include <stdlib.h>
-# include <string.h>
-# include <sys/stat.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include <unistd.h>
+#include "libft.h"
 
-# include "string/ft_string.h"
-# include "ft_maths/ft_maths.h"
+double	ft_parsefloat(char *s)
+{
+	double n;
 
-int		gnl(int fd, char **line);
-
-double	ft_parsefloat(char *s);
-#endif
+	n = 0;
+	
+	return (n);
+}

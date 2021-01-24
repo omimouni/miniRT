@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mrt_ray.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 17:31:34 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 17:35:34 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/19 23:54:49 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/24 18:06:32 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minirt.h"
+#include "ft_string.h"
 
-t_mrt_ray	*mrt_ray_init(t_point3 orig, t_vector3 dir)
+size_t	ft_strlen(const char *str)
 {
-	t_mrt_ray	*ray;
+	size_t	i;
 
-	ray->origin = orig;
-	ray->direction = dir;
-	return (ray);
-}
-
-void	mrt_ray_free(t_mrt_ray *ray)
-{
-	free(ray);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

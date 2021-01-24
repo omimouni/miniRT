@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 16:52:28 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/19 23:59:40 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/19 17:13:04 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/24 18:06:45 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*ptr;
-	size_t	p;
-	size_t	q;
 	size_t	i;
-	char	*tmp;
+	size_t	l;
 
-	p = ft_strlen(s1);
-	q = ft_strlen(s2);
-	if (!(ptr = (char *)malloc(sizeof(char) * (p + q + 1))))
+	l = 0;
+	if (start > ft_strlen(s))
+	{
+		if (!(ptr = (char *)malloc(1)))
+			return (NULL);
+		ptr[0] = '\0';
+		return (ptr);
+	}
+	while (l < len && s[l + start] != '\0')
+		l++;
+	if (!(ptr = (char *)malloc(sizeof(char) * l + 1)))
 		return (NULL);
 	i = 0;
-	tmp = (char *)s1;
-	while (*tmp)
-		ptr[i++] = *tmp++;
-	tmp = (char *)s2;
-	while (*tmp)
-		ptr[i++] = *tmp++;
+	while (i < len)
+	{
+		ptr[i] = s[i + start];
+		i++;
+	}
 	ptr[i] = '\0';
 	return (ptr);
 }

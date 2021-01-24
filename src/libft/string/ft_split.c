@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 00:10:48 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/20 11:50:25 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/24 18:06:22 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
 static int ft_split_nwords(char *str)
 {
