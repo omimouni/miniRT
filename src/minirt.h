@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 18:03:34 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/24 18:49:54 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,6 @@ t_mrt_ray	*mrt_ray_init(t_point3 orig, t_vector3 dir);
 void		mrt_ray_free(t_mrt_ray *ray);
 
 int	mrt_key_handler(int keycode);
+
+void	mrt_error(void);
 #endif

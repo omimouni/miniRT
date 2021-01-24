@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 18:14:51 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/24 18:20:40 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/24 19:01:46 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 extern t_conf	*g_conf;
 
-void	mrt_init(void)
+char	*g_err_list[] = {
+	"The first argument must be a file.",
+	"The scene file isn't valid."
+};
+
+void	mrt_error(void)
 {
-	g_conf = (t_conf *)malloc(sizeof(t_conf));
-	g_conf->errcode = 0;
-	g_conf->is_save = 1;
-	g_conf->height = 200;
-	g_conf->width = 300;
+	printf("Error\n");
+	printf("%d: %s\n", g_conf->errcode, *(g_err_list + g_conf->errcode - 1));
+	exit (-1);
 }
