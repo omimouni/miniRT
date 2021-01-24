@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   mrt_ray.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 17:00:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 17:13:29 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/24 17:31:34 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/24 17:35:34 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 
-extern t_conf	*g_conf;
-
-void	mrt_render(void)
+t_mrt_ray	*mrt_ray_init(t_point3 orig, t_vector3 dir)
 {
-	size_t	i;
-	size_t	j;
+	t_mrt_ray	*ray;
 
-	i = 0;
-	while (i < g_conf->width)
-	{
-		j = 0;
-		while (j < g_conf->height)
-		{
-			mrt_put_pixel(i, j, 0xFFFFFF);
-			j++;
-		}
-		i++;
-	}
+	ray->origin = orig;
+	ray->direction = dir;
+	return (ray);
+}
 
+void	mrt_ray_free(t_mrt_ray *ray)
+{
+	free(ray);
 }

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:41:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 17:04:26 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/24 17:12:18 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	mrt_mlx_init(void)
 {
 	g_conf->mlx.ptr = mlx_init();
 	g_conf->mlx.win = mlx_new_window(g_conf->mlx.ptr,
-		g_conf->width, g_conf->height, "miniRT");
+		g_conf->width, g_conf->height, WINDOW_TITLE);
 	g_conf->mlx.img.ptr = mlx_new_image(g_conf->mlx.ptr,
 		g_conf->width, g_conf->height);
 	g_conf->mlx.img.addr = mlx_get_data_addr(g_conf->mlx.img.ptr,

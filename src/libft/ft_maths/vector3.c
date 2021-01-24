@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   vector3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 17:00:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 17:13:29 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/24 17:25:44 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/24 17:30:24 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minirt.h"
+#include "ft_maths.h"
 
-extern t_conf	*g_conf;
-
-void	mrt_render(void)
+t_vector3	vec3_new(double x, double y, double z)
 {
-	size_t	i;
-	size_t	j;
+	t_vector3	tmp;
 
-	i = 0;
-	while (i < g_conf->width)
-	{
-		j = 0;
-		while (j < g_conf->height)
-		{
-			mrt_put_pixel(i, j, 0xFFFFFF);
-			j++;
-		}
-		i++;
-	}
+	tmp.x = x;
+	tmp.y = y;
+	tmp.z = z;
+	return (tmp);
+}
 
+t_vector3	vec3_add(t_vector3 v, t_vector3 w)
+{
+	t_vector3	tmp;
+
+	tmp.x = v.x + w.x;
+	tmp.y = v.y + w.y;
+	tmp.z = v.z + v.z;
+	return (tmp);
 }
