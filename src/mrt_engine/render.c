@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_init.c                                         :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 16:41:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 17:04:26 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/24 17:00:07 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/24 17:06:33 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,20 @@
 
 extern t_conf	*g_conf;
 
-void	mrt_mlx_init(void)
+void	mrt_render(void)
 {
-	g_conf->mlx.ptr = mlx_init();
-	g_conf->mlx.win = mlx_new_window(g_conf->mlx.ptr,
-		g_conf->width, g_conf->height, "miniRT");
-	g_conf->mlx.img.ptr = mlx_new_image(g_conf->mlx.ptr,
-		g_conf->width, g_conf->height);
-	g_conf->mlx.img.addr = mlx_get_data_addr(g_conf->mlx.img.ptr,
-		&g_conf->mlx.img.bpp, &g_conf->mlx.img.line_height,
-		&g_conf->mlx.img.endian);
-	
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (i < g_conf->width)
+	{
+		j = 0;
+		while (j < g_conf->height)
+		{
+			mrt_put_pixel(i, j, 0xFFFFFF);
+			j++;
+		}
+		i++;
+	}
 }

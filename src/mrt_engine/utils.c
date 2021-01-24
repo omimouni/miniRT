@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_init.c                                         :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 16:41:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 17:04:26 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/24 16:54:56 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/24 16:59:22 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 
-extern t_conf	*g_conf;
+extern t_conf *g_conf;
 
-void	mrt_mlx_init(void)
+void	mrt_put_pixel(size_t x, size_t y, int color)
 {
-	g_conf->mlx.ptr = mlx_init();
-	g_conf->mlx.win = mlx_new_window(g_conf->mlx.ptr,
-		g_conf->width, g_conf->height, "miniRT");
-	g_conf->mlx.img.ptr = mlx_new_image(g_conf->mlx.ptr,
-		g_conf->width, g_conf->height);
-	g_conf->mlx.img.addr = mlx_get_data_addr(g_conf->mlx.img.ptr,
-		&g_conf->mlx.img.bpp, &g_conf->mlx.img.line_height,
-		&g_conf->mlx.img.endian);
-	
+	char		*dst;
+	t_mlx_img	*img;
+
+	img = &g_conf->mlx.img;
+	dst = img->addr + (y * img->line_height + x * (img->bpp / 8));
+	*(unsigned int *)dst = color;
 }

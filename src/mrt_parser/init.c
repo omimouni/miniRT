@@ -6,13 +6,13 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 16:26:48 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/24 17:01:39 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 
-extern t_conf *g_conf;
+extern t_conf	*g_conf;
 
 void	mrt_init(void)
 {
