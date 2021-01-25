@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 21:38:23 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/25 21:48:02 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,4 @@ void	mrt_init(void)
 	g_conf->is_save = 0;
 	g_conf->height = 200;
 	g_conf->width = 300;
-	g_conf->cameras = NULL;
 }
