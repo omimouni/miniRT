@@ -6,12 +6,12 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 12:01:35 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/26 12:12:09 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/26 12:18:44 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_BMP_H
-# define FT_BPM_H
+# define FT_BMP_H
 # include <stdlib.h>
 
 typedef	struct		s_bmp_file_header {
