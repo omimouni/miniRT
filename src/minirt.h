@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/25 22:24:42 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/26 11:42:58 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void			mrt_init();
 void			mrt_parser(int argc, char **argv);
 void			mrt_error(void);
 
-void			mrt_mlx_init(void);
 void			mrt_render(void);
 void			mrt_window_loop(void);
 void			mrt_save_image(void);
