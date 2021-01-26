@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:00:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/25 21:46:57 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/25 22:36:39 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,26 @@
 
 extern t_conf	*g_conf;
 
-
 /**
- * @todo Implement multithreading 
+ * @todo Add render progress
  **/
 
-void	mrt_render(int color)
+void	mrt_render(void)
 {
 	size_t	i;
 	size_t	j;
 
 	i = 0;
+	printf("Rendering Scene ...");
 	while (i < g_conf->width)
 	{
 		j = 0;
 		while (j < g_conf->height)
 		{
-			mrt_put_pixel(i, j, color);
+			mrt_put_pixel(i, j, 0xFFFFFF);
 			j++;
 		}
 		i++;
 	}
-	mlx_put_image_to_window(g_conf->mlx.ptr, g_conf->mlx.win,
-		g_conf->mlx.img.ptr, 0, 0);
+	printf(" Done\n");
 }

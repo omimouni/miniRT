@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/25 21:48:02 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/25 23:03:37 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	mrt_init(void)
 	g_conf = (t_conf *)malloc(sizeof(t_conf));
 	g_conf->errcode = 0;
 	g_conf->is_save = 0;
-	g_conf->height = 200;
-	g_conf->width = 300;
+	g_conf->height = 1000;
+	g_conf->width = 1000;
+	
 }

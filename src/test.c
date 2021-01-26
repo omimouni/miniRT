@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:15:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 23:12:33 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/25 23:12:40 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int main(int argc, char **argv)
 	mrt_init();
 	mrt_parser(argc, argv);
 	mrt_mlx_init();
-
 	if (g_conf->is_save)
 		mrt_save_image();
 	else
