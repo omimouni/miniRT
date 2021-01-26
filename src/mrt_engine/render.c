@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:00:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/25 22:36:39 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/26 11:57:09 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ extern t_conf	*g_conf;
  * @todo Add render progress
  **/
 
-void	mrt_render(void)
+void	mrt_render(unsigned char type)
 {
 	size_t	i;
 	size_t	j;
@@ -30,7 +30,8 @@ void	mrt_render(void)
 		j = 0;
 		while (j < g_conf->height)
 		{
-			mrt_put_pixel(i, j, 0xFFFFFF);
+			if (type == MRT_RENDER_WINDOW)
+				mrt_put_pixel(i, j, 0xFFFFFF);
 			j++;
 		}
 		i++;

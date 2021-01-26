@@ -1,25 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_bmp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/26 11:54:04 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/26 12:13:08 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/26 12:13:24 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minirt.h"
+#include "ft_bmp.h"
 
-extern t_conf	*g_conf;
-
-void	mrt_init(void)
-{
-	g_conf = (t_conf *)malloc(sizeof(t_conf));
-	g_conf->errcode = 0;
-	g_conf->is_save = 1;
-	g_conf->height = 423;
-	g_conf->width = 752;
+int		ft_bmp_init() {
 	
 }
