@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:24:39 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/26 11:59:45 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:22:45 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,4 @@
 void	mrt_save_image()
 {
 	mrt_render(MRT_RENDER_IMAGE);
-
-	
 }
