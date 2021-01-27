@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linked_list.h                                      :+:      :+:    :+:   */
+/*   ft_bmp.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 17:41:27 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/27 16:16:37 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/26 12:01:35 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/27 16:17:52 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LINKED_LIST_H
-# define LINKED_LIST_H
-
-# include <stdio.h>
+#ifndef FT_BMP_H
+# define FT_BMP_H
 # include <stdlib.h>
 
-typedef struct				s_generic_list {
-	void					*obj;
-	struct s_generic_list	*next;
-}							t_generic_list;
+typedef	struct		s_bmp_file_header {
+	size_t			file_size;
+	size_t			header_size;
+	size_t			header_offset;
+	size_t			image_height;
+	size_t			image_width;
+}					t_bmp_file_header;
 
-t_generic_list				*ft_glist_init(void);
-t_generic_list				*ft_glist_add(t_generic_list *list, void *obj);
+typedef struct		s_bmp_pixel {
+	int				red;
+	int				green;
+	int				blue;
+}					t_bmp_pixel;
 #endif

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:50:42 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 17:55:59 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:15:57 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,5 @@ double	ft_parsefloat(char *s)
 	double n;
 
 	n = 0;
-	
 	return (n);
 }

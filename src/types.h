@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/25 23:04:24 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/27 18:29:03 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,16 @@ typedef	struct		s_conf {
 	unsigned char	is_save;
 	t_mlx			mlx;
 } 					t_conf;
+
+typedef struct		s_object {
+	char			type;
+	void			*object;
+}					t_object;
+
+typedef struct		s_camera {
+	t_point3		origin;
+	t_vector3		normal;
+	int				fov;
+}					t_camera;
 
 #endif 

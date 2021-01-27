@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:24:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 21:20:13 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:16:43 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@
 # include "string/ft_string.h"
 # include "ft_maths/ft_maths.h"
 # include "linked_list/linked_list.h"
+# include "bmp/ft_bmp.h"
 
 int		gnl(int fd, char **line);
 
 double	ft_parsefloat(char *s);
+
 #endif

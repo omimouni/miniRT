@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_init.c                                         :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 16:41:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 20:29:58 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/26 12:31:01 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/27 16:19:08 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minirt.h"
+#include "../libft.h"
 
-extern t_conf	*g_conf;
-
-void	mrt_mlx_init(void)
+void	ft_putchar_fd(char c, int fd)
 {
-	g_conf->mlx.ptr = mlx_init();
-	g_conf->mlx.img.ptr = mlx_new_image(g_conf->mlx.ptr,
-		g_conf->width, g_conf->height);
-	g_conf->mlx.img.addr = mlx_get_data_addr(g_conf->mlx.img.ptr,
-		&g_conf->mlx.img.bpp, &g_conf->mlx.img.line_height,
-		&g_conf->mlx.img.endian);
-	
+	write(fd, &c, 1);
 }

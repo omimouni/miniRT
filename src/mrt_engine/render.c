@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:00:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/25 22:36:39 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/27 19:18:44 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,34 @@ extern t_conf	*g_conf;
  * @todo Add render progress
  **/
 
-void	mrt_render(void)
+void static		show_progress(size_t i, size_t j)
+{
+	size_t	progress;
+
+	progress = g_conf->height * g_conf->width;
+	i++;
+	j++;
+	printf("\r\033[0;32m  👾 Progress: %ld%%",((i * j) / progress) * 100);
+}
+
+void	mrt_render(unsigned char type)
 {
 	size_t	i;
 	size_t	j;
 
+	printf("\n* 🖥  Rendering Scene \n\n");
 	i = 0;
-	printf("Rendering Scene ...");
 	while (i < g_conf->width)
 	{
 		j = 0;
 		while (j < g_conf->height)
 		{
-			mrt_put_pixel(i, j, 0xFFFFFF);
+			show_progress(i, j);
+			if (type == MRT_RENDER_WINDOW)
+				mrt_put_pixel(i, j, 0xFFFFFF);
 			j++;
 		}
 		i++;
 	}
-	printf(" Done\n");
-}
+	printf("...\033[0m ✅\n");
+	printf("\n* 🤵 waiting for the next command. \n"); }
