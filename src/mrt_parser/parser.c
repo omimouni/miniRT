@@ -6,20 +6,13 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:30:25 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/25 22:35:47 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/26 14:47:40 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 
 extern t_conf	*g_conf;
-
-static void	mrt_split_line(char *line)
-{
-	char	**keywords;
-
-	keywords = ft_split(line);	
-}
 
 static void	mrt_trigger_error(int code)
 {
@@ -40,7 +33,7 @@ void	mrt_parser(int argc, char **argv)
 		mrt_trigger_error(3);
 	while (gnl(fd, &line) && !g_conf->errcode)
 	{
-		mrt_split_line(line);
+
 	}
 	if (g_conf->errcode)
 		mrt_trigger_error(g_conf->errcode);
