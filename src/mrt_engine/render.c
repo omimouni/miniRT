@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:00:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/27 17:25:36 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/27 19:18:44 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void static		show_progress(size_t i, size_t j)
 	progress = g_conf->height * g_conf->width;
 	i++;
 	j++;
-	printf("\r\033[0;32m  👾 Progress: %ld%%\033[0m",((i * j) / progress) * 100);
+	printf("\r\033[0;32m  👾 Progress: %ld%%",((i * j) / progress) * 100);
 }
 
 void	mrt_render(unsigned char type)
@@ -47,5 +47,5 @@ void	mrt_render(unsigned char type)
 		}
 		i++;
 	}
-	printf("\n  🌚 Done\n");
+	printf("...\033[0m ✅\n");
 	printf("\n* 🤵 waiting for the next command. \n"); }
