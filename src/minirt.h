@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/26 11:56:44 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/27 22:17:30 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void			mrt_init();
 void			mrt_parser(int argc, char **argv);
 void			mrt_error(void);
 
-
 void			mrt_render(unsigned char type);
 void			mrt_window_loop(void);
 void			mrt_save_image(void);
@@ -34,4 +33,6 @@ void			mrt_ray_free(t_mrt_ray *ray);
 
 int				mrt_key_handler(int keycode);
 void			mrt_update_window(void);
+
+t_mrt_camera	*mrt_camera_new(t_point3 origin, t_vector3 normal, int fov);
 #endif

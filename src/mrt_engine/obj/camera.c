@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   camera.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/27 22:18:53 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/27 22:15:19 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/27 22:20:54 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minirt.h"
+#include "../../minirt.h"
 
-extern t_conf	*g_conf;
-
-void	mrt_init(void)
+t_mrt_camera	*mrt_camera_new(t_point3 origin, t_vector3 normal, int fov)
 {
-	g_conf = (t_conf *)malloc(sizeof(t_conf));
-	g_conf->errcode = 0;
-	g_conf->is_save = 1;
-	g_conf->height = 423;
-	g_conf->width = 752;
-	g_conf->cameras = ft_glist_init();
-	g_conf->cameras = ft_glist_add(g_conf->cameras, NULL);	
+	t_mrt_camera	*tmp;
+
+	tmp = malloc(sizeof(t_mrt_camera));
+	tmp->origin = origin;
+	tmp->normal = normal;
+	tmp->fov = fov;
+	return (tmp);
 }

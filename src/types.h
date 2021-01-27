@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/26 12:02:52 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/27 22:14:28 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ typedef	struct		s_conf {
 	unsigned int	height;
 	unsigned int	width;
 	unsigned char	is_save;
+	t_generic_list	*cameras;
+	t_mrt_camera	*current_camera;
 	t_mlx			mlx;
 } 					t_conf;
 
