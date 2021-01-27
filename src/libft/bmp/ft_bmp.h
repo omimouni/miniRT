@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 12:01:35 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/26 12:18:44 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:17:52 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ typedef	struct		s_bmp_file_header {
 	size_t			file_size;
 	size_t			header_size;
 	size_t			header_offset;
-	
 	size_t			image_height;
 	size_t			image_width;
-
 }					t_bmp_file_header;
 
 typedef struct		s_bmp_pixel {

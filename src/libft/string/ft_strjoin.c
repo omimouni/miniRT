@@ -6,12 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:52:28 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/24 18:06:26 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:20:06 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
-
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

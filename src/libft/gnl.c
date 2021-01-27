@@ -6,20 +6,18 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:18:24 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/20 11:11:19 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:20:35 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// TODO: add ft functions instead of standards 
-
-static int	gnl_buffer(int fd, char **ptr)
+static int		gnl_buffer(int fd, char **ptr)
 {
 	int		n_char;
 	char	*buffer;
 	char	*tmp;
-	
+
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	while ((n_char = read(fd, buffer, BUFFER_SIZE)) > 0)
 	{
@@ -33,13 +31,13 @@ static int	gnl_buffer(int fd, char **ptr)
 			*ptr = tmp;
 		}
 		if (strchr(*ptr, '\n'))
-			break;
+			break ;
 	}
 	free(buffer);
 	return (n_char);
 }
 
-static	int	gnl_set_line(char **ptr, int length, char **line)
+static	int		gnl_set_line(char **ptr, int length, char **line)
 {
 	char	*tmp;
 
@@ -61,7 +59,7 @@ static	int	gnl_set_line(char **ptr, int length, char **line)
 	return (1);
 }
 
-int	gnl(int fd, char **line)
+int				gnl(int fd, char **line)
 {
 	static char		*ptr;
 	int				n_char;
