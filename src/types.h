@@ -6,13 +6,12 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/27 16:53:18 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/27 18:29:03 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TYPES_H
 # define TYPES_H
-# define MRT_TYPE_CAMERA 20
 
 typedef	struct		s_mlx_img {
 	void			*ptr;
