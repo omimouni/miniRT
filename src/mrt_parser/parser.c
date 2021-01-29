@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:30:25 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/26 14:47:40 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/29 23:03:15 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,13 @@ void	mrt_parser(int argc, char **argv)
 		mrt_trigger_error(1);
 	if ((fd = open(argv[1], O_RDONLY)) <= -1)
 		mrt_trigger_error(2);
-	if (argc == 3 && strcmp(argv[2], "--save") != 0)
-		mrt_trigger_error(3);
+	if (argc == 3)
+	{
+		if (strcmp(argv[2], "--save") != 0)
+			mrt_trigger_error(3);
+		else
+			g_conf->is_save = 1;
+	}
 	while (gnl(fd, &line) && !g_conf->errcode)
 	{
 

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/27 22:22:25 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/29 23:10:30 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,11 @@ typedef struct		s_camera {
 	int				fov;
 }					t_camera;
 
-#endif 
+typedef struct		s_color {
+	double			r;
+	double			g;
+	double			b;
+	double			alpha;
+}					t_color;
+
+#endif
