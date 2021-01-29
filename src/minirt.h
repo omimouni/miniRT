@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/29 23:00:54 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/29 23:35:32 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,8 @@ int				mrt_key_handler(int keycode);
 void			mrt_update_window(void);
 
 t_camera		*camera_new(t_point3 origin, t_vector3 normal, int fov);
+
+int				color_rgba(int r, int g, int b, int a);
+t_color			color_new(int hex);
+
 #endif

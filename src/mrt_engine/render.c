@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:00:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/29 23:11:43 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/29 23:28:03 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void static	mrt_render_loop()
 		j = 0;
 		while (j < g_conf->height)
 		{
-			color = 0x000000;
+			color = 0x00000000;
 			if (g_conf->is_save)
 				// @todo: add bmp renderer
 				continue;
