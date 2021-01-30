@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:00:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/30 18:10:25 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/30 18:20:45 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static t_vector3	mrt_ray_calc_dir(size_t x, size_t y)
 
 static void 		mrt_render_loop()
 {
-	size_t	i;
-	size_t	j;
-	int		color;
+	size_t		i;
+	size_t		j;
+	int			color;
 	t_mrt_ray	*ray;
 
 	i = 0;
@@ -46,6 +46,8 @@ static void 		mrt_render_loop()
 		{
 			color = 0x00000000;
 			mrt_ray_update_dir(&ray, mrt_ray_calc_dir(i, j));
+			// @todo: Intersection
+			
 			if (g_conf->is_save)
 				// @todo: add bmp renderer
 				continue;

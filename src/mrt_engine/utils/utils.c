@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:54:56 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/30 18:09:29 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/30 18:27:52 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,15 @@ t_mrt_ray	*mrt_ray_init(t_point3 orig)
 void	mrt_ray_update_dir(t_mrt_ray **ray, t_vector3 dir)
 {
 	(*ray)->direction = dir;
+}
+
+t_point3	mrt_ray_point(double t, t_mrt_ray *ray)
+{
+	t_point3	pt;
+
+	pt = vec3_mult(t, ray->direction);
+	pt = vec3_add(ray->origin, pt);
+	return (pt);
 }
 
 void	mrt_ray_free(t_mrt_ray *ray)
