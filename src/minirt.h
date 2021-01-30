@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/30 18:28:10 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/30 22:29:35 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 #endif
 
 # ifdef __linux__
-# 	define MRT_KEY_ESC 256
+# 	define MRT_KEY_ESC 65307
 #endif
 
 # include <math.h>
@@ -57,4 +57,5 @@ double			camera_position_x(size_t px);
 double			camera_position_y(size_t py);
 t_object		*object_new(char type, void *obj);
 t_object		*plane_new(t_point3 cords, t_vector3 normal, t_color color);
+t_object		*sphere_new(t_point3 center, double diameter, t_color color);
 #endif

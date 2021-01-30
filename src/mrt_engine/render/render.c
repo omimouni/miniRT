@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:00:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/30 18:20:45 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/30 23:02:07 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minirt.h"
+#include "../../minirt.h"
 
 extern t_conf	*g_conf;
 
@@ -22,7 +22,6 @@ static t_vector3	mrt_ray_calc_dir(size_t x, size_t y)
 
 	r = vec3_mult(g_conf->current_camera->scene_w * camera_position_y(x),
 		g_conf->current_camera->right);
-
 	u = vec3_mult(g_conf->current_camera->scene_h * camera_position_y(y),
 		g_conf->current_camera->up);
 	tmp = vec3_add(g_conf->current_camera->normal, u);
@@ -34,7 +33,6 @@ static void 		mrt_render_loop()
 {
 	size_t		i;
 	size_t		j;
-	int			color;
 	t_mrt_ray	*ray;
 
 	i = 0;
@@ -44,15 +42,13 @@ static void 		mrt_render_loop()
 		j = 0;
 		while (j < g_conf->height)
 		{
-			color = 0x00000000;
-			mrt_ray_update_dir(&ray, mrt_ray_calc_dir(i, j));
+			mrt_ray_update_dir(&ray, mrt_ray_calc_dir(i + 1, j + 1));
 			// @todo: Intersection
-			
 			if (g_conf->is_save)
 				// @todo: add bmp renderer
 				continue;
 			else
-				mrt_put_pixel(i, j, color);
+				mrt_put_pixel(i, j, 0x00000000);
 			j++;
 		}
 		i++;

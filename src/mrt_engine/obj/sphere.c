@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhook.c                                          :+:      :+:    :+:   */
+/*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 18:01:54 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/30 22:22:59 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/30 22:23:10 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/30 22:27:02 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minirt.h"
+#include "../../minirt.h"
 
-extern t_conf	*g_conf;
-
-void static mrt_quit()
+t_object	*sphere_new(t_point3 center, double diameter, t_color color)
 {
-	mlx_clear_window(g_conf->mlx.ptr, g_conf->mlx.win);
-	mlx_destroy_image(g_conf->mlx.ptr, g_conf->mlx.img.ptr);
-	mlx_destroy_window(g_conf->mlx.ptr, g_conf->mlx.win);
-	printf("< 👋  Quitting ! > \n");
-	exit(0);
-}
+	t_sphere	*tmp;
+	t_object	*obj;
 
-int	mrt_key_handler(int keycode)
-{
-	if (keycode == MRT_KEY_ESC)
-		mrt_quit();
-	return (0);
+	tmp = malloc(sizeof(t_sphere));
+	tmp->center = center;
+	tmp->diameter = diameter;
+	tmp->color = color;
+	obj = malloc(sizeof(t_object));
+	obj->type = MRT_TYPE_SPHERE;
+	obj->object = (void *)tmp;
+	return (obj);
 }
