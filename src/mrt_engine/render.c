@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:00:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/30 11:18:09 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/30 18:10:25 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,38 @@
 
 extern t_conf	*g_conf;
 
-/**
- * @todo Add render progress
- **/
+static t_vector3	mrt_ray_calc_dir(size_t x, size_t y)
+{
+	t_vector3	tmp;
+	t_vector3	u;
+	t_vector3	r;
 
-void static	mrt_render_loop()
+	r = vec3_mult(g_conf->current_camera->scene_w * camera_position_y(x),
+		g_conf->current_camera->right);
+
+	u = vec3_mult(g_conf->current_camera->scene_h * camera_position_y(y),
+		g_conf->current_camera->up);
+	tmp = vec3_add(g_conf->current_camera->normal, u);
+	tmp = vec3_add(tmp, r);
+	return (vec3_normalize(tmp));
+}
+
+static void 		mrt_render_loop()
 {
 	size_t	i;
 	size_t	j;
 	int		color;
+	t_mrt_ray	*ray;
 
 	i = 0;
+	ray = mrt_ray_init(g_conf->current_camera->origin);
 	while (i < g_conf->width)
 	{
 		j = 0;
 		while (j < g_conf->height)
 		{
 			color = 0x00000000;
+			mrt_ray_update_dir(&ray, mrt_ray_calc_dir(i, j));
 			if (g_conf->is_save)
 				// @todo: add bmp renderer
 				continue;
@@ -42,7 +57,7 @@ void static	mrt_render_loop()
 	}
 }
 
-void	mrt_render()
+void				mrt_render()
 {
 	printf("< 🖥  Rendering Scene >\n");
 	printf("-> 👾 \033[0;32mProgress ...");

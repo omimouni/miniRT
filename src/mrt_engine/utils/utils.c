@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:54:56 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/29 23:17:59 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/30 18:09:29 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,18 @@ void	mrt_put_pixel(size_t x, size_t y, int color)
 	*(unsigned int *)dst = color;
 }
 
-t_mrt_ray	*mrt_ray_init(t_point3 orig, t_vector3 dir)
+t_mrt_ray	*mrt_ray_init(t_point3 orig)
 {
 	t_mrt_ray	*ray;
 
+	ray = malloc(sizeof(t_mrt_ray));
 	ray->origin = orig;
-	ray->direction = dir;
 	return (ray);
+}
+
+void	mrt_ray_update_dir(t_mrt_ray **ray, t_vector3 dir)
+{
+	(*ray)->direction = dir;
 }
 
 void	mrt_ray_free(t_mrt_ray *ray)

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/30 10:56:57 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/30 17:57:42 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void			mrt_window_loop(void);
 void			mrt_save_image(void);
 void			mrt_put_pixel(size_t x, size_t y, int color);
 
-t_mrt_ray		*mrt_ray_init(t_point3 orig, t_vector3 dir);
+t_mrt_ray		*mrt_ray_init(t_point3 orig);
+void			mrt_ray_update_dir(t_mrt_ray **ray, t_vector3 dir);
 void			mrt_ray_free(t_mrt_ray *ray);
 
 int				mrt_key_handler(int keycode);
@@ -51,6 +52,8 @@ int				color_rgba(int r, int g, int b, int a);
 t_color			color_new(int hex);
 
 t_camera		*camera_new_(t_point3 origin, t_vector3 target, int fov);
+double			camera_position_x(size_t px);
+double			camera_position_y(size_t py);
 t_object		*object_new(char type, void *obj);
 t_object		*plane_new(t_point3 cords, t_vector3 normal, t_color color);
 #endif
