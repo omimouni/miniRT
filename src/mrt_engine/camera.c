@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 16:48:22 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/29 22:13:02 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/30 09:59:45 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,3 +22,4 @@ t_camera	*camera_new_(t_point3 origin, t_vector3 normal, int fov)
 	tmp->fov = fov;
 	return (tmp);
 }
+

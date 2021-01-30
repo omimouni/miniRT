@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/29 23:35:32 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/30 10:03:53 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 
 # define MRT_RENDER_WINDOW 10
 # define MRT_RENDER_IMAGE 11
-
-# define MRT_TYPE_CAMERA 20
 
 # define MRT_KEY_ESC 256
 
@@ -45,4 +43,6 @@ t_camera		*camera_new(t_point3 origin, t_vector3 normal, int fov);
 int				color_rgba(int r, int g, int b, int a);
 t_color			color_new(int hex);
 
+t_object		*object_new(char type, void *obj);
+t_object		*plane_new(t_point3 cords, t_vector3 normal, t_color color);
 #endif
