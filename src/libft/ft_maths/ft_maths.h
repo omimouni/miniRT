@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:24:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/30 10:54:08 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/30 12:38:21 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	FT_MATHS_H
+#ifndef FT_MATHS_H
 # define FT_MATHS_H
 # include <math.h>
 
@@ -19,11 +19,14 @@ typedef struct		s_vector3 {
 	double			y;
 	double			z;
 }					t_vector3;
-
 typedef	t_vector3	t_point3;
 
 t_vector3			vec3_new(double x, double y, double z);
 t_vector3			vec3_add(t_vector3 v, t_vector3 w);
-double		vec3_length(t_vector3 v);
-t_vector3	vec3_normalize(t_vector3 v);
+double				vec3_length(t_vector3 v);
+t_vector3			vec3_normalize(t_vector3 v);
+t_vector3			vec3_sub(t_vector3 v, t_vector3 w);
+t_vector3			vec3_mult(double n, t_vector3 v);
+t_vector3			vec3_cross(t_vector3 v, t_vector3 w);
+
 #endif
