@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/30 10:30:35 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/30 10:56:57 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@
 # 	define MRT_KEY_ESC 256
 #endif
 
+# include <math.h>
+# include <mlx.h>
 # include "libft/libft.h"
 # include "types.h"
-# include <mlx.h>
 
 void			mrt_init();
 void			mrt_parser(int argc, char **argv);
@@ -49,7 +50,7 @@ t_camera		*camera_new(t_point3 origin, t_vector3 normal, int fov);
 int				color_rgba(int r, int g, int b, int a);
 t_color			color_new(int hex);
 
-t_camera		*camera_new_(t_point3 origin, t_vector3 normal, int fov);
+t_camera		*camera_new_(t_point3 origin, t_vector3 target, int fov);
 t_object		*object_new(char type, void *obj);
 t_object		*plane_new(t_point3 cords, t_vector3 normal, t_color color);
 #endif

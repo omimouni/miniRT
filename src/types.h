@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/30 10:00:15 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/30 11:03:04 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,14 @@ typedef	struct		s_mlx {
 
 typedef struct		s_camera {
 	t_point3		origin;
+	t_vector3		target;
 	t_vector3		normal;
 	int				fov;
+	t_vector3		up;
+	t_vector3		right;
+	double			scene_h;
+	double			scene_w;
+	float			aspect_ratio;
 }					t_camera;
 
 typedef struct		s_mrt_ray {
