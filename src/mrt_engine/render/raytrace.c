@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/31 17:02:53 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/31 17:51:13 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static int	mrt_intersect_sphere(t_mrt_ray *ray, t_sphere *s, t_color color)
 	double	t1;
 	double	t2;
 	double	d;
+	t_vector3	sub;
 
 	k1 = vec3_dot(ray->direction, ray->direction);
 	k2 = 2 * vec3_dot(vec3_sub(ray->origin, s->center), ray->direction);
@@ -32,7 +33,6 @@ static int	mrt_intersect_sphere(t_mrt_ray *ray, t_sphere *s, t_color color)
 		return 0x00000000;
 	t1 = (-k2 + sqrt(d)) / (2 * k1);
 	t2 = (-k2 - sqrt(d)) / (2 * k1);
-	// printf("%x\n", color.b);
 	return 0xFFFFFFFF;
 }
 

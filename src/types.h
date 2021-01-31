@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/31 16:58:50 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/31 17:43:46 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct		s_camera {
 	t_point3		origin;
 	t_vector3		target;
 	t_vector3		normal;
-	int				fov;
+	double			fov;
 	t_vector3		up;
 	t_vector3		upguide;
 	t_vector3		right;

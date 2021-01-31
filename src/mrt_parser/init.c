@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/31 17:00:42 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/31 17:34:37 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ extern t_conf	*g_conf;
 // @todo: test scene
 void static testScene()
 {
-	g_conf->current_camera = camera_new_(vec3_new(0, 0, 0), vec3_new(0, 0, -1), 90);
+	g_conf->current_camera = camera_new_(vec3_new(0, 0, 0), vec3_new(0, 0, -1), 60);
 	g_conf->objs = ft_glist_add(g_conf->objs, 
-		sphere_new(vec3_new(0, 0, -20), 3, color_new(0xFFFF0000))
+		sphere_new(vec3_new(0, 0, -20), 1, color_new(0xFFFF0000))
 	);
 
 	// g_conf->objs = ft_glist_add(g_conf->objs, 
