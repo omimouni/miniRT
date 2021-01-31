@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 12:25:36 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/30 12:40:13 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/31 18:34:52 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ t_vector3	vec3_cross(t_vector3 v, t_vector3 w)
 
 double		vec3_dot(t_vector3 v, t_vector3 w)
 {
-	return (v.x * v.x + v.y * w.y + v.z * w.z);
+	return (v.x * w.x + v.y * w.y + v.z * w.z);
 }
