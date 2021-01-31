@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/31 16:19:58 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 00:01:01 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 # define MINIRT_H
 # define WINDOW_TITLE "miniRT"
 
-# define MRT_RENDER_WINDOW 10
-# define MRT_RENDER_IMAGE 11
+# define MRT_RENDER_WINDOW	10
+# define MRT_RENDER_IMAGE	11
 
 # ifdef __MACH__
 #  define MRT_KEY_ESC 53
 #endif
 
 # ifdef __linux__
-# 	define MRT_KEY_ESC 65307
+# 	define MRT_KEY_ESC	65307
+#	define MRT_KEY_NUM5	65437
 #endif
 
 # include <math.h>
