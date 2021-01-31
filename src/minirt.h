@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/31 11:50:16 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/31 16:19:58 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void			mrt_error(void);
 void			mrt_hooks();
 
 void			mrt_render();
+void 			mrt_render_loop();
+
 void			mrt_window_loop(void);
 void			mrt_save_image(void);
 void			mrt_put_pixel(size_t x, size_t y, int color);
@@ -44,6 +46,8 @@ t_mrt_ray		*mrt_ray_init(t_point3 orig);
 void			mrt_ray_update_dir(t_mrt_ray **ray, t_vector3 dir);
 t_point3		mrt_ray_point(double t, t_mrt_ray *ray);
 void			mrt_ray_free(t_mrt_ray *ray);
+t_vector3		mrt_ray_calc_dir(size_t x, size_t y);
+void			mrt_raytrace(t_mrt_ray	*ray, int *color);
 
 int				mrt_key_handler(int keycode);
 void			mrt_update_window(void);

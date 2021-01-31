@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/31 11:49:55 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/31 16:58:50 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct		s_camera {
 	t_vector3		right;
 	double			scene_h;
 	double			scene_w;
-	float			aspect_ratio;
+	double			aspect_ratio;
 }					t_camera;
 
 typedef struct		s_mrt_ray {
@@ -59,7 +59,6 @@ typedef	struct		s_conf {
 	t_camera		*current_camera;
 	t_generic_list	*objs;
 } 					t_conf;
-
 
 typedef struct		s_color {
 	int				r;
