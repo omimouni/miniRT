@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 23:33:06 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/30 10:03:23 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/31 11:47:31 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ t_object	*plane_new(t_point3 cords, t_vector3 normal, t_color color)
 	tmp = malloc(sizeof(t_plane));
 	tmp->cords = cords;
 	tmp->normal = normal;
-	tmp->color = color;
-	return (object_new(MRT_TYPE_PLANE, (void *)tmp));
+	obj = malloc(sizeof(obj));
+	obj->color = color;
+	obj->object = tmp;
+	obj->type = MRT_TYPE_PLANE;
+	return (obj);
 }

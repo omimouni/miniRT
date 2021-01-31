@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/30 22:29:35 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/31 11:50:16 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 void			mrt_init();
 void			mrt_parser(int argc, char **argv);
 void			mrt_error(void);
+void			mrt_hooks();
 
 void			mrt_render();
 void			mrt_window_loop(void);
@@ -50,6 +51,7 @@ void			mrt_update_window(void);
 t_camera		*camera_new(t_point3 origin, t_vector3 normal, int fov);
 
 int				color_rgba(int r, int g, int b, int a);
+int				color_rgba_struct(t_color color);
 t_color			color_new(int hex);
 
 t_camera		*camera_new_(t_point3 origin, t_vector3 target, int fov);

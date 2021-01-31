@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 23:18:05 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/29 23:25:23 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/31 11:49:18 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,9 @@ t_color	color_new(int hex)
 	color.g = (hex & (0xFF << 8));
 	color.b = (hex & 0xFF);
 	return (color);
+}
+
+int	color_rgba_struct(t_color color)
+{
+	return (color.alpha << 24 | color.r << 16 | color.g << 8 | color.b);
 }

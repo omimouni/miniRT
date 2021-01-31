@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sphere.c                                           :+:      :+:    :+:   */
+/*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/30 22:23:10 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/31 11:52:56 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/31 10:39:40 by omimouni          #+#    #+#             */
+/*   Updated: 2021/01/31 10:56:47 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minirt.h"
+#include "../minirt.h"
 
-t_object	*sphere_new(t_point3 center, double diameter, t_color color)
+extern t_conf	*g_conf;
+
+/*
+ ** DOCS:	https://harm-smits.github.io/42docs/libs/minilibx/events.html
+ ** @todo:	Learn about hooks
+ */
+
+void	mrt_hooks()
 {
-	t_sphere	*tmp;
-	t_object	*obj;
-
-	tmp = malloc(sizeof(t_sphere));
-	tmp->center = center;
-	tmp->diameter = diameter;
-	obj = malloc(sizeof(t_object));
-	obj->type = MRT_TYPE_SPHERE;
-	obj->object = (void *)tmp;
-	obj->color = color;
-	return (obj);
+	mlx_key_hook(g_conf->mlx.win, mrt_key_handler, NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/30 22:28:13 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/31 11:49:55 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,27 +60,27 @@ typedef	struct		s_conf {
 	t_generic_list	*objs;
 } 					t_conf;
 
+
+typedef struct		s_color {
+	int				r;
+	int				g;
+	int				b;
+	int				alpha;
+}					t_color;
+
 typedef struct		s_object {
 	char			type;
 	void			*object;
+	t_color			color;
 }					t_object;
-
-typedef struct		s_color {
-	double			r;
-	double			g;
-	double			b;
-	double			alpha;
-}					t_color;
 
 typedef struct		s_plane {
 	t_point3		cords;
 	t_vector3		normal;
-	t_color			color;
 }					t_plane;
 
 typedef struct		s_sphare {
 	t_point3		center;
 	double			diameter;
-	t_color			color;
 }					t_sphere;
 #endif

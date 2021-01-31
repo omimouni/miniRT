@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:41:18 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/30 18:37:15 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/31 10:40:47 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ void	mrt_window_loop()
 		g_conf->width, g_conf->height, WINDOW_TITLE);
 	mrt_render();
 	mrt_update_window();
-	mlx_key_hook(g_conf->mlx.win, mrt_key_handler, NULL);
+	mrt_hooks();
 	mlx_loop(g_conf->mlx.ptr);
 }

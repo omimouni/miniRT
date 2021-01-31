@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:24:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/30 12:38:21 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/01/31 11:18:35 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ t_vector3			vec3_normalize(t_vector3 v);
 t_vector3			vec3_sub(t_vector3 v, t_vector3 w);
 t_vector3			vec3_mult(double n, t_vector3 v);
 t_vector3			vec3_cross(t_vector3 v, t_vector3 w);
-
+double				vec3_dot(t_vector3 v, t_vector3 w);
 #endif
