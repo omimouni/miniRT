@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 15:23:38 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 15:54:22 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ int				hex_from_rgba(int r, int g, int b, int a);
 int				hex_from_color(t_color color);
 t_color			color_from_rgba(int r, int g, int b, int a);
 t_color			color_from_hex(int hex);
+t_color			color_add(t_color a, t_color b);
+t_color			color_multi(t_color a, t_color b);
 
 t_amblight		ambiant_light_new(double i, int r, int g, int b);
 

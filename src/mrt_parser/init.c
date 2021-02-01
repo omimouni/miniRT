@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 15:27:17 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 16:16:19 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ void	mrt_init(void)
 	g_conf->width = 752; //752;
 	g_conf->cameras = ft_glist_init();
 	g_conf->objs = ft_glist_init();
+	g_conf->ambient_light = ambiant_light_new(1, 0xFF, 0xFF, 0xFF);
 	testScene();
 }

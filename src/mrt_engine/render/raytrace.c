@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 15:35:48 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 16:17:03 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,17 @@ extern t_conf	*g_conf;
 
 static	void	mrt_calc_light(t_pixel *pixel)
 {
+	t_color	al;
+	// Ambiant light
+	al = (g_conf->ambient_light.color);
 	if (pixel->obj != NULL)
-		pixel->ray->color = hex_from_color(pixel->obj->color);
+	{
+		// al = hex_from_color(color_multi(pixel->obj->color, color_from_hex(al)));
+		pixel->ray->color = hex_from_color(al);
+	}
 	else
 		pixel->ray->color = 0x00000;
+	free(pixel);
 }
 
 void			mrt_raytrace(t_mrt_ray *ray)
