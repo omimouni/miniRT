@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 17:43:26 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 22:29:51 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,15 @@ typedef	struct		s_pixel {
 	t_object		*obj;
 	t_point3		hitpoint;
 	t_mrt_ray		*ray;
+	t_vector3		normal;
 	double			t;
 }					t_pixel;
+
+typedef	struct		s_light	{
+	t_point3		point;
+	double			brightness;
+	t_color			color;
+}					t_light;
 
 typedef	struct		s_amblight {
 	double			intensity;
@@ -97,6 +104,7 @@ typedef	struct		s_conf {
 	t_generic_list	*objs;
 	t_amblight		ambient_light;
 	t_color			al_calculated;
+	t_generic_list	*lights;
 } 					t_conf;
 
 #endif

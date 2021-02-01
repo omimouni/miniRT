@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 18:35:32 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 22:22:09 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,6 @@ t_object		*sphere_new(t_point3 center, double diameter, t_color color);
 double			mrt_intersect_sphere_equation(t_mrt_ray *ray, t_sphere *s,
 	double *t1, double *t2);
 double			mrt_intersect_sphere(t_mrt_ray *ray, t_object *obj);
+
+t_light			*light_new(t_point3 point, double brightness, t_color color);
 #endif
