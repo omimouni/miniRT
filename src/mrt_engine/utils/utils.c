@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:54:56 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 09:36:52 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 14:30:18 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_mrt_ray	*mrt_ray_init(t_point3 orig)
 
 	ray = malloc(sizeof(t_mrt_ray));
 	ray->origin = orig;
+	ray->color = 0x00000000;
 	return (ray);
 }
 
@@ -45,4 +46,17 @@ t_point3	mrt_ray_point(double t, t_mrt_ray *ray)
 void	mrt_ray_free(t_mrt_ray *ray)
 {
 	free(ray);
+}
+
+
+t_pixel	*pixel_new(double t, t_object *obj, t_mrt_ray *ray)
+{
+	t_pixel	*tmp;
+
+	tmp = malloc(sizeof(t_pixel));
+	tmp->obj = obj;
+	if (ray != NULL)
+		tmp->hitpoint = mrt_ray_point(t, ray);
+	tmp->t = t;
+	return (tmp);
 }

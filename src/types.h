@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 09:35:54 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 14:18:38 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,10 @@ typedef struct		s_sphare {
 	t_point3		center;
 	double			diameter;
 }					t_sphere;
+
+typedef	struct		s_pixel {
+	t_object		*obj;
+	t_point3		hitpoint;
+	double			t;
+}					t_pixel;
 #endif

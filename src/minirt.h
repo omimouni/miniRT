@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 11:33:34 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 14:30:20 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,6 @@ double			camera_position_y(size_t py);
 t_object		*object_new(char type, void *obj);
 t_object		*plane_new(t_point3 cords, t_vector3 normal, t_color color);
 t_object		*sphere_new(t_point3 center, double diameter, t_color color);
+
+t_pixel			*pixel_new(double t, t_object *obj, t_mrt_ray *ray);
 #endif
