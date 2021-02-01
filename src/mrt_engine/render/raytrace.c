@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 09:34:36 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 11:33:11 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,30 +40,29 @@ static double	mrt_intersect_sphere_equation(t_mrt_ray *ray, t_sphere *s,
 	return (det);
 }
 
-static int		mrt_intersect_sphere(t_mrt_ray *ray, t_sphere *s, t_color color)
+static int		mrt_intersect_sphere(t_mrt_ray *ray, t_object *obj)
 {
 	double		t1;
 	double		t2;
-	double		d;
 
-	if (mrt_intersect_sphere_equation(ray, s, &t1, &t2) < 0)
+	if (mrt_intersect_sphere_equation(ray, obj->object, &t1, &t2) < 0)
 		return (-1);
 	printf("%f %f \n", t1, t2);
-	return (color_rgba_struct(color));
+	return (color_rgba_struct(obj->color));
 }
 
-void			mrt_raytrace(t_mrt_ray *ray, int *color)
+void			mrt_raytrace(t_mrt_ray *ray)
 {
 	t_generic_list	*current;
 	t_object		*obj;
 
-	*color = 0x00000000;
+	ray->color = 0x00000000;
 	current = g_conf->objs;
 	while (current != NULL)
 	{
 		obj = (t_object *)current->obj;
 		if (obj->type == MRT_TYPE_SPHERE)
-			*color = mrt_intersect_sphere(ray, obj->object, obj->color);
+			ray->color = mrt_intersect_sphere(ray, obj);
 		current = current->next;
 	}
 }

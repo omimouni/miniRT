@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:40:21 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 09:39:58 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 11:33:22 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ void				mrt_render_loop(void)
 		while (j < g_conf->height)
 		{
 			mrt_ray_update(&ray, i, j);
-			mrt_raytrace(ray, &color);
+			mrt_raytrace(ray);
 			if (g_conf->is_save)
 				// @todo: add bmp renderer
 				continue;
 			else
-				mrt_put_pixel(i, j, color);
+				mrt_put_pixel(i, j, ray->color);
 			j++;
 		}
 		i++;
