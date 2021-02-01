@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 17:53:51 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 18:04:13 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	mrt_init(void)
 	g_conf->width = 752; //752;
 	g_conf->cameras = ft_glist_init();
 	g_conf->objs = ft_glist_init();
-	g_conf->ambient_light = ambiant_light_new(.2, 0xFF, 0xFF, 0xFF);
+	g_conf->ambient_light = ambiant_light_new(.05, 0xFF, 0xFF, 0xFF);
 	g_conf->al_calculated = color_multi(g_conf->ambient_light.color,
 		g_conf->ambient_light.intensity);
 	testScene();
