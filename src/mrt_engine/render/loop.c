@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:40:21 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/31 17:52:24 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 09:11:21 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 extern t_conf	*g_conf;
 
-t_vector3	mrt_ray_calc_dir(size_t x, size_t y)
+t_vector3		mrt_ray_calc_dir(size_t x, size_t y)
 {
 	t_vector3	tmp;
 	t_vector3	u;
@@ -24,14 +24,12 @@ t_vector3	mrt_ray_calc_dir(size_t x, size_t y)
 		g_conf->current_camera->right);
 	u = vec3_mult(g_conf->current_camera->scene_h * camera_position_y(y),
 		g_conf->current_camera->up);
-	// r = vec3_normalize(r);
-	// u = vec3_normalize(u);
 	tmp = vec3_add(g_conf->current_camera->normal, u);
 	tmp = vec3_add(tmp, r);
 	return (vec3_normalize(tmp));
 }
 
-void 		mrt_render_loop()
+void			mrt_render_loop(void)
 {
 	size_t		i;
 	size_t		j;
