@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:40:21 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 11:33:22 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 17:24:07 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void				mrt_render_loop(void)
 	size_t		i;
 	size_t		j;
 	t_mrt_ray	*ray;
-	int			color;
 
 	i = 0;
 	ray = mrt_ray_init(g_conf->current_camera->origin);

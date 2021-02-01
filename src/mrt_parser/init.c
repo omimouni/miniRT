@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 16:16:19 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 17:53:51 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ void static testScene()
 {
 	g_conf->current_camera = camera_new_(vec3_new(0, 0, 0), vec3_new(0, 0, -1), 90);
 	g_conf->objs = ft_glist_add(g_conf->objs, 
-		sphere_new(vec3_new(-1, 0, -10), 1.5, color_from_hex(0xFFFF00))
-	);
+		sphere_new(vec3_new(-1, 0, -10), 1.5, color_from_rgb(192, 57, 43)));
+		
 	g_conf->objs = ft_glist_add(g_conf->objs, 
-		sphere_new(vec3_new(1, 0, -10), 1.5, color_from_hex(0xFFFF00FF))
-	);
+		sphere_new(vec3_new(1, 0, -10), 1.5, color_from_rgb(41, 128, 185)));
 }
 
 void	mrt_init(void)
@@ -36,6 +35,8 @@ void	mrt_init(void)
 	g_conf->width = 752; //752;
 	g_conf->cameras = ft_glist_init();
 	g_conf->objs = ft_glist_init();
-	g_conf->ambient_light = ambiant_light_new(1, 0xFF, 0xFF, 0xFF);
+	g_conf->ambient_light = ambiant_light_new(.2, 0xFF, 0xFF, 0xFF);
+	g_conf->al_calculated = color_multi(g_conf->ambient_light.color,
+		g_conf->ambient_light.intensity);
 	testScene();
 }

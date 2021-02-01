@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 16:17:03 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 17:52:51 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,15 @@ extern t_conf	*g_conf;
 
 static	void	mrt_calc_light(t_pixel *pixel)
 {
-	t_color	al;
-	// Ambiant light
-	al = (g_conf->ambient_light.color);
 	if (pixel->obj != NULL)
 	{
-		// al = hex_from_color(color_multi(pixel->obj->color, color_from_hex(al)));
-		pixel->ray->color = hex_from_color(al);
+		pixel->ray->color = color_multi(pixel->obj->color,
+			g_conf->ambient_light.intensity);
+		pixel->ray->color = color_add(pixel->ray->color,
+			g_conf->al_calculated);
 	}
 	else
-		pixel->ray->color = 0x00000;
+		pixel->ray->color = color_from_rgb(0, 0, 0);
 	free(pixel);
 }
 

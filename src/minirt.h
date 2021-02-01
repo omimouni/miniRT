@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 15:54:22 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 17:39:32 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void 			mrt_render_loop();
 
 void			mrt_window_loop(void);
 void			mrt_save_image(void);
-void			mrt_put_pixel(size_t x, size_t y, int color);
+void			mrt_put_pixel(size_t x, size_t y, t_color color);
 
 t_mrt_ray		*mrt_ray_init(t_point3 orig);
 t_point3		mrt_ray_point(double t, t_mrt_ray *ray);
@@ -55,12 +55,12 @@ void			mrt_update_window(void);
 
 t_camera		*camera_new(t_point3 origin, t_vector3 normal, int fov);
 
-int				hex_from_rgba(int r, int g, int b, int a);
+int				hex_from_rgba(int r, int g, int b);
 int				hex_from_color(t_color color);
-t_color			color_from_rgba(int r, int g, int b, int a);
+t_color			color_from_rgb(int r, int g, int b);
 t_color			color_from_hex(int hex);
 t_color			color_add(t_color a, t_color b);
-t_color			color_multi(t_color a, t_color b);
+t_color			color_multi(t_color a, double con);
 
 t_amblight		ambiant_light_new(double i, int r, int g, int b);
 

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:54:56 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 14:52:16 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 17:35:45 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 extern t_conf *g_conf;
 
-void	mrt_put_pixel(size_t x, size_t y, int color)
+void	mrt_put_pixel(size_t x, size_t y, t_color color)
 {
 	char		*dst;
 	t_mlx_img	*img;
 
 	img = &g_conf->mlx.img;
 	dst = img->addr + (y * img->line_height + x * (img->bpp / 8));
-	*(unsigned int *)dst = color;
+	*(unsigned int *)dst = hex_from_color(color);
 }
 
 t_mrt_ray	*mrt_ray_init(t_point3 orig)
@@ -30,7 +30,7 @@ t_mrt_ray	*mrt_ray_init(t_point3 orig)
 
 	ray = malloc(sizeof(t_mrt_ray));
 	ray->origin = orig;
-	ray->color = 0x00000000;
+	ray->color = color_from_rgb(0, 0, 0);
 	return (ray);
 }
 

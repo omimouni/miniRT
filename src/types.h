@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 15:11:25 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 17:43:26 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # define MRT_TYPE_CAMERA	20
 # define MRT_TYPE_PLANE		21
 # define MRT_TYPE_SPHERE	22
+
+typedef struct		s_color {
+	int				r;
+	int				g;
+	int				b;
+}					t_color;
 
 typedef	struct		s_mlx_img {
 	void			*ptr;
@@ -49,15 +55,8 @@ typedef struct		s_mrt_ray {
 	t_vector3		direction;
 	size_t			px;
 	size_t			py;
-	int				color;
+	t_color			color;
 }					t_mrt_ray;
-
-typedef struct		s_color {
-	int				r;
-	int				g;
-	int				b;
-	int				alpha;
-}					t_color;
 
 typedef struct		s_object {
 	char			type;
@@ -97,6 +96,7 @@ typedef	struct		s_conf {
 	t_camera		*current_camera;
 	t_generic_list	*objs;
 	t_amblight		ambient_light;
+	t_color			al_calculated;
 } 					t_conf;
 
 #endif
