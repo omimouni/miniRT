@@ -6,15 +6,13 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:00:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/31 16:13:28 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 09:07:28 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minirt.h"
 
 extern t_conf	*g_conf;
-
-// @todo: Implement Multithreads 
 
 void				mrt_render()
 {
