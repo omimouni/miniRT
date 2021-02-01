@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 09:23:40 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 09:34:36 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ static int		mrt_intersect_sphere(t_mrt_ray *ray, t_sphere *s, t_color color)
 
 	if (mrt_intersect_sphere_equation(ray, s, &t1, &t2) < 0)
 		return (-1);
+	printf("%f %f \n", t1, t2);
 	return (color_rgba_struct(color));
 }
 
@@ -55,19 +56,14 @@ void			mrt_raytrace(t_mrt_ray *ray, int *color)
 {
 	t_generic_list	*current;
 	t_object		*obj;
-	int				c;
 
 	*color = 0x00000000;
 	current = g_conf->objs;
 	while (current != NULL)
 	{
-		if (((t_object *)current->obj)->type == MRT_TYPE_SPHERE)
-		{
-			obj = (t_object *)current->obj;
-			c = mrt_intersect_sphere(ray, obj->object, obj->color);
-			if (c > 0)
-				*color = color_rgba_struct(obj->color);
-		}
+		obj = (t_object *)current->obj;
+		if (obj->type == MRT_TYPE_SPHERE)
+			*color = mrt_intersect_sphere(ray, obj->object, obj->color);
 		current = current->next;
 	}
 }

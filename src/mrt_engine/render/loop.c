@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:40:21 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 09:11:21 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 09:39:58 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 extern t_conf	*g_conf;
 
-t_vector3		mrt_ray_calc_dir(size_t x, size_t y)
+static t_vector3	mrt_ray_calc_dir(size_t x, size_t y)
 {
 	t_vector3	tmp;
 	t_vector3	u;
@@ -29,7 +29,15 @@ t_vector3		mrt_ray_calc_dir(size_t x, size_t y)
 	return (vec3_normalize(tmp));
 }
 
-void			mrt_render_loop(void)
+static void			mrt_ray_update(t_mrt_ray **ray,
+					size_t px, size_t py)
+{
+	(*ray)->direction = mrt_ray_calc_dir(px, py);
+	(*ray)->px = px;
+	(*ray)->py = py;
+}
+
+void				mrt_render_loop(void)
 {
 	size_t		i;
 	size_t		j;
@@ -43,7 +51,7 @@ void			mrt_render_loop(void)
 		j = 0;
 		while (j < g_conf->height)
 		{
-			mrt_ray_update_dir(&ray, mrt_ray_calc_dir(i, j));
+			mrt_ray_update(&ray, i, j);
 			mrt_raytrace(ray, &color);
 			if (g_conf->is_save)
 				// @todo: add bmp renderer

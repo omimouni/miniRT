@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/31 17:43:46 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 09:35:54 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ typedef struct		s_camera {
 typedef struct		s_mrt_ray {
 	t_point3		origin;
 	t_vector3		direction;
+	size_t			px;
+	size_t			py;
+	int				color;
 }					t_mrt_ray;
 
 typedef	struct		s_conf {
