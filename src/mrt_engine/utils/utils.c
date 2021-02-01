@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:54:56 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 17:35:45 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 18:25:08 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 extern t_conf *g_conf;
 
-void	mrt_put_pixel(size_t x, size_t y, t_color color)
+void			mrt_put_pixel(size_t x, size_t y, t_color color)
 {
 	char		*dst;
 	t_mlx_img	*img;
@@ -24,7 +24,7 @@ void	mrt_put_pixel(size_t x, size_t y, t_color color)
 	*(unsigned int *)dst = hex_from_color(color);
 }
 
-t_mrt_ray	*mrt_ray_init(t_point3 orig)
+t_mrt_ray		*mrt_ray_init(t_point3 orig)
 {
 	t_mrt_ray	*ray;
 
@@ -34,7 +34,7 @@ t_mrt_ray	*mrt_ray_init(t_point3 orig)
 	return (ray);
 }
 
-t_point3	mrt_ray_point(double t, t_mrt_ray *ray)
+t_point3		mrt_ray_point(double t, t_mrt_ray *ray)
 {
 	t_point3	pt;
 
@@ -43,7 +43,7 @@ t_point3	mrt_ray_point(double t, t_mrt_ray *ray)
 	return (pt);
 }
 
-void	mrt_ray_free(t_mrt_ray *ray)
+void			mrt_ray_free(t_mrt_ray *ray)
 {
 	free(ray);
 }

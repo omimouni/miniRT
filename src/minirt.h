@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 17:39:32 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 18:35:32 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@
 # include "libft/libft.h"
 # include "types.h"
 
-void			mrt_init();
+void			mrt_init(void);
 void			mrt_parser(int argc, char **argv);
 void			mrt_error(void);
-void			mrt_hooks();
+void			mrt_hooks(void);
 
-void			mrt_render();
-void 			mrt_render_loop();
+void			mrt_render(void);
+void 			mrt_render_loop(void);
 
 void			mrt_window_loop(void);
 void			mrt_save_image(void);

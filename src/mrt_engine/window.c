@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:41:18 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/31 10:40:47 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 18:35:19 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 extern t_conf	*g_conf;
 
-
-void	mrt_update_window()
+void	mrt_update_window(void)
 {
 	mlx_put_image_to_window(g_conf->mlx.ptr, g_conf->mlx.win,
 		g_conf->mlx.img.ptr, 0, 0);
@@ -31,7 +30,7 @@ void	mrt_mlx_init(void)
 		&g_conf->mlx.img.endian);
 }
 
-void	mrt_window_loop()
+void	mrt_window_loop(void)
 {
 	mrt_mlx_init();
 	g_conf->mlx.win = mlx_new_window(g_conf->mlx.ptr,

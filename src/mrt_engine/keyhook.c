@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 18:01:54 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 15:07:26 by omimouni         ###   ########.fr       */
+/*   Created: 2021/02/01 18:38:33 by omimouni          #+#    #+#             */
+/*   Updated: 2021/02/01 18:39:34 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 extern t_conf	*g_conf;
 
-void static mrt_quit()
+static void		mrt_quit(void)
 {
 	mlx_clear_window(g_conf->mlx.ptr, g_conf->mlx.win);
 	mlx_destroy_image(g_conf->mlx.ptr, g_conf->mlx.img.ptr);
@@ -23,15 +23,8 @@ void static mrt_quit()
 	exit(0);
 }
 
-void static	mrt_next_cam()
+int				mrt_key_handler(int keycode)
 {
-}
-
-int	mrt_key_handler(int keycode)
-{
-	// printf("%d\n", keycode);
-	if (keycode == MRT_KEY_NUM5)
-		mrt_next_cam();
 	if (keycode == MRT_KEY_ESC)
 		mrt_quit();
 	return (0);
