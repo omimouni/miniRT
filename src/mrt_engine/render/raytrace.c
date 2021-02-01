@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 15:26:11 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 15:35:48 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 extern t_conf	*g_conf;
 
-static	void	mrt_calc_light(t_pixel *p)
+static	void	mrt_calc_light(t_pixel *pixel)
 {
-
+	if (pixel->obj != NULL)
+		pixel->ray->color = hex_from_color(pixel->obj->color);
+	else
+		pixel->ray->color = 0x00000;
 }
 
 void			mrt_raytrace(t_mrt_ray *ray)
@@ -27,7 +30,7 @@ void			mrt_raytrace(t_mrt_ray *ray)
 	double			tmp_t;
 
 	current = g_conf->objs;
-	pixel = pixel_new(INFINITY, NULL, NULL);
+	pixel = pixel_new(INFINITY, NULL, ray);
 	while (current != NULL)
 	{
 		obj = (t_object *)current->obj;
@@ -40,9 +43,5 @@ void			mrt_raytrace(t_mrt_ray *ray)
 		current = current->next;
 	}
 	// LET THERE BE LIGHT
-	if (pixel->obj != NULL)
-		ray->color = hex_from_color(pixel->obj->color);
-	else
-		ray->color = 0x00000;
-	free(pixel);
+	mrt_calc_light(pixel);
 }
