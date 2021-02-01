@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:01:54 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 10:00:09 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 15:07:26 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void static mrt_quit()
 	mlx_clear_window(g_conf->mlx.ptr, g_conf->mlx.win);
 	mlx_destroy_image(g_conf->mlx.ptr, g_conf->mlx.img.ptr);
 	mlx_destroy_window(g_conf->mlx.ptr, g_conf->mlx.win);
-	printf("< 👋  Quitting ! > \n");
+	printf("👋 Quitting !\n");
 	exit(0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 14:18:38 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 15:11:25 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,6 @@ typedef struct		s_mrt_ray {
 	int				color;
 }					t_mrt_ray;
 
-typedef	struct		s_conf {
-	t_mlx			mlx;
-	unsigned int	errcode;
-	unsigned int	height;
-	unsigned int	width;
-	unsigned char	is_save;
-	t_generic_list	*cameras;
-	t_camera		*current_camera;
-	t_generic_list	*objs;
-} 					t_conf;
-
 typedef struct		s_color {
 	int				r;
 	int				g;
@@ -89,6 +78,25 @@ typedef struct		s_sphare {
 typedef	struct		s_pixel {
 	t_object		*obj;
 	t_point3		hitpoint;
+	t_mrt_ray		*ray;
 	double			t;
 }					t_pixel;
+
+typedef	struct		s_amblight {
+	double			intensity;
+	t_color			color;
+}					t_amblight;
+
+typedef	struct		s_conf {
+	t_mlx			mlx;
+	unsigned int	errcode;
+	unsigned int	height;
+	unsigned int	width;
+	unsigned char	is_save;
+	t_generic_list	*cameras;
+	t_camera		*current_camera;
+	t_generic_list	*objs;
+	t_amblight		ambient_light;
+} 					t_conf;
+
 #endif

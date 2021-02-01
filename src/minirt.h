@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 14:30:20 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/01 15:23:38 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,25 @@ void			mrt_update_window(void);
 
 t_camera		*camera_new(t_point3 origin, t_vector3 normal, int fov);
 
-int				color_rgba(int r, int g, int b, int a);
-int				color_rgba_struct(t_color color);
-t_color			color_new(int hex);
+int				hex_from_rgba(int r, int g, int b, int a);
+int				hex_from_color(t_color color);
+t_color			color_from_rgba(int r, int g, int b, int a);
+t_color			color_from_hex(int hex);
+
+t_amblight		ambiant_light_new(double i, int r, int g, int b);
 
 t_camera		*camera_new_(t_point3 origin, t_vector3 target, int fov);
 double			camera_position_x(size_t px);
 double			camera_position_y(size_t py);
 t_object		*object_new(char type, void *obj);
 t_object		*plane_new(t_point3 cords, t_vector3 normal, t_color color);
-t_object		*sphere_new(t_point3 center, double diameter, t_color color);
 
 t_pixel			*pixel_new(double t, t_object *obj, t_mrt_ray *ray);
+void			mrt_pixel_update(t_pixel *p, double t, t_mrt_ray *ray,
+				t_object *obj);
+
+t_object		*sphere_new(t_point3 center, double diameter, t_color color);
+double			mrt_intersect_sphere_equation(t_mrt_ray *ray, t_sphere *s,
+	double *t1, double *t2);
+double			mrt_intersect_sphere(t_mrt_ray *ray, t_object *obj);
 #endif
