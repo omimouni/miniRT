@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/02 09:51:08 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/02 10:00:28 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,12 @@ static	void	mrt_calc_light(t_pixel *pixel)
 			light_dir = vec3_sub(light->point, pixel->hitpoint);
 			light_angle = vec3_dot(light_dir, pixel->normal);
 			if (light_angle < 0)	light_angle = 0;
-			pixel->ray->color = color_add(pixel->ray->color, color_add(color_multi(pixel->obj->color,
-			light->brightness * light_angle), color_multi(light->color, light_angle * light->brightness)));
+
+			// pixel->ray->color = color_add(pixel->ray->color, color_add(color_multi(pixel->obj->color,
+			// light->brightness * light_angle), color_multi(light->color, light_angle * light->brightness)));
+			pixel->ray->color = color_multi(color->ray->obj, light_angle);
+
+
 			current = current->next;
 		}
 	}
