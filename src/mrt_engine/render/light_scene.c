@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 20:43:27 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/02 10:24:52 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/02 10:55:11 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ void	mrt_light_points(t_pixel *pixel)
 		light_angle = vec3_dot(light_dir, pixel->normal);
 		if (light_angle < 0)
 			light_angle = 0;
+		pixel->ray->color = color_add(
+			color_multi(pixel->ray->color, light->brightness),
+			color_multi(light->color, light->brightness * light_angle));
 		current = current->next;
 	}
 }
