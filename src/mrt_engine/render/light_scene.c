@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 20:43:27 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/02 18:22:38 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/02 18:47:48 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	mrt_light_points(t_pixel *pixel)
 			light->angle = 0;
 		if (light->angle) printf("%f \n", light->angle);
 		pixel->ray->color = color_multi(pixel->obj->color,
-			(light->angle * light->brightness) / (light->distance * light->distance));
+			light->angle * light->brightness / (double)(light->distance * light->distance));
 		// pixel->ray->color = color_multi(pixel->obj->color, 1);
 		current = current->next;
 	}
