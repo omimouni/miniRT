@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 18:38:33 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/02 14:57:40 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/02 17:32:09 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ int				mrt_key_handler(int keycode)
 	if (keycode == MRT_KEY_NUM5)
 		mrt_next_cam();
 	if (keycode == MRT_KEY_NUM4)
-		mrt_move_cam(1, 0, 0);
-	if (keycode == MRT_KEY_NUM6)
 		mrt_move_cam(-1, 0, 0);
+	if (keycode == MRT_KEY_NUM6)
+		mrt_move_cam(1, 0, 0);
 	if (keycode == MRT_KEY_NUM2)
-		mrt_move_cam(0, 1, 0);
-	if (keycode == MRT_KEY_NUM8)
 		mrt_move_cam(0, -1, 0);
+	if (keycode == MRT_KEY_NUM8)
+		mrt_move_cam(0, 1, 0);
 	if (keycode == MRT_KEY_ARROW_UP)
 		mrt_move_cam(0, 0, -1);
 	if (keycode == MRT_KEY_ARROW_DOWN)

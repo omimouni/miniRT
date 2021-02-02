@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/02 15:16:05 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/02 17:58:38 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef	struct		s_light	{
 	t_color			color;
 	t_vector3		dir;
 	double			angle;
+	double			distance;
 }					t_light;
 
 typedef	struct		s_amblight {

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/02 16:18:59 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/02 18:21:56 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,10 @@ extern t_conf	*g_conf;
 
 static	void	mrt_calc_light(t_pixel *pixel)
 {
-	t_generic_list	*current;
-	t_light			*light;
-	t_vector3		light_dir;
-	t_color			buffer;
-	double			light_angle;
-
-	
 	if (pixel->obj != NULL)
 	{
-		mrt_light_ambiant(pixel);
 		mrt_light_points(pixel);
+		mrt_light_ambiant(pixel);
 	}
 	else
 		pixel->ray->color = color_from_rgb(0, 0, 0);
