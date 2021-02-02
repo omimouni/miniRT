@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/02 15:19:47 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/02 16:27:58 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ static void testScene()
 	// 	sphere_new(vec3_new(1.5, 0, -10), 2, color_from_rgb(192, 57, 43)));
 	g_conf->objs = ft_glist_add(g_conf->objs, 
 		sphere_new(vec3_new(0, 0, -4), .5, color_from_rgb(41, 128, 185)));
+		
+	g_conf->objs = ft_glist_add(g_conf->objs, plane_new(vec3_new(0, -2, 0),
+		vec3_new(0, -1, 0), color_from_rgb(255, 255,255)));
 
 	// Lights ----
 	g_conf->lights = ft_glist_add(g_conf->lights,
