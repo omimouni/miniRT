@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:54:56 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/02 13:53:26 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/02 14:54:47 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,6 @@ t_point3		mrt_ray_point(double t, t_mrt_ray *ray)
 	pt = vec3_mult(t, ray->direction);
 	pt = vec3_add(ray->origin, pt);
 	return (pt);
-}
-
-void			mrt_ray_free(t_mrt_ray *ray)
-{
-	free(ray);
 }
 
 t_camera		*mrt_current_camera(void)

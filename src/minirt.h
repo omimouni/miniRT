@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/02 14:06:30 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/02 14:57:06 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,25 @@
 # define MRT_RENDER_IMAGE	11
 
 # ifdef __MACH__
-#  define MRT_KEY_ESC 53
-#	define MRT_KEY_NUM5	87
-
+#  define MRT_KEY_ESC 			53
+#	define MRT_KEY_NUM5			87
+#	define MRT_KEY_NUM4			65430
+#	define MRT_KEY_NUM6			65432
+#	define MRT_KEY_NUM2			65433
+#	define MRT_KEY_NUM8			65431
+#	define MRT_KEY_ARROW_UP		65362
+#	define MRT_KEY_ARROW_DOWN	65364
 #endif
 
 # ifdef __linux__
-# 	define MRT_KEY_ESC	65307
-#	define MRT_KEY_NUM5	65437
-#	define MRT_KEY_NUM4	65430
-#	define MRT_KEY_NUM6	65432
-#	define MRT_KEY_NUM2	65433
-#	define MRT_KEY_NUM8	65431
+# 	define MRT_KEY_ESC			65307
+#	define MRT_KEY_NUM5			65437
+#	define MRT_KEY_NUM4			65430
+#	define MRT_KEY_NUM6			65432
+#	define MRT_KEY_NUM2			65433
+#	define MRT_KEY_NUM8			65431
+#	define MRT_KEY_ARROW_UP		65362
+#	define MRT_KEY_ARROW_DOWN	65364
 #endif
 
 # include <math.h>
@@ -40,18 +47,17 @@
 void			mrt_init(void);
 void			mrt_parser(int argc, char **argv);
 void			mrt_error(void);
-void			mrt_hooks(void);
 
 void			mrt_render(void);
 void 			mrt_render_loop(void);
 
+void			mrt_hooks(void);
 void			mrt_window_loop(void);
 void			mrt_save_image(void);
 void			mrt_put_pixel(size_t x, size_t y, t_color color);
 
 t_mrt_ray		*mrt_ray_init(t_point3 orig);
 t_point3		mrt_ray_point(double t, t_mrt_ray *ray);
-void			mrt_ray_free(t_mrt_ray *ray);
 void			mrt_raytrace(t_mrt_ray	*ray);
 
 int				mrt_key_handler(int keycode);
