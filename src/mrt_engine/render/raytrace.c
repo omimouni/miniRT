@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 22:48:44 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/02 09:51:08 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@ static	void	mrt_calc_light(t_pixel *pixel)
 			g_conf->ambient_light.intensity);
 		pixel->ray->color = color_add(pixel->ray->color,
 			g_conf->al_calculated);
-		// CH3EL DO ------
+		// Light point ------
 		current = g_conf->lights;
 		while (current != NULL)
 		{
 			light = (t_light *)current->obj;
 			light_dir = vec3_sub(light->point, pixel->hitpoint);
-			// printf("%f %f %f \n", light_dir.x, light_dir.y, light_dir.z);
 			light_angle = vec3_dot(light_dir, pixel->normal);
 			if (light_angle < 0)	light_angle = 0;
-			if (light_angle) printf("%f \n", light_angle);
+			pixel->ray->color = color_add(pixel->ray->color, color_add(color_multi(pixel->obj->color,
+			light->brightness * light_angle), color_multi(light->color, light_angle * light->brightness)));
 			current = current->next;
 		}
 	}
