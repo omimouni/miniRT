@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 16:48:22 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/02 13:32:16 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/02 13:43:45 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,19 @@ t_camera	*camera_new_(t_point3 origin, t_vector3 target, int fov)
 	tmp->target = target;
 	tmp->fov = (double)fov * M_PI / 180;
 	tmp->aspect_ratio = (double)g_conf->width / (double)g_conf->height;
-	tmp->normal = vec3_normalize(tmp->target);
-	tmp->scene_h = atan(tmp->fov);
-	tmp->scene_w = tmp->aspect_ratio * tmp->scene_h;
-	tmp->upguide = vec3_new(0, 1, 0);
-	tmp->right = vec3_cross(tmp->normal, tmp->upguide);
-	tmp->up = vec3_cross(tmp->normal, tmp->right);
-	tmp->right = vec3_normalize(tmp->right);
-	tmp->up = vec3_normalize(tmp->up);
 	return (tmp);
+}
+
+void		camera_calc(t_camera *camera)
+{
+	camera->normal = vec3_normalize(camera->target);
+	camera->scene_h = atan(camera->fov);
+	camera->scene_w = camera->aspect_ratio * camera->scene_h;
+	camera->upguide = vec3_new(0, 1, 0);
+	camera->right = vec3_cross(camera->normal, camera->upguide);
+	camera->up = vec3_cross(camera->normal, camera->right);
+	camera->right = vec3_normalize(camera->right);
+	camera->up = vec3_normalize(camera->up);
 }
 
 double		camera_position_x(size_t px)

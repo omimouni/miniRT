@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/02 10:25:34 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/02 14:06:30 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@
 # ifdef __linux__
 # 	define MRT_KEY_ESC	65307
 #	define MRT_KEY_NUM5	65437
+#	define MRT_KEY_NUM4	65430
+#	define MRT_KEY_NUM6	65432
+#	define MRT_KEY_NUM2	65433
+#	define MRT_KEY_NUM8	65431
 #endif
 
 # include <math.h>
@@ -65,6 +69,8 @@ t_color			color_multi(t_color a, double con);
 t_amblight		ambiant_light_new(double i, int r, int g, int b);
 
 t_camera		*camera_new_(t_point3 origin, t_vector3 target, int fov);
+void			camera_calc(t_camera *camera);
+t_camera		*mrt_current_camera(void);
 double			camera_position_x(size_t px);
 double			camera_position_y(size_t py);
 t_object		*object_new(char type, void *obj);

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 22:29:51 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/02 13:50:42 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ typedef	struct		s_conf {
 	unsigned int	width;
 	unsigned char	is_save;
 	t_generic_list	*cameras;
-	t_camera		*current_camera;
+	t_generic_list	*current_camera;
 	t_generic_list	*objs;
 	t_amblight		ambient_light;
 	t_color			al_calculated;
