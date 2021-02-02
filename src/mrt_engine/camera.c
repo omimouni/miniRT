@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 16:48:22 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/31 21:47:57 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/02 13:32:16 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_camera	*camera_new_(t_point3 origin, t_vector3 target, int fov)
 	tmp->scene_w = tmp->aspect_ratio * tmp->scene_h;
 	tmp->upguide = vec3_new(0, 1, 0);
 	tmp->right = vec3_cross(tmp->normal, tmp->upguide);
-	tmp->up = vec3_cross(tmp->right, tmp->normal);
+	tmp->up = vec3_cross(tmp->normal, tmp->right);
 	tmp->right = vec3_normalize(tmp->right);
 	tmp->up = vec3_normalize(tmp->up);
 	return (tmp);

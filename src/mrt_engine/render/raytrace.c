@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/02 11:23:11 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/02 13:29:09 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ static	void	mrt_calc_light(t_pixel *pixel)
 	
 	if (pixel->obj != NULL)
 	{
-		mrt_light_ambiant(pixel);
-		mrt_light_points(pixel);
+		// mrt_light_ambiant(pixel);
+		// mrt_light_points(pixel);
+		pixel->ray->color = pixel->obj->color;
 	}
 	else
 		pixel->ray->color = color_from_rgb(0, 0, 0);
@@ -48,10 +49,11 @@ void			mrt_raytrace(t_mrt_ray *ray)
 			tmp_t = mrt_intersect_sphere(ray, obj);
 		if (tmp_t < pixel->t)
 			mrt_pixel_update(pixel, tmp_t, ray, obj);
-		printf("%ld %ld, %f %f %f \n", ray->px, ray->py, pixel->normal.x,
-			pixel->normal.y, pixel->normal.z);
+		if (pixel->t < INFINITY)
+		printf("%ld %ld, %f %f %f %f\n", ray->px, ray->py, pixel->normal.x,
+			pixel->normal.y, pixel->normal.z, pixel->t);
 		current = current->next;
 	}
 	mrt_calc_light(pixel);
-	free(pixel);
+	pixel->normal = vec3_new(0, 0, 0);
 }
