@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:25:44 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/30 12:27:05 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/02 21:17:30 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,9 @@ t_vector3	vec3_normalize(t_vector3 v)
 
 	length = vec3_length(v);
 	return (vec3_new(v.x / length, v.y / length, v.z / length));
+}
+
+void		vec3_show(t_vector3	v)
+{
+	printf("V : %f %f %f \n", v.x, v.y, v.z);
 }
