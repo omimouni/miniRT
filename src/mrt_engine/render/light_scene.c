@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 20:43:27 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 16:30:38 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/03 16:44:42 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ static void	mrt_light_point_shadow(t_pixel *pixel, t_light *light)
 		obj = (t_object *)current->obj;
 		if (obj->type == MRT_TYPE_SPHERE)
 			light->angle = mrt_sphere_cast_shadow(pixel, obj, light);
+		else if (obj->type == MRT_TYPE_PLANE)
+			light->angle = mrt_plane_cast_shadow(pixel, obj, light);
 		current = current->next;
 	}
 }
