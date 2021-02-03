@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 22:23:10 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 12:17:47 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/03 16:37:18 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,18 @@ double		mrt_intersect_sphere(t_mrt_ray *ray, t_object *obj)
 double		mrt_sphere_cast_shadow(t_pixel *p, t_object *obj, t_light *light)
 {
 	t_mrt_ray	*ray;
-	double		t1;
-	double		t2;
+	double		t;
 
 	ray = mrt_ray_init(p->hitpoint);
 	ray->direction = light->dir;
-	t = mrt_intersect_sphere_equation()
-	return (t);
+	if (obj == p->obj)
+		return (light->angle);
+	t = mrt_intersect_sphere(ray, obj);
+	if (t < INFINITY && (t < light->distance && t > 0))
+	{
+		// printf("%f \n", t);
+		return (0);
+	}
+	return (light->angle);
 }
 
