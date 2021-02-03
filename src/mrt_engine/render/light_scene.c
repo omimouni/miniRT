@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 20:43:27 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 09:33:07 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/03 12:15:35 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,19 @@ void	mrt_light_ambiant(t_pixel *pixel)
 	t_color	c_color; // Current color
 	t_color	color;
 
-	c_color = color_multi(pixel->ray->color, .2 * pixel->light_cof);
+	if (pixel->light_cof < .1)
+		c_color = color_multi(pixel->obj->color, pixel->light_cof * .1);
+	else
+		c_color = color_multi(pixel->ray->color, .4);
 	c_color = color_add(c_color, g_conf->al_calculated);
-	c_color = color_add(c_color, color_multi(pixel->ray->color, .9));
+	c_color = color_add(c_color, color_multi(pixel->ray->color, .5));
 	pixel->ray->color = c_color;
 }
 
 void	mrt_light_points(t_pixel *pixel)
 {
 	t_generic_list	*current;
+	t_generic_list	*c_obj;
 	t_color			color;
 	t_light			*light;
 
@@ -35,12 +39,23 @@ void	mrt_light_points(t_pixel *pixel)
 	while (current != NULL)
 	{
 		light = (t_light *)current->obj;
+		// light->point = ((t_camera *)g_conf->cameras->obj)->origin;
+		// light->point.x += 5;
 		light->dir = vec3_sub(light->point, pixel->hitpoint);
 		light->distance = vec3_length(light->dir);
 		light->dir = vec3_normalize(light->dir);
 		light->angle = vec3_dot(light->dir, pixel->normal);
 		if (light->angle < 0)
 			light->angle = 0;
+		// Casting shadow
+		c_obj = g_conf->objs;
+		while (c_obj != NULL)
+		{
+			if (((t_object *)c_obj->obj)->type == MRT_TYPE_SPHERE)
+				mrt_sphere_cast_shadow(pixel, c_obj->obj, light);
+			c_obj = c_obj->next;
+		}
+		// Casting shadow
 		color = color_multi(light->color, (.4 * light->angle *
 			(light->brightness * 6)) / (powf(light->distance, 1)));
 		pixel->ray->color = color_multi(pixel->obj->color, ( .6 * (light->angle

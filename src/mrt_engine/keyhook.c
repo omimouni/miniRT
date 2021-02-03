@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 18:38:33 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/02 17:32:09 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/03 11:19:26 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void		mrt_quit(void)
 
 static void		mrt_next_cam(void)
 {
+	mlx_string_put(g_conf->mlx.ptr, g_conf->mlx.win, 40, 40, 0xFFFFFFFF, "Test");
 	printf("\n📷 Switch camera \n");
 	if (g_conf->current_camera->next != NULL)
 		g_conf->current_camera = g_conf->current_camera->next;

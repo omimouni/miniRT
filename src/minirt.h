@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 09:24:45 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/03 12:16:08 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void			mrt_parser(int argc, char **argv);
 void			mrt_error(void);
 
 void			mrt_render(void);
-void 			mrt_render_loop(void);
+void 			mrt_render_loop(size_t width, size_t height);
 
 void			mrt_hooks(void);
 void			mrt_window_loop(void);
@@ -59,6 +59,7 @@ void			mrt_put_pixel(size_t x, size_t y, t_color color);
 t_mrt_ray		*mrt_ray_init(t_point3 orig);
 t_point3		mrt_ray_point(double t, t_mrt_ray *ray);
 void			mrt_raytrace(t_mrt_ray	*ray);
+void			mrt_ray_update(t_mrt_ray **ray, size_t px, size_t py);
 
 int				mrt_key_handler(int keycode);
 void			mrt_update_window(void);
@@ -90,8 +91,10 @@ void			mrt_pixel_update(t_pixel *p, double t, t_mrt_ray *ray,
 
 t_object		*sphere_new(t_point3 center, double diameter, t_color color);
 double			mrt_intersect_sphere_equation(t_mrt_ray *ray, t_sphere *s,
-	double *t1, double *t2);
+				double *t1, double *t2);
 double			mrt_intersect_sphere(t_mrt_ray *ray, t_object *obj);
+double			mrt_sphere_cast_shadow(t_pixel *p, t_object *obj,
+				t_light *light);
 
 t_light			*light_new(t_point3 point, double brightness, t_color color);
 void			mrt_light_points(t_pixel *pixel);

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 09:30:01 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/03 09:56:08 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ typedef	struct		s_conf {
 	t_generic_list	*objs;
 	t_amblight		ambient_light;
 	t_color			al_calculated;
+	char			is_bonus;
 	t_generic_list	*lights;
 } 					t_conf;
 

@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   bonus.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 16:15:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 09:56:32 by omimouni         ###   ########.fr       */
+/*   Created: 2021/02/03 09:49:01 by omimouni          #+#    #+#             */
+/*   Updated: 2021/02/03 11:00:58 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#ifndef	BONUS_H
+# define BONUS_H
+# include <pthread.h>
 
-t_conf	*g_conf;
+typedef struct	s_dimension {
+	int			width_start;
+	int			width_end;
+	int			height_start;
+	int			height_end;
+	int			offset;
+	int			w_even;
+	int			h_even;
+}				t_dimension;
 
-int main(int argc, char **argv)
-{
-	int 	fd;
-	char	*line;
-
-	mrt_init();
-	mrt_parser(argc, argv);
-	if (g_conf->is_save)
-		mrt_save_image();
-	else
-		mrt_window_loop();
-	return (0);
-}
+void		mrt_threads_loop();
+# endif

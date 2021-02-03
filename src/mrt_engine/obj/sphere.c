@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 22:23:10 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 03:19:29 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/03 12:17:47 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,3 +65,16 @@ double		mrt_intersect_sphere(t_mrt_ray *ray, t_object *obj)
 	else
 		return (t2);
 }
+
+double		mrt_sphere_cast_shadow(t_pixel *p, t_object *obj, t_light *light)
+{
+	t_mrt_ray	*ray;
+	double		t1;
+	double		t2;
+
+	ray = mrt_ray_init(p->hitpoint);
+	ray->direction = light->dir;
+	t = mrt_intersect_sphere_equation()
+	return (t);
+}
+
