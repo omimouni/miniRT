@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/02 15:39:04 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/03 09:24:45 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@
 # ifdef __MACH__
 #  define MRT_KEY_ESC 			53
 #	define MRT_KEY_NUM5			87
-#	define MRT_KEY_NUM4			65430
-#	define MRT_KEY_NUM6			65432
-#	define MRT_KEY_NUM2			65433
-#	define MRT_KEY_NUM8			65431
-#	define MRT_KEY_ARROW_UP		65362
-#	define MRT_KEY_ARROW_DOWN	65364
+#	define MRT_KEY_NUM4			86
+#	define MRT_KEY_NUM6			88
+#	define MRT_KEY_NUM2			84
+#	define MRT_KEY_NUM8			91
+#	define MRT_KEY_ARROW_UP		126
+#	define MRT_KEY_ARROW_DOWN	125
 #endif
 
 # ifdef __linux__
