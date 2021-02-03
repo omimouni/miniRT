@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 02:51:54 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/03 03:25:09 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,17 @@ static void testScene()
 	g_conf->objs = ft_glist_add(g_conf->objs, 
 		sphere_new(vec3_new(1, 0, -4), 1.5, color_from_rgb(141, 85, 36)));
 	
-	g_conf->objs = ft_glist_add(g_conf->objs, 
-		sphere_new(vec3_new(-1, 0, -4), 1.5, color_from_rgb(141, 85, 36)));
+	// g_conf->objs = ft_glist_add(g_conf->objs, 
+	// 	sphere_new(vec3_new(-1, 0, -4), 1.5, color_from_rgb(141, 85, 36)));
 
-	g_conf->objs = ft_glist_add(g_conf->objs, plane_new(vec3_new(0, -1, -10),
+	g_conf->objs = ft_glist_add(g_conf->objs, plane_new(vec3_new(0, -4, 0),
 		vec3_new(0, 1, 0), color_from_rgb(255, 255,255)));
+	g_conf->objs = ft_glist_add(g_conf->objs, plane_new(vec3_new(0, -1, -10),
+		vec3_new(0, 0, 1), color_from_rgb(255, 255,255)));
+	g_conf->objs = ft_glist_add(g_conf->objs, plane_new(vec3_new(-6, 0, -10),
+		vec3_new(1, 0, 0), color_from_rgb(255, 255,255)));
+	g_conf->objs = ft_glist_add(g_conf->objs, plane_new(vec3_new(6, 0, -10),
+		vec3_new(-1, 0, 0), color_from_rgb(255, 255,255)));
 
 	// Lights ----
 	g_conf->lights = ft_glist_add(g_conf->lights,

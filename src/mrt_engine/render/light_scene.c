@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 20:43:27 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 02:54:26 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/03 03:20:23 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	mrt_light_points(t_pixel *pixel)
 		light->angle = vec3_dot(light->dir, pixel->normal);
 		if (light->angle < 0)
 			light->angle = 0;
-		color = color_multi(light->color, (.4 * light->angle * (light->brightness * 6)) / (powf(light->distance, 1)));
-		
-		pixel->ray->color = color_multi(pixel->obj->color, ( .6 * (light->angle 
+		color = color_multi(light->color, (.4 * light->angle *
+			(light->brightness * 6)) / (powf(light->distance, 1)));
+		pixel->ray->color = color_multi(pixel->obj->color, ( .6 * (light->angle
 			* (light->brightness * 6))) / (powf(light->distance, 1)));
 		pixel->ray->color = color_add(pixel->ray->color, color);
 		current = current->next;
