@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 23:18:05 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 18:27:12 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/03 02:32:44 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ t_color			color_multi(t_color a, double con)
 {
 	t_color	c;
 
-	c.r = ft_clamp_int(a.r * con, 0, 255);
-	c.g = ft_clamp_int(a.g * con, 0, 255);
-	c.b = ft_clamp_int(a.b * con, 0, 255);
+	c.r = ft_clamp_int((a.r * con), 0, 255);
+	c.g = ft_clamp_int((a.g * con), 0, 255);
+	c.b = ft_clamp_int((a.b * con), 0, 255);
 	return (c);
 }

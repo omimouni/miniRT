@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 20:43:27 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 02:07:24 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/03 02:54:26 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,34 +19,33 @@ void	mrt_light_ambiant(t_pixel *pixel)
 	t_color	c_color; // Current color
 	t_color	color;
 
-	c_color = color_multi(pixel->ray->color, .1);
+	c_color = color_multi(pixel->ray->color, .2);
 	c_color = color_add(c_color, g_conf->al_calculated);
 	c_color = color_add(c_color, color_multi(pixel->ray->color, .9));
 	pixel->ray->color = c_color;
-	// pixel->ray->color = color_add(g_conf->al_calculated, c_color);
 }
 
 void	mrt_light_points(t_pixel *pixel)
 {
 	t_generic_list	*current;
+	t_color			color;
 	t_light			*light;
 
 	current = g_conf->lights;
-	light = (t_light *)current->obj;
 	while (current != NULL)
 	{
-		// light->point = mrt_current_camera()->origin;
-		// light->point.x += 0;
-		// light->point.y += 3;
-		// light->point.z += -3;
+		light = (t_light *)current->obj;
 		light->dir = vec3_sub(light->point, pixel->hitpoint);
 		light->distance = vec3_length(light->dir);
 		light->dir = vec3_normalize(light->dir);
 		light->angle = vec3_dot(light->dir, pixel->normal);
 		if (light->angle < 0)
 			light->angle = 0;
-		pixel->ray->color = color_multi(pixel->obj->color,
-			(light->angle * light->brightness) / (powf(light->distance, 1)));
+		color = color_multi(light->color, (.4 * light->angle * (light->brightness * 6)) / (powf(light->distance, 1)));
+		
+		pixel->ray->color = color_multi(pixel->obj->color, ( .6 * (light->angle 
+			* (light->brightness * 6))) / (powf(light->distance, 1)));
+		pixel->ray->color = color_add(pixel->ray->color, color);
 		current = current->next;
 	}
 }
