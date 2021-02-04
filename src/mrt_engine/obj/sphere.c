@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 22:23:10 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 16:39:11 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/04 01:30:29 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ double		mrt_sphere_cast_shadow(t_pixel *p, t_object *obj, t_light *light)
 		return (light->angle);
 	t = mrt_intersect_sphere(ray, obj);
 	if (t < INFINITY && (t < light->distance && t > 0))
-		return (0);
+		return (.05);
 	return (light->angle);
 }
-

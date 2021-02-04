@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 14:51:57 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 09:30:49 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/03 19:06:44 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,6 @@ void		mrt_pixel_update(t_pixel *p, double t, t_mrt_ray *ray,
 	p->normal = vec3_normalize(p->normal);
 }
 
-void		mrt_pixel_add_ligh(t_pixel *p, double con)
-{
-	p->light_cof = con;
-}
 t_pixel		*pixel_new(double t, t_object *obj, t_mrt_ray *ray)
 {
 	t_pixel	*tmp;

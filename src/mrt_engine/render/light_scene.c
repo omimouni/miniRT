@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 20:43:27 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 16:44:42 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/03 19:02:38 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,10 @@
 
 extern	t_conf	*g_conf;
 
-void	mrt_light_ambiant(t_pixel *pixel)
-{
-	t_color	c_color; // Current color
-	t_color	color;
-
-	if (pixel->light_cof < .1)
-		c_color = color_multi(pixel->obj->color, pixel->light_cof * .1);
-	else
-		c_color = color_multi(pixel->ray->color, .4);
-	c_color = color_add(c_color, g_conf->al_calculated);
-	c_color = color_add(c_color, color_multi(pixel->ray->color, .5));
-	pixel->ray->color = c_color;
-}
-
-
-static void	mrt_light_point_shadow(t_pixel *pixel, t_light *light)
+static void		mrt_light_point_shadow(t_pixel *pixel, t_light *light)
 {
 	t_object		*obj;
 	t_generic_list	*current;
-	double			t;
 
 	current = g_conf->objs;
 	while (current != NULL)
@@ -47,7 +31,7 @@ static void	mrt_light_point_shadow(t_pixel *pixel, t_light *light)
 	}
 }
 
-static void	mrt_light_point_calc(t_pixel *pixel)
+static void		mrt_light_point_calc(t_pixel *pixel)
 {
 	t_generic_list	*current;
 	t_light			*light;
@@ -67,7 +51,7 @@ static void	mrt_light_point_calc(t_pixel *pixel)
 		mrt_light_point_shadow(pixel, light);
 		color = color_multi(light->color, (.4 * light->angle *
 			(light->brightness * 6)) / (powf(light->distance, 1)));
-		pixel->ray->color = color_multi(pixel->obj->color, ( .6 * (light->angle
+		pixel->ray->color = color_multi(pixel->obj->color, (.6 * (light->angle
 			* (light->brightness * 6))) / (powf(light->distance, 1)));
 		pixel->ray->color = color_add(pixel->ray->color, color);
 		pixel->light_cof = light->angle;
@@ -75,14 +59,21 @@ static void	mrt_light_point_calc(t_pixel *pixel)
 	}
 }
 
-void	mrt_light_points(t_pixel *pixel)
+void			mrt_light_ambiant(t_pixel *pixel)
 {
-	t_generic_list	*current;
-	t_generic_list	*c_obj;
-	t_color			color;
-	t_light			*light;
-	double			t;
+	t_color	c_color;
+	t_color	color;
 
+	if (pixel->light_cof < .1)
+		c_color = color_multi(pixel->obj->color, pixel->light_cof * .1);
+	else
+		c_color = color_multi(pixel->ray->color, .4);
+	c_color = color_add(c_color, g_conf->al_calculated);
+	c_color = color_add(c_color, color_multi(pixel->ray->color, .5));
+	pixel->ray->color = c_color;
+}
+
+void			mrt_light_points(t_pixel *pixel)
+{
 	mrt_light_point_calc(pixel);
-
 }

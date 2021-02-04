@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 18:38:33 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 14:50:48 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/04 01:20:34 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void		mrt_move_cam(int x, int y, int z)
 	t_camera	*camera;
 
 	printf("\n Moving camera by (%d, %d, %d) \n", x, y, z);
-	camera = g_conf->cameras->obj;
+	camera = mrt_current_camera();
 	camera->origin.x += x;
 	camera->origin.y += y;
 	camera->origin.z += z;
