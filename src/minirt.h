@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 16:44:24 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/04 18:02:46 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,12 @@
 #	define MRT_KEY_NUM6			65432
 #	define MRT_KEY_NUM2			65433
 #	define MRT_KEY_NUM8			65431
+#	define MRT_KEY_NUM7			65429
+#	define MRT_KEY_NUM9			65434
 #	define MRT_KEY_ARROW_UP		65362
 #	define MRT_KEY_ARROW_DOWN	65364
+#	define MRT_KEY_ARROW_LEFT	65361
+#	define MRT_KEY_ARROW_RIGHT	65363
 #endif
 
 # include <math.h>
@@ -49,7 +53,8 @@ void			mrt_parser(int argc, char **argv);
 void			mrt_error(void);
 
 void			mrt_render(void);
-void 			mrt_render_loop(size_t width, size_t height);
+void			mrt_render_loop(size_t swidth, size_t width ,
+	size_t sheight, size_t height);
 
 void			mrt_hooks(void);
 void			mrt_window_loop(void);

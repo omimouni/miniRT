@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 09:49:01 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 11:00:58 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/04 18:08:06 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ typedef struct	s_dimension {
 	int			width_end;
 	int			height_start;
 	int			height_end;
-	int			offset;
+	int			offset_x;
+	int			offset_y;
 	int			w_even;
 	int			h_even;
+	pthread_t	*id;
 }				t_dimension;
 
 void		mrt_threads_loop();

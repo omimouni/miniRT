@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:00:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 10:04:03 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/04 17:52:35 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	mrt_render(void)
 	if (g_conf->is_bonus)
 		mrt_threads_loop();
 	else
-		mrt_render_loop(g_conf->width, g_conf->height);
+		mrt_render_loop(0, g_conf->width,0, g_conf->height);
 	printf("\033[0m ✅\n");
 	printf("\n🤵 waiting for the next command\n");
 }
