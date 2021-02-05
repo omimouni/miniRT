@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   cylinder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 17:00:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/05 09:18:41 by omimouni         ###   ########.fr       */
+/*   Created: 2021/02/05 09:35:49 by omimouni          #+#    #+#             */
+/*   Updated: 2021/02/05 09:40:04 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minirt.h"
-#include "../../bonus.h"
 
-extern t_conf	*g_conf;
-
-void	mrt_render(void)
+t_cylinder	*cylinder_new(t_point3	c, t_vector3 normal, t_color color,
+	double diameter, double height)
 {
-	printf("🖥  Rendering Scene\n");
-	printf("👾 \033[0;32mProgress ...");
-	mrt_render_loop(0, g_conf->width,0, g_conf->height);
-	printf("\033[0m ✅\n");
-	printf("\n🤵 waiting for the next command\n");
+	
 }

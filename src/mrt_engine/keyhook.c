@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 18:38:33 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/04 18:45:27 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/05 09:17:26 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void		mrt_move_cam(int x, int y, int z)
 	camera = mrt_current_camera();
 	// camera->origin = vec3_add(camera->origin, camera->target);
 	if (x)
-		camera->origin += vec3_add(camera->origin, camera->right);
+		camera->origin = vec3_add(camera->origin, camera->right);
 	if (y)
 		camera->origin.y += y;
 	if (z)
