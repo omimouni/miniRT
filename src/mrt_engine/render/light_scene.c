@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 20:43:27 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 19:02:38 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/04 23:15:27 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void		mrt_light_point_calc(t_pixel *pixel)
 	while (current != NULL)
 	{
 		light = (t_light *)current->obj;
-		light->point = ((t_camera *)g_conf->cameras->obj)->origin;
+		// light->point = ((t_camera *)g_conf->cameras->obj)->origin;
 		light->dir = vec3_sub(light->point, pixel->hitpoint);
 		light->distance = vec3_length(light->dir);
 		light->dir = vec3_normalize(light->dir);
@@ -75,5 +75,6 @@ void			mrt_light_ambiant(t_pixel *pixel)
 
 void			mrt_light_points(t_pixel *pixel)
 {
+	pixel->ray->color = pixel->obj->color;
 	mrt_light_point_calc(pixel);
 }

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/05 09:39:10 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/03 09:56:08 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,6 @@ typedef struct		s_sphare {
 	t_point3		center;
 	double			diameter;
 }					t_sphere;
-
-typedef struct		s_cylinder {
-	t_point3		cap;
-	t_vector3		normal;
-	t_color			color;
-	double			diameter;
-	double			height;
-}					t_cylinder;
 
 typedef	struct		s_pixel {
 	t_object		*obj;

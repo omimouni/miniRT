@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/05 08:31:06 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/04 18:02:46 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,8 @@
 #	define MRT_KEY_NUM6			88
 #	define MRT_KEY_NUM2			84
 #	define MRT_KEY_NUM8			91
-#	define MRT_KEY_NUM7			65429
-#	define MRT_KEY_NUM9			65434
 #	define MRT_KEY_ARROW_UP		126
 #	define MRT_KEY_ARROW_DOWN	125
-#	define MRT_KEY_ARROW_LEFT	65361
-#	define MRT_KEY_ARROW_RIGHT	65363
 #endif
 
 # ifdef __linux__
