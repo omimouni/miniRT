@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 18:38:33 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/04 22:33:22 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/05 14:38:05 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void		mrt_quit(void)
 
 static void		mrt_next_cam(void)
 {
-	mlx_string_put(g_conf->mlx.ptr, g_conf->mlx.win, 40, 40, 0xFFFFFFFF, "Test");
+	mlx_string_put(g_conf->mlx.ptr, g_conf->mlx.win, 40, 40, 0xFFFFFFFF, "Rendering ...");
 	printf("\n📷 Switch camera \n");
 	if (g_conf->current_camera->next != NULL)
 		g_conf->current_camera = g_conf->current_camera->next;
@@ -40,6 +40,7 @@ static void		mrt_move_cam(int x, int y, int z)
 {
 	t_camera	*camera;
 
+	mlx_string_put(g_conf->mlx.ptr, g_conf->mlx.win, 40, 40, 0xFFFFFFFF, "Rendering ...");
 	printf("\n Moving camera by (%d, %d, %d) \n", x, y, z);
 	camera = mrt_current_camera();
 	// camera->origin = vec3_add(camera->origin, camera->target);
@@ -56,6 +57,7 @@ static void		mrt_rotate_cam_x(double x)
 	t_camera	*camera;
 	t_vector3	dir;
 
+	mlx_string_put(g_conf->mlx.ptr, g_conf->mlx.win, 40, 40, 0xFFFFFFFF, "Rendering ...");
 	camera = mrt_current_camera();
 	dir = vec3_add(camera->normal, vec3_mult(x, camera->right));
 	dir = vec3_normalize(dir);
@@ -71,6 +73,7 @@ static void		mrt_rotate_cam_y(double y)
 	t_camera	*camera;
 	t_vector3	dir;
 
+	mlx_string_put(g_conf->mlx.ptr, g_conf->mlx.win, 40, 40, 0xFFFFFFFF, "Rendering ...");
 	camera = mrt_current_camera();
 	dir = vec3_add(camera->normal, vec3_mult(y, camera->up));
 	dir = vec3_normalize(dir);

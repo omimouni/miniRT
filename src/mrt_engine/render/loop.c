@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:40:21 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/04 18:02:42 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/05 14:29:08 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void				mrt_render_loop(size_t swidth, size_t width ,
 		while (j < height)
 		{
 			mrt_ray_update(&ray, i, j);
+			// vec3_show(ray->direction);
 			mrt_raytrace(ray);
 			if (g_conf->is_save)
 				continue;

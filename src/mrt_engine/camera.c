@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 16:48:22 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/04 16:55:15 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/05 14:27:45 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void		camera_calc(t_camera *camera)
 	camera->scene_w = camera->aspect_ratio * camera->scene_h;
 	camera->upguide = vec3_new(0, 1, 0);
 	camera->right = vec3_cross(camera->normal, camera->upguide);
-	camera->up = vec3_cross(camera->normal, camera->right);
 	camera->right = vec3_normalize(camera->right);
+	camera->up = vec3_cross(camera->normal, camera->right);
 	camera->up = vec3_normalize(camera->up);
 }
 

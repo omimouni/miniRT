@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 14:37:22 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/05 14:56:12 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,13 @@ void			mrt_raytrace(t_mrt_ray *ray)
 			tmp_t = mrt_intersect_plane(ray, obj);
 		if (tmp_t < pixel->t && tmp_t > 0)
 			mrt_pixel_update(pixel, tmp_t, ray, obj);
+		if (tmp_t > 0 && tmp_t != INFINITY)
+		{
+			vec3_show(pixel->ray->direction);
+			vec3_show(pixel->hitpoint);
+			printf("%f \n\n", tmp_t);
+
+		}
 		current = current->next;
 	}
 	mrt_calc_light(pixel);
