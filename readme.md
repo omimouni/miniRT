@@ -5,3 +5,6 @@
 - [ ] Fix light and shadow
 - [ ] Add more objects
 - [ ] write some docs 
+
+## Subtodo
+- [ ] Add caps to cylinder

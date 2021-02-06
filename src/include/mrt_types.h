@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 13:45:32 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 16:43:28 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ typedef	struct		s_pixel {
 	t_vector3		normal;
 	double			light_cof;
 	double			t;
+	double			c_m;
 }					t_pixel;
 
 typedef	struct		s_light	{
