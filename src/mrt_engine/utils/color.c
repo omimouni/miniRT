@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 23:18:05 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 02:32:44 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 10:02:33 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minirt.h"
+#include "minirt.h"
 
 t_color			color_from_rgb(int r, int g, int b)
 {

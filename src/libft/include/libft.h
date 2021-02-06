@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 16:15:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 09:56:32 by omimouni         ###   ########.fr       */
+/*   Created: 2021/01/19 16:24:19 by omimouni          #+#    #+#             */
+/*   Updated: 2021/02/06 10:09:26 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#ifndef LIBFT_H
+# define LIBFT_H
+# define BUFFER_SIZE 255
+# include <stdlib.h>
+# include <string.h>
+# include <sys/stat.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <unistd.h>
 
-t_conf	*g_conf;
+# include "ft_string.h"
+# include "ft_maths.h"
+# include "linked_list.h"
+# include "ft_bmp.h"
 
-int main(int argc, char **argv)
-{
-	int 	fd;
-	char	*line;
+int		gnl(int fd, char **line);
 
-	mrt_init();
-	mrt_parser(argc, argv);
-	if (g_conf->is_save)
-		mrt_save_image();
-	else
-		mrt_window_loop();
-	return (0);
-}
+double	ft_parsefloat(char *s);
+int		ft_clamp_int(int i, int min, int max);
+#endif

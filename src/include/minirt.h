@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/05 15:26:46 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 13:40:29 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,12 @@
 #	define MRT_KEY_NUM6			88
 #	define MRT_KEY_NUM2			84
 #	define MRT_KEY_NUM8			91
+#	define MRT_KEY_NUM7			89
+#	define MRT_KEY_NUM9			92
 #	define MRT_KEY_ARROW_UP		126
 #	define MRT_KEY_ARROW_DOWN	125
+#	define MRT_KEY_ARROW_LEFT	123
+#	define MRT_KEY_ARROW_RIGHT	124
 #endif
 
 # ifdef __linux__
@@ -45,8 +49,8 @@
 
 # include <math.h>
 # include <mlx.h>
-# include "libft/libft.h"
-# include "types.h"
+# include "libft.h"
+# include "mrt_types.h"
 
 void			mrt_init(void);
 void			mrt_parser(int argc, char **argv);
@@ -91,12 +95,6 @@ t_object		*plane_new(t_point3 cords, t_vector3 normal, t_color color);
 double			mrt_intersect_plane(t_mrt_ray *ray, t_object *obj);
 double			mrt_plane_cast_shadow(t_pixel *p, t_object *obj, t_light *light);
 
-
-
-t_object		*cylinder_new(t_point3	cap, t_vector3 dir, double dimension[],
-				t_color color);
-double			mrt_intersect_cylinder(t_mrt_ray *ray, t_object *obj);
-
 t_pixel			*pixel_new(double t, t_object *obj, t_mrt_ray *ray);
 void			mrt_pixel_update(t_pixel *p, double t, t_mrt_ray *ray,
 				t_object *obj);
@@ -107,6 +105,11 @@ double			mrt_intersect_sphere_equation(t_mrt_ray *ray, t_sphere *s,
 double			mrt_intersect_sphere(t_mrt_ray *ray, t_object *obj);
 double			mrt_sphere_cast_shadow(t_pixel *p, t_object *obj,
 				t_light *light);
+
+t_object		*cylinder_new(t_point3 cap, t_vector3 dir, t_color color,
+				double d[]);
+double			mrt_cylinder_intersect(t_mrt_ray *ray, t_object *obj);
+t_vector3		mrt_cylinder_normal(t_pixel	*p);
 
 t_light			*light_new(t_point3 point, double brightness, t_color color);
 void			mrt_light_points(t_pixel *pixel);

@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 20:43:27 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/05 16:46:28 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 13:33:26 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minirt.h"
+#include "minirt.h"
 
 extern	t_conf	*g_conf;
 
@@ -41,7 +41,6 @@ static void		mrt_light_point_calc(t_pixel *pixel)
 	while (current != NULL)
 	{
 		light = (t_light *)current->obj;
-		// light->point = ((t_camera *)g_conf->cameras->obj)->origin;
 		light->dir = vec3_sub(light->point, pixel->hitpoint);
 		light->distance = vec3_length(light->dir);
 		light->dir = vec3_normalize(light->dir);

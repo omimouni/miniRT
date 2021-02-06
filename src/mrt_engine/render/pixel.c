@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 14:51:57 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 19:06:44 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 12:31:37 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minirt.h"
+#include "minirt.h"
 
 void		mrt_pixel_update(t_pixel *p, double t, t_mrt_ray *ray,
 				t_object *obj)
@@ -21,9 +21,12 @@ void		mrt_pixel_update(t_pixel *p, double t, t_mrt_ray *ray,
 	p->obj = obj;
 	if (p->obj->type == MRT_TYPE_SPHERE)
 		p->normal = vec3_sub(p->hitpoint, ((t_sphere *)p->obj->object)->center);
-	if (p->obj->type == MRT_TYPE_PLANE)
+	else if (p->obj->type == MRT_TYPE_PLANE)
 		p->normal = ((t_plane *)p->obj->object)->normal;
+	else if (p->obj->type == MRT_TYPE_CYLINDER)
+		p->normal = mrt_cylinder_normal(p);
 	p->normal = vec3_normalize(p->normal);
+	vec3_show(p->normal);
 }
 
 t_pixel		*pixel_new(double t, t_object *obj, t_mrt_ray *ray)

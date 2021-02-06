@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 18:38:33 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/05 14:38:05 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 10:34:47 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minirt.h"
+#include "minirt.h"
 
 extern t_conf	*g_conf;
 
@@ -36,18 +36,15 @@ static void		mrt_next_cam(void)
 	mrt_update_window();
 }
 
-static void		mrt_move_cam(int x, int y, int z)
+static void		mrt_move_cam_x(int x)
 {
 	t_camera	*camera;
 
 	mlx_string_put(g_conf->mlx.ptr, g_conf->mlx.win, 40, 40, 0xFFFFFFFF, "Rendering ...");
-	printf("\n Moving camera by (%d, %d, %d) \n", x, y, z);
+	printf("\n Moving camera by X= %d \n", x);
 	camera = mrt_current_camera();
-	// camera->origin = vec3_add(camera->origin, camera->target);
-	camera->origin.x += x;
-	camera->origin.y += y;
-	camera->origin.z += z;
-	camera_calc(mrt_current_camera());
+	camera->origin = vec3_add(camera->right, vec3_mult(x - .5, camera->right));
+	camera_calc(camera);
 	mrt_render();
 	mrt_update_window();
 }
@@ -62,7 +59,7 @@ static void		mrt_rotate_cam_x(double x)
 	dir = vec3_add(camera->normal, vec3_mult(x, camera->right));
 	dir = vec3_normalize(dir);
 	camera->target = dir;
-	camera_calc(mrt_current_camera());
+	camera_calc(camera);
 	mrt_render();
 	mrt_update_window();
 }
@@ -78,7 +75,7 @@ static void		mrt_rotate_cam_y(double y)
 	dir = vec3_add(camera->normal, vec3_mult(y, camera->up));
 	dir = vec3_normalize(dir);
 	camera->target = dir;
-	camera_calc(mrt_current_camera());
+	camera_calc(camera);
 	mrt_render();
 	mrt_update_window();
 }
@@ -89,17 +86,17 @@ int				mrt_key_handler(int keycode)
 	if (keycode == MRT_KEY_NUM5)
 		mrt_next_cam();
 	if (keycode == MRT_KEY_NUM4)
-		mrt_move_cam(-1, 0, 0);
+		mrt_move_cam_x(-1);
 	if (keycode == MRT_KEY_NUM6)
-		mrt_move_cam(1, 0, 0);
+		mrt_move_cam_x(1);
 	if (keycode == MRT_KEY_NUM2)
-		mrt_move_cam(0, -1, 0);
+		mrt_move_cam_x(0);
 	if (keycode == MRT_KEY_NUM8)
-		mrt_move_cam(0, 1, 0);
+		mrt_move_cam_x(0);
 	if (keycode == MRT_KEY_NUM7)
-		mrt_move_cam(0, 0, 1);
+		mrt_move_cam_x(0);
 	if (keycode == MRT_KEY_NUM9)
-		mrt_move_cam(0, 0, -1);
+		mrt_move_cam_x(0);
 	if (keycode == MRT_KEY_ARROW_UP)
 		mrt_rotate_cam_y(-.2);
 	if (keycode == MRT_KEY_ARROW_DOWN)
