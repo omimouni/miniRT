@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:18:24 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/27 16:20:35 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 09:56:52 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
 
 static int		gnl_buffer(int fd, char **ptr)
 {

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 09:31:57 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 09:55:46 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@
 # include <math.h>
 # include <mlx.h>
 # include "libft/libft.h"
-# include "types.h"
+# include "mrt_types.h"
 
 void			mrt_init(void);
 void			mrt_parser(int argc, char **argv);

@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 14:51:57 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 19:06:44 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 09:54:46 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minirt.h"
+#include "minirt.h"
 
 void		mrt_pixel_update(t_pixel *p, double t, t_mrt_ray *ray,
 				t_object *obj)

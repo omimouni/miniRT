@@ -6,12 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:00:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 09:30:31 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 09:54:56 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minirt.h"
-#include "../../bonus.h"
+#include "minirt.h"
 
 extern t_conf	*g_conf;
 

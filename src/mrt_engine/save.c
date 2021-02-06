@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:24:39 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/01 18:34:04 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 09:54:23 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minirt.h"
+#include "minirt.h"
 
 void	mrt_save_image(void)
 {

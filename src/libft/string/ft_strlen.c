@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 23:54:49 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/27 16:19:26 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 09:56:41 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "libft/ft_string.h"
 
 size_t	ft_strlen(const char *str)
 {

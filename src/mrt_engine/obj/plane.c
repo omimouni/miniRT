@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 23:33:06 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/03 18:58:05 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 09:55:31 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minirt.h"
+#include "minirt.h"
 
 t_object	*plane_new(t_point3 cords, t_vector3 normal, t_color color)
 {

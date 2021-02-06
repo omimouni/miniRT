@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 21:14:50 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/27 16:16:23 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 09:56:27 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked_list.h"
+#include "libft/linked_list.h"
 
 t_generic_list	*ft_glist_init(void)
 {

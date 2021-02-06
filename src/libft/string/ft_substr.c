@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:13:04 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/27 16:18:55 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 09:56:43 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "libft/ft_string.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

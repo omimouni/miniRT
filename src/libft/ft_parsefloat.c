@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:50:42 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/27 16:15:57 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 09:56:48 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
 
 double	ft_parsefloat(char *s)
 {

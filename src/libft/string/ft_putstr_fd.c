@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 12:32:55 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/27 16:19:22 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 09:56:33 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "libft/ft_string.h"
 
 void	ft_putstr_fd(char *str, int fd)
 {
