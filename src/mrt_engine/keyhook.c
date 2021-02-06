@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 18:38:33 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 10:34:47 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 20:13:01 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,34 @@ static void		mrt_move_cam_x(int x)
 	mlx_string_put(g_conf->mlx.ptr, g_conf->mlx.win, 40, 40, 0xFFFFFFFF, "Rendering ...");
 	printf("\n Moving camera by X= %d \n", x);
 	camera = mrt_current_camera();
-	camera->origin = vec3_add(camera->right, vec3_mult(x - .5, camera->right));
+	camera->origin = vec3_add(camera->origin, vec3_mult(x, camera->right));
+	camera_calc(camera);
+	mrt_render();
+	mrt_update_window();
+}
+
+static void		mrt_move_cam_y(int y)
+{
+	t_camera	*camera;
+
+	mlx_string_put(g_conf->mlx.ptr, g_conf->mlx.win, 40, 40, 0xFFFFFFFF, "Rendering ...");
+	printf("\n Moving camera by Y= %d \n", y);
+	camera = mrt_current_camera();
+	camera->origin = vec3_add(camera->origin, vec3_mult(y, camera->up));
+	camera_calc(camera);
+	mrt_render();
+	mrt_update_window();
+}
+
+
+static void		mrt_move_cam_z(int z)
+{
+	t_camera	*camera;
+
+	mlx_string_put(g_conf->mlx.ptr, g_conf->mlx.win, 40, 40, 0xFFFFFFFF, "Rendering ...");
+	printf("\n Moving camera by Z= %d \n", z);
+	camera = mrt_current_camera();
+	camera->origin = vec3_add(camera->origin, vec3_mult(z, camera->normal));
 	camera_calc(camera);
 	mrt_render();
 	mrt_update_window();
@@ -90,13 +117,13 @@ int				mrt_key_handler(int keycode)
 	if (keycode == MRT_KEY_NUM6)
 		mrt_move_cam_x(1);
 	if (keycode == MRT_KEY_NUM2)
-		mrt_move_cam_x(0);
+		mrt_move_cam_y(1);
 	if (keycode == MRT_KEY_NUM8)
-		mrt_move_cam_x(0);
+		mrt_move_cam_y(-1);
 	if (keycode == MRT_KEY_NUM7)
-		mrt_move_cam_x(0);
+		mrt_move_cam_z(-1);
 	if (keycode == MRT_KEY_NUM9)
-		mrt_move_cam_x(0);
+		mrt_move_cam_z(1);
 	if (keycode == MRT_KEY_ARROW_UP)
 		mrt_rotate_cam_y(-.2);
 	if (keycode == MRT_KEY_ARROW_DOWN)
