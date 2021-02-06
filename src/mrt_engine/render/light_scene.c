@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 20:43:27 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/05 14:13:40 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/05 16:46:28 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,5 @@ void			mrt_light_ambiant(t_pixel *pixel)
 void			mrt_light_points(t_pixel *pixel)
 {
 	pixel->ray->color = pixel->obj->color;
-	mrt_light_point_calc(pixel);
+	// mrt_light_point_calc(pixel);
 }

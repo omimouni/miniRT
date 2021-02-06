@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/05 14:56:12 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/05 16:56:21 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,16 @@ void			mrt_raytrace(t_mrt_ray *ray)
 	pixel = pixel_new(INFINITY, NULL, ray);
 	while (current != NULL)
 	{
+		tmp_t = INFINITY;
 		obj = (t_object *)current->obj;
 		if (obj->type == MRT_TYPE_SPHERE)
 			tmp_t = mrt_intersect_sphere(ray, obj);
 		if (obj->type == MRT_TYPE_PLANE)
 			tmp_t = mrt_intersect_plane(ray, obj);
+		if (obj->type == MRT_TYPE_CYLINDER)
+			tmp_t = mrt_intersect_cylinder(ray, obj);
 		if (tmp_t < pixel->t && tmp_t > 0)
 			mrt_pixel_update(pixel, tmp_t, ray, obj);
-		if (tmp_t > 0 && tmp_t != INFINITY)
-		{
-			vec3_show(pixel->ray->direction);
-			vec3_show(pixel->hitpoint);
-			printf("%f \n\n", tmp_t);
-
-		}
 		current = current->next;
 	}
 	mrt_calc_light(pixel);
