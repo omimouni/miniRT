@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:00:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 09:54:56 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 14:09:01 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ extern t_conf	*g_conf;
 
 void	mrt_render(void)
 {
-	if (g_conf->mlx.img.ptr == NULL)
-		mlx_destroy_image(g_conf->mlx.ptr, g_conf->mlx.img.ptr);
+	// if (g_conf->mlx.img.ptr != NULL)
+	// 	mlx_destroy_image(g_conf->mlx.ptr, g_conf->mlx.img.ptr);
 	g_conf->mlx.img.ptr = mlx_new_image(g_conf->mlx.ptr,
 	g_conf->width, g_conf->height);
 	g_conf->mlx.img.addr = mlx_get_data_addr(g_conf->mlx.img.ptr,
