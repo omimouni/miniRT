@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 12:13:08 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 09:57:06 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 10:07:20 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/ft_bmp.h"
+#include "ft_bmp.h"
 
 int	ft_bmp_init(void)
 {

@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:25:44 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 09:56:25 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 10:07:34 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/ft_maths.h"
+#include "ft_maths.h"
 
 t_vector3	vec3_new(double x, double y, double z)
 {

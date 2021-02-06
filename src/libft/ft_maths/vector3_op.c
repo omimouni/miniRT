@@ -6,11 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 12:25:36 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 09:56:23 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 10:07:32 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/ft_maths.h"
+#include "ft_maths.h"
 
 t_vector3	vec3_add(t_vector3 v, t_vector3 w)
 {

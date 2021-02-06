@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:24:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 09:53:37 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 10:09:26 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 # include <fcntl.h>
 # include <unistd.h>
 
-# include "libft/ft_string.h"
-# include "libft/ft_maths.h"
-# include "libft/linked_list.h"
-# include "libft/ft_bmp.h"
+# include "ft_string.h"
+# include "ft_maths.h"
+# include "linked_list.h"
+# include "ft_bmp.h"
 
 int		gnl(int fd, char **line);
 
