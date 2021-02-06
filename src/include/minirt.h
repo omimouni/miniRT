@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 10:23:46 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 12:20:23 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,11 @@ double			mrt_intersect_sphere_equation(t_mrt_ray *ray, t_sphere *s,
 double			mrt_intersect_sphere(t_mrt_ray *ray, t_object *obj);
 double			mrt_sphere_cast_shadow(t_pixel *p, t_object *obj,
 				t_light *light);
+
+t_object		*cylinder_new(t_point3 cap, t_vector3 dir, t_color color,
+				double d[]);
+double			mrt_cylinder_intersect(t_mrt_ray *ray, t_object *obj);
+t_vector3		mrt_cylinder_normal(t_pixel	*p);
 
 t_light			*light_new(t_point3 point, double brightness, t_color color);
 void			mrt_light_points(t_pixel *pixel);
