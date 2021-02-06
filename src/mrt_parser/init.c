@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 09:52:17 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 10:28:54 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ static void testScene()
 {
 	// Cameras ---
 	g_conf->cameras = ft_glist_add(g_conf->cameras,
-			camera_new_(vec3_new(0, 0, -40), vec3_new(0, 0, 1), 70));
-	g_conf->cameras = ft_glist_add(g_conf->cameras,
-			camera_new_(vec3_new(0, 0, 40), vec3_new(0, 0, -1), 70));
+			camera_new_(vec3_new(0, 0, 0), vec3_new(0, 0, -1), 70));
+	// g_conf->cameras = ft_glist_add(g_conf->cameras,
+	// 		camera_new_(vec3_new(0, 0, 0), vec3_new(0, 0, -1), 70));
 
 	// Objs ------
-	g_conf->objs = ft_glist_add(g_conf->objs, sphere_new(vec3_new(0, 0, 0), 5,
+	g_conf->objs = ft_glist_add(g_conf->objs, sphere_new(vec3_new(0, 0, -15), 5,
 		color_from_rgb(41, 128, 185)));
 	// g_conf->objs = ft_glist_add(g_conf->objs, sphere_new(vec3_new(6, 0, -15), 1,
 	// 	color_from_rgb(155, 89, 182)));
@@ -43,7 +43,7 @@ static void testScene()
 
 	// Lights ----
 	g_conf->lights = ft_glist_add(g_conf->lights,
-			light_new(vec3_new(-10, 0, -15), .5, color_from_rgb(255, 255, 255)));
+			light_new(vec3_new(0, 10, 0), .5, color_from_rgb(255, 255, 255)));
 	// g_conf->lights = ft_glist_add(g_conf->lights,
 	// 		light_new(vec3_new(4, 10, -6), .5, color_from_rgb(255, 0, 255)));
 
