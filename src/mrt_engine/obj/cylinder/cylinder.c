@@ -6,11 +6,14 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:53:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/07 22:54:07 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/07 23:28:39 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+#define MRT_NORMAL_CAP_TOP 1
+#define MRT_NORMAL_CAP_END 2
+#define MRT_NORMAL_CYLINDER 3
 
 extern	t_conf	*g_conf;
 
@@ -32,37 +35,21 @@ t_object	*cylinder_new(t_point3 cap, t_vector3 dir, t_color color,
 	return (obj);
 }
 
-double		mrt_cylinder_cap(double m, double t, t_mrt_ray *ray,
-			t_cylinder *cy)
-{
-	t_vector3	a;
-
-	if (m < 0)
-		return (INFINITY);
-	return (t);
-}
-
-/*
-** Cylinder Intersection 
-** 
-*/
-
-double	mrt_cylinder_intersect(t_mrt_ray *ray, t_object *obj)
+double		mrt_cylinder_intersect(t_mrt_ray *ray, t_object *obj)
 {
 	double		tcylinder;
 	double		tcy_cap_top;
 	double		tcy_cap_end;
-	double		m;
 	t_cylinder	*cy;
 
 	cy = (t_cylinder *)obj->object;
-	tcylinder = mrt_cylinder_calc_shape((t_cylinder *)obj->object, ray);
-	tcy_cap_top = mrt_cylinder_calc_caps(cy, ray, MRT_CYLINDER_CAP_TOP);
-	tcy_cap_end = mrt_cylinder_calc_caps(cy, ray, MRT_CYLINDER_CAP_END);
-	if (mrt_cylinder_check((t_cylinder *)obj->object, ray, tcylinder))
+	tcylinder = mrt_cylinder_calc_shape(cy, ray);
+	if (mrt_cylinder_check(cy, ray, tcylinder))
 		return (tcylinder);
 	if (g_conf->is_bonus)
 	{
+		tcy_cap_top = mrt_cylinder_calc_caps(cy, ray, MRT_CYLINDER_CAP_TOP);
+		tcy_cap_end = mrt_cylinder_calc_caps(cy, ray, MRT_CYLINDER_CAP_END);
 		if (mrt_cylinder_check_cap(cy, ray, tcy_cap_top, MRT_CYLINDER_CAP_TOP))
 			return (tcy_cap_top);
 		if (mrt_cylinder_check_cap(cy, ray, tcy_cap_end, MRT_CYLINDER_CAP_END))
@@ -71,18 +58,40 @@ double	mrt_cylinder_intersect(t_mrt_ray *ray, t_object *obj)
 	return (INFINITY);
 }
 
+char		mrt_cylinder_check_normal(t_cylinder *cy, t_mrt_ray *ray, double t,
+			char type)
+{
+	double		m;
+	double		dist;
+	t_vector3	normal;
+
+	dist = vec3_length(vec3_sub(vec3_add(cy->cap, vec3_mult(cy->height,
+			cy->dir)), mrt_ray_point(t, ray)));
+	if (type == MRT_CYLINDER_CAP_TOP)
+		m = vec3_dot(ray->direction, cy->dir) * t 
+			+ vec3_dot(vec3_sub(ray->origin, cy->cap), cy->dir);
+	else
+		m = vec3_dot(ray->direction, cy->dir) * t + 
+			vec3_dot(vec3_sub(ray->origin, vec3_add(cy->cap,
+			vec3_mult(cy->height, cy->dir))), cy->dir);
+	if (m <= __FLT_EPSILON__)
+		return (MRT_NORMAL_CAP_TOP);
+	else
+		return (MRT_NORMAL_CYLINDER);
+	if (m <= __FLT_EPSILON__ && dist <= cy->diameter / 2)
+		return (MRT_NORMAL_CAP_END);
+}
+
 t_vector3	mrt_cylinder_normal(t_pixel	*p)
 {
 	t_vector3	normal;
 	t_cylinder	*cy;
-	double		m;
-
+	char		normal_check;
 
 	cy = (t_cylinder *)p->obj->object;
 	m = vec3_dot(p->ray->direction, cy->dir) * p->t + 
 		vec3_dot(vec3_sub(p->ray->origin, cy->cap), cy->dir);
-	double l = vec3_length(vec3_sub(vec3_add(cy->cap, vec3_mult(cy->height, cy->dir)), mrt_ray_point(p->t, p->ray)));
-	
+	l = vec3_length(vec3_sub(vec3_add(cy->cap, vec3_mult(cy->height, cy->dir)), mrt_ray_point(p->t, p->ray)));
 	if (m <= __FLT_EPSILON__)
 	{
 		normal = vec3_mult(-1, cy->dir);
@@ -101,7 +110,7 @@ t_vector3	mrt_cylinder_normal(t_pixel	*p)
 	return (normal);
 }
 
-double	mrt_cylinder_cast_shadow(t_pixel *p, t_object *obj, t_light *light)
+double		mrt_cylinder_cast_shadow(t_pixel *p, t_object *obj, t_light *light)
 {
 	t_mrt_ray	*ray;
 	double		t;

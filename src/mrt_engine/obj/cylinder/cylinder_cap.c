@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 18:38:03 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/07 22:51:39 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/07 23:13:04 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ double	mrt_cylinder_calc_caps(t_cylinder *cy, t_mrt_ray *ray,
 	}
 	else
 	{
-		a = vec3_dot(vec3_sub(ray->origin, vec3_add(cy->cap, 
+		a = vec3_dot(vec3_sub(ray->origin, vec3_add(cy->cap,
 			vec3_mult(cy->height, cy->dir))), normal);
 		b = vec3_dot(ray->direction, normal);
 	}

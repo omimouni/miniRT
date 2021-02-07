@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 16:15:40 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/07 22:38:05 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/07 23:16:04 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ static void		mrt_cylinder_equation(t_cylinder *cy, t_mrt_ray *ray,
 	double	c;
 	double	det;
 
-	a = vec3_dot(ray->direction, ray->direction) 
+	a = vec3_dot(ray->direction, ray->direction)
 		- powf(vec3_dot(ray->direction, cy->dir), 2);
-	b = 2 * (vec3_dot(ray->direction, vec3_sub(ray->origin, cy->cap)) 
-		- vec3_dot(ray->direction, cy->dir) 
+	b = 2 * (vec3_dot(ray->direction, vec3_sub(ray->origin, cy->cap))
+		- vec3_dot(ray->direction, cy->dir)
 		* vec3_dot(vec3_sub(ray->origin, cy->cap), cy->dir));
 	c = vec3_dot(vec3_sub(ray->origin, cy->cap),
-		vec3_sub(ray->origin, cy->cap)) 
-		- powf(vec3_dot(vec3_sub(ray->origin, cy->cap), cy->dir), 2) 
+		vec3_sub(ray->origin, cy->cap))
+		- powf(vec3_dot(vec3_sub(ray->origin, cy->cap), cy->dir), 2)
 		- (cy->diameter / 2) * (cy->diameter / 2);
 	det = b * b - 4 * a * c;
 	if (det < 0)
@@ -55,8 +55,8 @@ char			mrt_cylinder_check(t_cylinder *cy, t_mrt_ray *ray, double t)
 {
 	double	m;
 
-	m = vec3_dot(ray->direction, cy->dir) * t + 
-	vec3_dot(vec3_sub(ray->origin, cy->cap), cy->dir);
+	m = vec3_dot(ray->direction, cy->dir) * t +
+		vec3_dot(vec3_sub(ray->origin, cy->cap), cy->dir);
 	if (m <= cy->height && m >= __FLT_EPSILON__)
 		return (1);
 	return (0);
