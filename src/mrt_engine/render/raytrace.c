@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 16:57:48 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/07 11:44:46 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void			mrt_raytrace(t_mrt_ray *ray)
 		}
 		current = current->next;
 	}
+
 	mrt_calc_light(pixel);
 	free(pixel);
 }
