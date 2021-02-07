@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:53:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/07 18:53:12 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/07 21:30:52 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ double	mrt_cylinder_intersect(t_mrt_ray *ray, t_object *obj)
 
 	// Calculating Intersection with caps
 	tcy_cap_top = mrt_cylinder_calc_caps(cy, ray, MRT_CYLINDER_CAP_TOP);
-	// tcy_cap_end = mrt_cylinder_calc_caps(cy, ray, MRT_CYLINDER_CAP_END);
+	tcy_cap_end = mrt_cylinder_calc_caps(cy, ray, MRT_CYLINDER_CAP_END);
 
 	// Calculate Caps ---
 	double l = vec3_length(vec3_sub(cy->cap, mrt_ray_point(tcy_cap_top, ray)));
@@ -91,6 +91,11 @@ double	mrt_cylinder_intersect(t_mrt_ray *ray, t_object *obj)
 	{
 		return (tcy_cap_top);
 	}
+	l = vec3_length(vec3_sub(vec3_add(cy->cap, vec3_mult(cy->height, cy->dir)), mrt_ray_point(tcy_cap_end, ray)));
+	m = vec3_dot(ray->direction, cy->dir) * tcy_cap_end + 
+	vec3_dot(vec3_sub(ray->origin, vec3_add(cy->cap, vec3_mult(cy->height, cy->dir))), cy->dir);
+	if (l < cy->diameter / 2 && m <= __FLT_EPSILON__)
+		return (tcy_cap_end);
 	return (INFINITY);
 }
 
@@ -104,15 +109,22 @@ t_vector3	mrt_cylinder_normal(t_pixel	*p)
 	cy = (t_cylinder *)p->obj->object;
 	m = vec3_dot(p->ray->direction, cy->dir) * p->t + 
 		vec3_dot(vec3_sub(p->ray->origin, cy->cap), cy->dir);
+	double l = vec3_length(vec3_sub(vec3_add(cy->cap, vec3_mult(cy->height, cy->dir)), mrt_ray_point(p->t, p->ray)));
+	
 	if (m <= __FLT_EPSILON__)
 	{
-		p->light_cof = 10;
 		normal = vec3_mult(-1, cy->dir);
 	}
 	else
 	{
 		p->c_m = m;
 		normal = vec3_sub(p->hitpoint, vec3_sub(cy->cap, vec3_mult(-m, cy->dir)));
+	}
+	m = vec3_dot(p->ray->direction, cy->dir) * p->t + 
+	vec3_dot(vec3_sub(p->ray->origin, vec3_add(cy->cap, vec3_mult(cy->height, cy->dir))), cy->dir);
+	if (m <= __FLT_EPSILON__ && l <= cy->diameter / 2)
+	{
+		normal = vec3_mult(1, cy->dir);
 	}
 	return (normal);
 }
