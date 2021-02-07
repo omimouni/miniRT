@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:53:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/07 16:14:36 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/07 18:53:12 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,18 @@ double		mrt_cylinder_cap(double m, double t, t_mrt_ray *ray,
 	return (t);
 }
 
+/*
+** Cylinder Intersection 
+** 
+*/
+
 double	mrt_cylinder_intersect(t_mrt_ray *ray, t_object *obj)
 {
-	double	a;
-	double	b;
-	double	c;
-	double	det;
-	double	t1;
-	double	t2;
+	double		tcylinder;
+	double		tcy_cap_top;
+	double		tcy_cap_end;
+
 	double	t3;
-	double	tx;
 	double	k1;
 	double	k2;
 	double	m;
@@ -58,55 +60,36 @@ double	mrt_cylinder_intersect(t_mrt_ray *ray, t_object *obj)
 	t_vector3	norm;
 
 	cy = (t_cylinder *)obj->object;
-	x = vec3_sub(ray->origin, cy->cap);
 
-	a = vec3_dot(ray->direction, ray->direction)
-		- powf(vec3_dot(ray->direction, cy->dir), 2);
-	b = 2 * (vec3_dot(ray->direction, x) - vec3_dot(ray->direction, cy->dir)
-		* vec3_dot(x, cy->dir));
-	c = vec3_dot(x, x) - powf(vec3_dot(x, cy->dir), 2) 
-		- (cy->diameter / 2) * (cy->diameter / 2);
-	det = b * b - 4 * a * c;
-	// Calculate Caps ---
-	norm = vec3_normalize(vec3_mult(-1, cy->dir));
-	k1 = vec3_dot(vec3_sub(ray->origin, cy->cap), norm);
-	k2 = vec3_dot(ray->direction, norm);
-	if (!k2)
-		t3 = INFINITY;
-	else
-		t3 = (-k1 / k2);
-
-	if (det < 0)
-	{
-		t1 = INFINITY;
-		t2 = INFINITY;
-	}
-	else
-	{
-		t1 = (-b + sqrt(det)) / (2 * a);
-		t2 = (-b - sqrt(det)) / (2 * a);
-	}
-	if (t1 < t2)
-		tx = t1;
-	else
-		tx = t2;
-		
-	// Calculate Caps ---
-	double l = vec3_length(vec3_sub(cy->cap, mrt_ray_point(t3, ray)));
+	// Point of Intersection with Cylinder Shape
+	tcylinder = mrt_cylinder_calc_shape((t_cylinder *)obj->object, ray);
 	
-	m = vec3_dot(ray->direction, cy->dir) * t3 + 
+	// // Calculate Caps ---
+	// norm = vec3_normalize(vec3_mult(-1, cy->dir));
+	// k1 = vec3_dot(vec3_sub(ray->origin, cy->cap), norm);
+	// k2 = vec3_dot(ray->direction, norm);
+	// if (!k2)
+	// 	t3 = INFINITY;
+	// else
+	// 	t3 = (-k1 / k2);
+
+	// Calculating Intersection with caps
+	tcy_cap_top = mrt_cylinder_calc_caps(cy, ray, MRT_CYLINDER_CAP_TOP);
+	// tcy_cap_end = mrt_cylinder_calc_caps(cy, ray, MRT_CYLINDER_CAP_END);
+
+	// Calculate Caps ---
+	double l = vec3_length(vec3_sub(cy->cap, mrt_ray_point(tcy_cap_top, ray)));
+	m = vec3_dot(ray->direction, cy->dir) * tcy_cap_top + 
 	vec3_dot(vec3_sub(ray->origin, cy->cap), cy->dir);
 
 	// Limiting the cylinder 
-
-	m = vec3_dot(ray->direction, cy->dir) * tx + 
+	m = vec3_dot(ray->direction, cy->dir) * tcylinder + 
 	vec3_dot(vec3_sub(ray->origin, cy->cap), cy->dir);
 	if (m <= cy->height && m >= __FLT_EPSILON__)
-		return (tx);
+		return (tcylinder);
 	if (l < cy->diameter / 2 && m <= __FLT_EPSILON__)
 	{
-		printf("%f %f %f \n", t1, t2, t3);
-		return (t3);
+		return (tcy_cap_top);
 	}
 	return (INFINITY);
 }

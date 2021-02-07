@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 14:50:31 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/07 18:52:32 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 
 # define MRT_RENDER_WINDOW	10
 # define MRT_RENDER_IMAGE	11
+
+# define MRT_CYLINDER_CAP_TOP -1
+# define MRT_CYLINDER_CAP_END 1
 
 # ifdef __MACH__
 #  define MRT_KEY_ESC 			53
@@ -109,8 +112,14 @@ double			mrt_sphere_cast_shadow(t_pixel *p, t_object *obj,
 t_object		*cylinder_new(t_point3 cap, t_vector3 dir, t_color color,
 				double d[]);
 double			mrt_cylinder_intersect(t_mrt_ray *ray, t_object *obj);
+double			mrt_cylinder_calc_shape(t_cylinder *cy, t_mrt_ray *ray);
 t_vector3		mrt_cylinder_normal(t_pixel	*p);
-double			mrt_cylinder_cast_shadow(t_pixel *p, t_object *obj, t_light *light);
+double			mrt_cylinder_cast_shadow(t_pixel *p, t_object *obj,
+				t_light *light);
+double			mrt_cylinder_calc_caps(t_cylinder *cy, t_mrt_ray *ray,
+				char type);
+double			mrt_cylinder_render_caps(t_cylinder *cy, t_mrt_ray *ray,
+				double p, char type);
 
 t_light			*light_new(t_point3 point, double brightness, t_color color);
 void			mrt_light_points(t_pixel *pixel);
