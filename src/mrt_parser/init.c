@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/07 14:32:59 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/07 16:11:04 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ static void testScene()
 
 	// Objs ------
 	double d[] = {0, 0};
-	obj_add(plane_new(vec3_new(0, -5, 0), vec3_new(0, 1, 0), color_from_rgb(255, 255, 255)));
+	obj_add(plane_new(vec3_new(0, -5, 0), vec3_new(0, 1, 0), 
+	color_from_rgb(255, 255, 255)));
 	// obj_add(plane_new(vec3_new(0, 10, 0), vec3_new(0, -1, 0), color_from_rgb(255, 255, 255)));
 
 	d[0] = 20;
@@ -46,8 +47,10 @@ static void testScene()
 	// obj_add(cylinder_new(vec3_new(3, -10, -20), vec3_new(0, 1, 0), color_from_rgb(0, 255, 255), d));
 	d[0] = 5;
 	d[1] = .5;
-	obj_add(cylinder_new(vec3_new(0, 0, -5), vec3_new(.5, 0, -1), color_from_rgb(241, 196, 15), d));
-	obj_add(cylinder_new(vec3_new(2.5, 1, -10), vec3_new(-.5, 0, 1), color_from_rgb(241, 196, 15), d));
+	obj_add(cylinder_new(vec3_new(0, 0, -5), vec3_new(.5, 0, -1), 
+	color_from_rgb(241, 196, 15), d));
+	obj_add(cylinder_new(vec3_new(2.5, 1, -10), vec3_new(-.5, 0, 1), 
+	color_from_rgb(241, 196, 15), d));
 	// g_conf->objs = ft_glist_add(g_conf->objs, sphere_new(vec3_new(0, 0, -15), 2,
 	// 	color_from_rgb(241, 196, 15)));
 	// g_conf->objs = ft_glist_add(g_conf->objs, sphere_new(vec3_new(0, 0, -20), 5,
