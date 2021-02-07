@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:53:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 16:55:53 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 21:19:52 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,18 @@ double	mrt_cylinder_intersect(t_mrt_ray *ray, t_object *obj)
 	b = 2 * (vec3_dot(ray->direction, x) - vec3_dot(ray->direction, cy->dir)
 		* vec3_dot(x, cy->dir));
 	c = vec3_dot(x, x) - powf(vec3_dot(x, cy->dir), 2) 
-		- cy->diameter * cy->diameter;
+		- (cy->diameter / 2) * (cy->diameter / 2);
 	det = b * b - 4 * a * c;
+
+	// Calculate Caps ---
+	
+	// Calculate Caps ---
 	if (det < 0)
 		return (INFINITY);
+	else if (det == 0)
+	{
+		printf("I look at caaap\n");
+	}
 	t1 = (-b + sqrt(det)) / (2 * a);
 	t2 = (-b - sqrt(det)) / (2 * a);
 	m = 0;
@@ -71,6 +79,8 @@ double	mrt_cylinder_intersect(t_mrt_ray *ray, t_object *obj)
 	{
 		m = vec3_dot(ray->direction, cy->dir) * t1 + 
 		vec3_dot(vec3_sub(ray->origin, cy->cap), cy->dir);
+		
+		printf("%f \n", m);
 		if (m > cy->height || m < 0)
 			return (INFINITY);
 		return mrt_cylinder_cap(m, t1, ray, cy);

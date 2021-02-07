@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 16:41:52 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/06 21:13:47 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,18 @@ static void	obj_add(t_object *ob)
 {
 	g_conf->objs = ft_glist_add(g_conf->objs, ob);
 }
+
+static void	camera_add(t_camera *camera)
+{
+	g_conf->cameras = ft_glist_add(g_conf->cameras, camera);
+}
+
 // @todo: test scene
 static void testScene()
 {
 	// Cameras ---
-	g_conf->cameras = ft_glist_add(g_conf->cameras,
-			camera_new_(vec3_new(0, 0, -5), vec3_new(0, 0, -1), 70));
-	g_conf->cameras = ft_glist_add(g_conf->cameras,
-			camera_new_(vec3_new(0, 0, -20), vec3_new(0, 0, 1), 70));
+	camera_add(camera_new_(vec3_new(0, 0, 0), vec3_new(0, 0, -1), 70));
+	camera_add(camera_new_(vec3_new(0, 0, 0), vec3_new(0, 0, -1), 70));
 	// g_conf->cameras = ft_glist_add(g_conf->cameras,
 	// 		camera_new_(vec3_new(0, 0, 0), vec3_new(0, 0, -1), 70));
 
