@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 18:38:03 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/07 18:52:21 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/07 22:51:39 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,29 @@
 
 extern	t_conf	*g_conf;
 
-double	mrt_cylinder_render_caps(t_cylinder *cy, t_mrt_ray *ray,
-		double p, char type)
+char	mrt_cylinder_check_cap(t_cylinder *cy, t_mrt_ray *ray, double t,
+		char type)
 {
+	double	m;
 	double	dist;
 
 	if (type == MRT_CYLINDER_CAP_TOP)
-		dist = vec3_length(vec3_sub(cy->cap, mrt_ray_point(p, ray)));
+	{
+		dist = vec3_length(vec3_sub(cy->cap, mrt_ray_point(t, ray)));
+		m = vec3_dot(ray->direction, cy->dir) * t
+			+ vec3_dot(vec3_sub(ray->origin, cy->cap), cy->dir);
+	}
 	else
-		dist = vec3_length(vec3_sub(vec3_add(cy->cap, vec3_mult(cy->height, 
-	cy->dir)), mrt_ray_point(p, ray)));
-
-	printf("%f \n", dist);
+	{
+		dist = vec3_length(vec3_sub(vec3_add(cy->cap, vec3_mult(cy->height,
+				cy->dir)), mrt_ray_point(t, ray)));
+		m = vec3_dot(ray->direction, cy->dir) * t +
+			vec3_dot(vec3_sub(ray->origin, vec3_add(cy->cap,
+			vec3_mult(cy->height, cy->dir))), cy->dir);
+	}
+	if (dist < cy->diameter / 2 && m <= __FLT_EPSILON__)
+		return (1);
+	return (0);
 }
 
 double	mrt_cylinder_calc_caps(t_cylinder *cy, t_mrt_ray *ray,

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/07 18:52:32 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/07 22:52:22 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,9 @@ double			mrt_cylinder_calc_caps(t_cylinder *cy, t_mrt_ray *ray,
 				char type);
 double			mrt_cylinder_render_caps(t_cylinder *cy, t_mrt_ray *ray,
 				double p, char type);
+char			mrt_cylinder_check(t_cylinder *cy, t_mrt_ray *ray, double t);
+char			mrt_cylinder_check_cap(t_cylinder *cy, t_mrt_ray *ray, double t,
+				char type);
 
 t_light			*light_new(t_point3 point, double brightness, t_color color);
 void			mrt_light_points(t_pixel *pixel);

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 16:15:40 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/07 18:38:29 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/07 22:38:05 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,15 @@ double			mrt_cylinder_calc_shape(t_cylinder *cy, t_mrt_ray *ray)
 
 	mrt_cylinder_equation(cy, ray, &t1, &t2);
 	return (t1 < t2 ? t1 : t2);
+}
+
+char			mrt_cylinder_check(t_cylinder *cy, t_mrt_ray *ray, double t)
+{
+	double	m;
+
+	m = vec3_dot(ray->direction, cy->dir) * t + 
+	vec3_dot(vec3_sub(ray->origin, cy->cap), cy->dir);
+	if (m <= cy->height && m >= __FLT_EPSILON__)
+		return (1);
+	return (0);
 }

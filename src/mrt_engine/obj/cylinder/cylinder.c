@@ -6,11 +6,13 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:53:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/07 21:30:52 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/07 22:54:07 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+extern	t_conf	*g_conf;
 
 t_object	*cylinder_new(t_point3 cap, t_vector3 dir, t_color color,
 	double d[])
@@ -50,52 +52,22 @@ double	mrt_cylinder_intersect(t_mrt_ray *ray, t_object *obj)
 	double		tcylinder;
 	double		tcy_cap_top;
 	double		tcy_cap_end;
-
-	double	t3;
-	double	k1;
-	double	k2;
-	double	m;
-	t_vector3	x;
+	double		m;
 	t_cylinder	*cy;
-	t_vector3	norm;
 
 	cy = (t_cylinder *)obj->object;
-
-	// Point of Intersection with Cylinder Shape
 	tcylinder = mrt_cylinder_calc_shape((t_cylinder *)obj->object, ray);
-	
-	// // Calculate Caps ---
-	// norm = vec3_normalize(vec3_mult(-1, cy->dir));
-	// k1 = vec3_dot(vec3_sub(ray->origin, cy->cap), norm);
-	// k2 = vec3_dot(ray->direction, norm);
-	// if (!k2)
-	// 	t3 = INFINITY;
-	// else
-	// 	t3 = (-k1 / k2);
-
-	// Calculating Intersection with caps
 	tcy_cap_top = mrt_cylinder_calc_caps(cy, ray, MRT_CYLINDER_CAP_TOP);
 	tcy_cap_end = mrt_cylinder_calc_caps(cy, ray, MRT_CYLINDER_CAP_END);
-
-	// Calculate Caps ---
-	double l = vec3_length(vec3_sub(cy->cap, mrt_ray_point(tcy_cap_top, ray)));
-	m = vec3_dot(ray->direction, cy->dir) * tcy_cap_top + 
-	vec3_dot(vec3_sub(ray->origin, cy->cap), cy->dir);
-
-	// Limiting the cylinder 
-	m = vec3_dot(ray->direction, cy->dir) * tcylinder + 
-	vec3_dot(vec3_sub(ray->origin, cy->cap), cy->dir);
-	if (m <= cy->height && m >= __FLT_EPSILON__)
+	if (mrt_cylinder_check((t_cylinder *)obj->object, ray, tcylinder))
 		return (tcylinder);
-	if (l < cy->diameter / 2 && m <= __FLT_EPSILON__)
+	if (g_conf->is_bonus)
 	{
-		return (tcy_cap_top);
+		if (mrt_cylinder_check_cap(cy, ray, tcy_cap_top, MRT_CYLINDER_CAP_TOP))
+			return (tcy_cap_top);
+		if (mrt_cylinder_check_cap(cy, ray, tcy_cap_end, MRT_CYLINDER_CAP_END))
+			return (tcy_cap_end);
 	}
-	l = vec3_length(vec3_sub(vec3_add(cy->cap, vec3_mult(cy->height, cy->dir)), mrt_ray_point(tcy_cap_end, ray)));
-	m = vec3_dot(ray->direction, cy->dir) * tcy_cap_end + 
-	vec3_dot(vec3_sub(ray->origin, vec3_add(cy->cap, vec3_mult(cy->height, cy->dir))), cy->dir);
-	if (l < cy->diameter / 2 && m <= __FLT_EPSILON__)
-		return (tcy_cap_end);
 	return (INFINITY);
 }
 
