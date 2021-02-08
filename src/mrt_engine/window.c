@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:41:18 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 17:23:39 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 18:13:14 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 extern t_conf	*g_conf;
 t_mlx_img	f;
+int		g_img_height;
+int		g_img_width;
 
 
 void	mrt_update_window(void)
@@ -28,7 +30,7 @@ void	mrt_mlx_init(void)
 	int		vv;
 
 	g_conf->mlx.ptr = mlx_init();
-	f.ptr = mlx_xpm_file_to_image(g_conf->mlx.ptr, "/home/omimouni/Desktop/miniRT/textures/death.xpm", &f.bpp, &f.bpp);
+	f.ptr = mlx_xpm_file_to_image(g_conf->mlx.ptr, "./textures/brick.xpm", &g_img_width, &g_img_height);
 	f.addr = mlx_get_data_addr(f.ptr, &f.bpp, &f.line_height, &f.endian);
 }
 
