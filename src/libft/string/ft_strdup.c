@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 18:05:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 12:27:34 by omimouni         ###   ########.fr       */
+/*   Created: 2021/02/08 12:26:47 by omimouni          #+#    #+#             */
+/*   Updated: 2021/02/08 12:27:23 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STRING_H
-# define FT_STRING_H
+#include "ft_string.h"
 
-#include <stdlib.h>
-#include <unistd.h>
+char	*ft_strdup(const char *s1)
+{
+	char	*ptr;
+	size_t	i;
 
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-size_t	ft_strlen(const char *str);
-
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *str, int fd);
-char	*ft_strdup(const char *s1);
-#endif
+	i = ft_strlen(s1) + 1;
+	if (!(ptr = (char *)malloc(sizeof(char) * i)))
+		return (NULL);
+	ptr[--i] = '\0';
+	while (i + 1)
+	{
+		ptr[i] = s1[i];
+		i--;
+	}
+	return (ptr);
+}

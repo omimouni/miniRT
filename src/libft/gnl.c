@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:18:24 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 10:08:08 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 12:28:11 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int		gnl_buffer(int fd, char **ptr)
 	{
 		buffer[n_char] = '\0';
 		if (*ptr == NULL)
-			*ptr = strdup(buffer);
+			*ptr = ft_strdup(buffer);
 		else
 		{
 			tmp = ft_strjoin(*ptr, buffer);
@@ -45,13 +45,13 @@ static	int		gnl_set_line(char **ptr, int length, char **line)
 	if ((*ptr)[length] == '\n')
 	{
 		*line = ft_substr(*ptr, 0, length);
-		tmp = strdup(*ptr + length + 1);
+		tmp = ft_strdup(*ptr + length + 1);
 		free(*ptr);
 		*ptr = tmp;
 	}
 	else
 	{
-		*line = strdup(*ptr);
+		*line = ft_strdup(*ptr);
 		free(*ptr);
 		*ptr = NULL;
 		return (1);
@@ -70,7 +70,7 @@ int				gnl(int fd, char **line)
 	n_char = gnl_buffer(fd, &ptr);
 	if (n_char < 0)
 		return (-1);
-	*line = strdup("");
+	*line = ft_strdup("");
 	if (ptr == NULL)
 		return (0);
 	length = 0;
