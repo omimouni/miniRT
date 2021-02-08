@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 23:18:05 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 09:12:49 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 16:57:23 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,20 @@ t_color			color_from_rgb(int r, int g, int b)
 	return (color);
 }
 
+t_color			color_from_hex(int hex)
+{
+	t_color	tmp;
+	double r;
+	double g;
+	double b;
+
+	tmp.r = ((hex >> 16) & 0xFF);
+	tmp.g = ((hex >> 8) & 0xFF);
+	tmp.b = ((hex) & 0xFF);
+	return (tmp);
+}
+
 int				hex_from_color(t_color color)
 {
 	return (color.r * 65536 + color.g * 256 + color.b);
-}
-
-t_color			color_add(t_color a, t_color b)
-{
-	t_color	c;
-
-	c.r = ft_clamp_int(a.r + b.r, 0, 255);
-	c.g = ft_clamp_int(a.g + b.g, 0, 255);
-	c.b = ft_clamp_int(a.b + b.b, 0, 255);
-	return (c);
-}
-
-t_color			color_multi(t_color a, double con)
-{
-	t_color	c;
-
-	c.r = ft_clamp_int((a.r * con), 0, 255);
-	c.g = ft_clamp_int((a.g * con), 0, 255);
-	c.b = ft_clamp_int((a.b * con), 0, 255);
-	return (c);
 }

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 14:56:39 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 16:52:01 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ void			mrt_cam_event(int keycode);
 
 int				hex_from_color(t_color color);
 t_color			color_from_rgb(int r, int g, int b);
+t_color			color_from_hex(int hex);
 t_color			color_add(t_color a, t_color b);
 t_color			color_multi(t_color a, double con);
 

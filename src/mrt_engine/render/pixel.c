@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 14:51:57 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 15:05:58 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 16:58:23 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		mrt_pixel_update(t_pixel *p, double t, t_mrt_ray *ray,
 				t_object *obj)
 {
 	p->t = t;
-	// p->ray = ray;
+	// IF YOU STUCK YOU DID REMOVE p->ray = ray FROM HERE RETARD.
 	p->hitpoint = mrt_ray_point(t, ray);
 	p->obj = obj;
 	if (p->obj->type == MRT_TYPE_SPHERE)
