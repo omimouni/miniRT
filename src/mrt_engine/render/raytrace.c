@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/07 22:16:51 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 12:06:22 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void			mrt_raytrace(t_mrt_ray *ray)
 			tmp_t = mrt_intersect_plane(ray, obj);
 		if (obj->type == MRT_TYPE_CYLINDER)
 			tmp_t = mrt_cylinder_intersect(ray, obj);
+		if (obj->type == MRT_TYPE_TRIANGLE)
+			tmp_t = mrt_triangle_intersection(ray, obj);
 		if (tmp_t < pixel->t && tmp_t > 0){
 			mrt_pixel_update(pixel, tmp_t, ray, obj);
 		}

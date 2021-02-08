@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 09:25:40 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 10:41:01 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,32 @@
 
 # ifdef __MACH__
 #  define MRT_KEY_ESC 			53
-#	define MRT_KEY_NUM5			87
-#	define MRT_KEY_NUM4			86
-#	define MRT_KEY_NUM6			88
-#	define MRT_KEY_NUM2			84
-#	define MRT_KEY_NUM8			91
-#	define MRT_KEY_NUM7			89
-#	define MRT_KEY_NUM9			92
-#	define MRT_KEY_ARROW_UP		126
-#	define MRT_KEY_ARROW_DOWN	125
-#	define MRT_KEY_ARROW_LEFT	123
-#	define MRT_KEY_ARROW_RIGHT	124
+#  define MRT_KEY_NUM5			87
+#  define MRT_KEY_NUM4			86
+#  define MRT_KEY_NUM6			88
+#  define MRT_KEY_NUM2			84
+#  define MRT_KEY_NUM8			91
+#  define MRT_KEY_NUM7			89
+#  define MRT_KEY_NUM9			92
+#  define MRT_KEY_ARROW_UP		126
+#  define MRT_KEY_ARROW_DOWN	125
+#  define MRT_KEY_ARROW_LEFT	123
+#  define MRT_KEY_ARROW_RIGHT	124
 #endif
 
 # ifdef __linux__
-# 	define MRT_KEY_ESC			65307
-#	define MRT_KEY_NUM5			65437
-#	define MRT_KEY_NUM4			65430
-#	define MRT_KEY_NUM6			65432
-#	define MRT_KEY_NUM2			65433
-#	define MRT_KEY_NUM8			65431
-#	define MRT_KEY_NUM7			65429
-#	define MRT_KEY_NUM9			65434
-#	define MRT_KEY_ARROW_UP		65362
-#	define MRT_KEY_ARROW_DOWN	65364
-#	define MRT_KEY_ARROW_LEFT	65361
-#	define MRT_KEY_ARROW_RIGHT	65363
+#  define MRT_KEY_ESC			65307
+#  define MRT_KEY_NUM5			65437
+#  define MRT_KEY_NUM4			65430
+#  define MRT_KEY_NUM6			65432
+#  define MRT_KEY_NUM2			65433
+#  define MRT_KEY_NUM8			65431
+#  define MRT_KEY_NUM7			65429
+#  define MRT_KEY_NUM9			65434
+#  define MRT_KEY_ARROW_UP		65362
+#  define MRT_KEY_ARROW_DOWN	65364
+#  define MRT_KEY_ARROW_LEFT	65361
+#  define MRT_KEY_ARROW_RIGHT	65363
 #endif
 
 # include <math.h>
@@ -126,17 +126,17 @@ char			mrt_cylinder_check_cap(t_cylinder *cy, t_mrt_ray *ray, double t,
 
 t_object		*triangle_new(t_point3 pa, t_point3 pb, t_point3 pc,
 				t_color color);
-double			triangle_intersection(t_mrt_ray *ray, t_object *obj);
+double			mrt_triangle_intersection(t_mrt_ray *ray, t_object *obj);
 
 t_light			*light_new(t_point3 point, double brightness, t_color color);
 void			mrt_light_points(t_pixel *pixel);
 void			mrt_light_ambiant(t_pixel *pixel);
 
-void	mrt_move_cam_x(int x);
-void	mrt_move_cam_y(int y);
-void	mrt_move_cam_z(int z);
-void	mrt_rotate_cam_x(double x);
-void	mrt_rotate_cam_y(double y);
-void	mrt_cam_event(int keycode);
+void			mrt_move_cam_x(int x);
+void			mrt_move_cam_y(int y);
+void			mrt_move_cam_z(int z);
+void			mrt_rotate_cam_x(double x);
+void			mrt_rotate_cam_y(double y);
+void			mrt_cam_event(int keycode);
 
 #endif
