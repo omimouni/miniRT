@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:05:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 12:27:34 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 20:38:30 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ size_t	ft_strlen(const char *str);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *str, int fd);
 char	*ft_strdup(const char *s1);
+char	**ft_split(char const *str, char c);
 #endif

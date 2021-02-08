@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 16:48:22 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 18:32:59 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 21:17:33 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ t_camera	*camera_new_(t_point3 origin, t_vector3 target, int fov)
 	tmp->origin = origin;
 	tmp->target = target;
 	tmp->fov = (double)fov * M_PI / 180;
-	tmp->aspect_ratio = (double)g_conf->width / (double)g_conf->height;
 	return (tmp);
 }
 
 void		camera_calc(t_camera *camera)
 {
 	// camera->target = vec3_normalize(camera->target);
+	camera->aspect_ratio = (double)g_conf->width / (double)g_conf->height;
 	camera->normal = vec3_normalize(camera->target);
 	camera->scene_h = atan(camera->fov / 2);
 	camera->scene_w = camera->aspect_ratio * camera->scene_h;

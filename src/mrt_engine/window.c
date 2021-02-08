@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:41:18 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 18:13:14 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 21:26:28 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	mrt_mlx_init(void)
 	int		vv;
 
 	g_conf->mlx.ptr = mlx_init();
-	f.ptr = mlx_xpm_file_to_image(g_conf->mlx.ptr, "./textures/brick.xpm", &g_img_width, &g_img_height);
+	f.ptr = mlx_xpm_file_to_image(g_conf->mlx.ptr, "./textures/earth_01.xpm", &g_img_width, &g_img_height);
 	f.addr = mlx_get_data_addr(f.ptr, &f.bpp, &f.line_height, &f.endian);
 }
 
