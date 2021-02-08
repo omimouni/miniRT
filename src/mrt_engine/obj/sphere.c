@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 22:23:10 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 09:55:18 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 16:20:15 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ double		mrt_intersect_sphere_equation(t_mrt_ray *ray, t_sphere *s,
 	k1 = vec3_dot(ray->direction, ray->direction);
 	k2 = 2 * vec3_dot(vec3_sub(ray->origin, s->center), ray->direction);
 	k3 = vec3_dot(vec3_sub(ray->origin, s->center),
-		vec3_sub(ray->origin, s->center)) - s->diameter * s->diameter;
+		vec3_sub(ray->origin, s->center)) - (s->diameter / 2) * (s->diameter / 2);
 	det = k2 * k2 - 4 * k1 * k3;
 	if (det < 0)
 	{
