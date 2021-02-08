@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 10:35:45 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 14:43:18 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # define MRT_TYPE_SPHERE	22
 # define MRT_TYPE_CYLINDER	23
 # define MRT_TYPE_TRIANGLE	24
+
+# define MRT_CYLINDER_CAP_TOP -1
+# define MRT_CYLINDER_CAP_END 1
 
 typedef struct		s_color {
 	int				r;
