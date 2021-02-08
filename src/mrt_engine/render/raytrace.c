@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 20:24:01 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 00:04:40 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ static void		mrt_uv_plane(t_pixel *p)
 	char		*dst;
 
 	mrt_uv_plane_calc(&u, &v, p);
-	u = floor(u * (g_img_height / 5));
-	v = floor(v * (g_img_width / 5));
+	u = floor(u * (g_img_height / 10));
+	v = floor(v * (g_img_width  / 10));
 	dst = f.addr + ((int)u * f.line_height + (int)v * (f.bpp / 8));
 	p->obj->color = color_from_hex(*(int *)dst);
 }
@@ -81,8 +81,11 @@ static	void	mrt_calc_light(t_pixel *pixel)
 			pixel->obj->type == MRT_TYPE_SPHERE ? mrt_uv_sphere(pixel) : NULL;
 			pixel->obj->type == MRT_TYPE_PLANE ? mrt_uv_plane(pixel) : NULL;
 		}
-		mrt_light_points(pixel);
-		mrt_light_ambiant(pixel);
+		if (g_conf->is_ambient)
+		{
+			mrt_light_points(pixel);
+			mrt_light_ambiant(pixel);
+		}
 	}
 	else
 		pixel->ray->color = color_from_rgb(0, 0, 0);
@@ -114,7 +117,6 @@ void			mrt_raytrace(t_mrt_ray *ray)
 		}
 		current = current->next;
 	}
-
 	mrt_calc_light(pixel);
 	free(pixel);
 }

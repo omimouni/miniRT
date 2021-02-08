@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 09:17:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 09:30:43 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 23:09:21 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	mrt_move_cam_x(int x)
 	camera->origin = vec3_add(camera->origin, vec3_mult(x, camera->right));
 	camera_calc(camera);
 	mrt_render();
-	mrt_update_window();
+	// mrt_update_window();
 }
 
 void	mrt_move_cam_y(int y)
@@ -35,7 +35,7 @@ void	mrt_move_cam_y(int y)
 	camera->origin = vec3_add(camera->origin, vec3_mult(y, camera->up));
 	camera_calc(camera);
 	mrt_render();
-	mrt_update_window();
+	// mrt_update_window();
 }
 
 void	mrt_move_cam_z(int z)
@@ -47,7 +47,7 @@ void	mrt_move_cam_z(int z)
 	camera->origin = vec3_add(camera->origin, vec3_mult(z, camera->normal));
 	camera_calc(camera);
 	mrt_render();
-	mrt_update_window();
+	// mrt_update_window();
 }
 
 void	mrt_cam_event(int keycode)

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 16:52:01 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 00:01:22 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # ifdef __MACH__
 #  define MRT_KEY_ESC 			53
+#  define MRT_KEY_NUM1			65436
 #  define MRT_KEY_NUM5			87
 #  define MRT_KEY_NUM4			86
 #  define MRT_KEY_NUM6			88
@@ -35,6 +36,7 @@
 # ifdef __linux__
 #  define MRT_KEY_ESC			65307
 #  define MRT_KEY_NUM5			65437
+#  define MRT_KEY_NUM1			65436
 #  define MRT_KEY_NUM4			65430
 #  define MRT_KEY_NUM6			65432
 #  define MRT_KEY_NUM2			65433
@@ -166,4 +168,7 @@ t_object		*triangle_new(t_point3 pa, t_point3 pb, t_point3 pc,
 				t_color color);
 double			mrt_triangle_intersection(t_mrt_ray *ray, t_object *obj);
 
+
+void			mrt_put_string(char *str, int x, int y);
 #endif
+  
