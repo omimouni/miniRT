@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 18:33:51 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 20:26:01 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static void testScene()
 
 	// Lights ----
 	g_conf->lights = ft_glist_add(g_conf->lights,
-			light_new(vec3_new(0, 0, 0), 2, color_from_rgb(0, 255, 255)));
+			light_new(vec3_new(0, 0, 0), .5, color_from_rgb(255, 255, 255)));
 	// g_conf->lights = ft_glist_add(g_conf->lights,
 	// 		light_new(vec3_new(4, 10, -6), .5, color_from_rgb(255, 0, 255)));
 
@@ -93,7 +93,7 @@ void	mrt_init(void)
 	g_conf = (t_conf *)malloc(sizeof(t_conf));
 	g_conf->errcode = 0;
 	g_conf->is_save = 0;
-	g_conf->is_bonus = 1;
+	g_conf->is_bonus = 0;
 	g_conf->height = 423; //423;
 	g_conf->width = 752; //752;
 	g_conf->cameras = ft_glist_init();
