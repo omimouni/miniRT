@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:53:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/07 23:28:39 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 08:11:48 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,58 +56,6 @@ double		mrt_cylinder_intersect(t_mrt_ray *ray, t_object *obj)
 			return (tcy_cap_end);
 	}
 	return (INFINITY);
-}
-
-char		mrt_cylinder_check_normal(t_cylinder *cy, t_mrt_ray *ray, double t,
-			char type)
-{
-	double		m;
-	double		dist;
-	t_vector3	normal;
-
-	dist = vec3_length(vec3_sub(vec3_add(cy->cap, vec3_mult(cy->height,
-			cy->dir)), mrt_ray_point(t, ray)));
-	if (type == MRT_CYLINDER_CAP_TOP)
-		m = vec3_dot(ray->direction, cy->dir) * t 
-			+ vec3_dot(vec3_sub(ray->origin, cy->cap), cy->dir);
-	else
-		m = vec3_dot(ray->direction, cy->dir) * t + 
-			vec3_dot(vec3_sub(ray->origin, vec3_add(cy->cap,
-			vec3_mult(cy->height, cy->dir))), cy->dir);
-	if (m <= __FLT_EPSILON__)
-		return (MRT_NORMAL_CAP_TOP);
-	else
-		return (MRT_NORMAL_CYLINDER);
-	if (m <= __FLT_EPSILON__ && dist <= cy->diameter / 2)
-		return (MRT_NORMAL_CAP_END);
-}
-
-t_vector3	mrt_cylinder_normal(t_pixel	*p)
-{
-	t_vector3	normal;
-	t_cylinder	*cy;
-	char		normal_check;
-
-	cy = (t_cylinder *)p->obj->object;
-	m = vec3_dot(p->ray->direction, cy->dir) * p->t + 
-		vec3_dot(vec3_sub(p->ray->origin, cy->cap), cy->dir);
-	l = vec3_length(vec3_sub(vec3_add(cy->cap, vec3_mult(cy->height, cy->dir)), mrt_ray_point(p->t, p->ray)));
-	if (m <= __FLT_EPSILON__)
-	{
-		normal = vec3_mult(-1, cy->dir);
-	}
-	else
-	{
-		p->c_m = m;
-		normal = vec3_sub(p->hitpoint, vec3_sub(cy->cap, vec3_mult(-m, cy->dir)));
-	}
-	m = vec3_dot(p->ray->direction, cy->dir) * p->t + 
-	vec3_dot(vec3_sub(p->ray->origin, vec3_add(cy->cap, vec3_mult(cy->height, cy->dir))), cy->dir);
-	if (m <= __FLT_EPSILON__ && l <= cy->diameter / 2)
-	{
-		normal = vec3_mult(1, cy->dir);
-	}
-	return (normal);
 }
 
 double		mrt_cylinder_cast_shadow(t_pixel *p, t_object *obj, t_light *light)

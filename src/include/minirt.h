@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/07 23:15:51 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 09:25:40 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void			mrt_error(void);
 
 void			mrt_render(void);
 void			mrt_render_loop(size_t swidth, size_t width ,
-	size_t sheight, size_t height);
+				size_t sheight, size_t height);
 
 void			mrt_hooks(void);
 void			mrt_window_loop(void);
@@ -124,7 +124,19 @@ char			mrt_cylinder_check(t_cylinder *cy, t_mrt_ray *ray, double t);
 char			mrt_cylinder_check_cap(t_cylinder *cy, t_mrt_ray *ray, double t,
 				char type);
 
+t_object		*triangle_new(t_point3 pa, t_point3 pb, t_point3 pc,
+				t_color color);
+double			triangle_intersection(t_mrt_ray *ray, t_object *obj);
+
 t_light			*light_new(t_point3 point, double brightness, t_color color);
 void			mrt_light_points(t_pixel *pixel);
 void			mrt_light_ambiant(t_pixel *pixel);
+
+void	mrt_move_cam_x(int x);
+void	mrt_move_cam_y(int y);
+void	mrt_move_cam_z(int z);
+void	mrt_rotate_cam_x(double x);
+void	mrt_rotate_cam_y(double y);
+void	mrt_cam_event(int keycode);
+
 #endif

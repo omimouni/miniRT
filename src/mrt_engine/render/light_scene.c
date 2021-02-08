@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 20:43:27 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/07 20:29:50 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 08:21:59 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ static void		mrt_light_point_calc(t_pixel *pixel)
 		pixel->ray->color = color_multi(pixel->obj->color, (.6 * (light->angle
 			* (light->brightness * 6))) / (powf(light->distance, 1)));
 		pixel->ray->color = color_add(pixel->ray->color, color);
+		if (pixel->is_cap)
+			pixel->ray->color = color_multi(pixel->ray->color, .5);
 		pixel->light_cof = light->angle / pixel->light_cof;
 		current = current->next;
 	}

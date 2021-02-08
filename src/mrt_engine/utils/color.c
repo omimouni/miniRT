@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 23:18:05 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 10:02:33 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 09:12:49 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,6 @@ t_color			color_from_rgb(int r, int g, int b)
 int				hex_from_color(t_color color)
 {
 	return (color.r * 65536 + color.g * 256 + color.b);
-}
-
-t_amblight		ambiant_light_new(double i, int r, int g, int b)
-{
-	t_amblight al;
-
-	al.color = color_from_rgb(r, g, b);
-	al.intensity = i;
-	return (al);
 }
 
 t_color			color_add(t_color a, t_color b)

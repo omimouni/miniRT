@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   triangle.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/24 16:54:56 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 09:15:34 by omimouni         ###   ########.fr       */
+/*   Created: 2021/02/08 08:24:52 by omimouni          #+#    #+#             */
+/*   Updated: 2021/02/08 09:16:12 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-extern t_conf *g_conf;
-
-void			mrt_put_pixel(size_t x, size_t y, t_color color)
+t_object	*triangle_new(t_point3 pa, t_point3 pb, t_point3 pc, t_color color)
 {
-	char		*dst;
-	t_mlx_img	*img;
+	t_object	*obj;
+	t_triangle	*tr;
 
-	img = &g_conf->mlx.img;
-	dst = img->addr + (y * img->line_height + x * (img->bpp / 8));
-	*(unsigned int *)dst = hex_from_color(color);
+	obj = malloc(sizeof(t_object));
+	tr = malloc(sizeof(t_triangle));
+	tr->point_a = pa;
+	tr->point_b = pb; 
+	tr->point_c = pc;
+	tr->color = color;
+	obj->type = MRT_TYPE_TRIANGLE;
+	obj->color = color;
+	obj->object = tr;
+	return (obj);
 }
 
-t_camera		*mrt_current_camera(void)
+double		triangle_intersection(t_mrt_ray *ray, t_object *obj)
 {
-	return ((t_camera *)g_conf->current_camera->obj);
 }

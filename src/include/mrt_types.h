@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 16:43:28 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 09:01:19 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define MRT_TYPE_PLANE		21
 # define MRT_TYPE_SPHERE	22
 # define MRT_TYPE_CYLINDER	23
+# define MRT_TYPE_TRIANGLE	24
 
 typedef struct		s_color {
 	int				r;
@@ -83,6 +84,13 @@ typedef	struct		s_cylinder {
 	double			diameter;
 }					t_cylinder;
 
+typedef struct		s_triangle {
+	t_vector3		point_a;
+	t_vector3		point_b;
+	t_vector3		point_c;
+	t_color			color;	
+}					t_triangle;
+
 typedef	struct		s_pixel {
 	t_object		*obj;
 	t_point3		hitpoint;
@@ -90,7 +98,7 @@ typedef	struct		s_pixel {
 	t_vector3		normal;
 	double			light_cof;
 	double			t;
-	double			c_m;
+	double			is_cap;
 }					t_pixel;
 
 typedef	struct		s_light	{
