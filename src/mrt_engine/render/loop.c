@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:40:21 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 17:03:14 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/08 21:26:54 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 extern t_conf	*g_conf;
 
-void				mrt_render_loop(size_t swidth, size_t width ,
+void				mrt_render_loop(size_t swidth, size_t width,
 	size_t sheight, size_t height)
 {
 	size_t		i;
@@ -22,9 +22,10 @@ void				mrt_render_loop(size_t swidth, size_t width ,
 	t_mrt_ray	*ray;
 
 	width = ft_clamp_int(width, 0, g_conf->width);
-	height = ft_clamp_int(width, 0, g_conf->height);
+	height = ft_clamp_int(height, 0, g_conf->height);
 	ray = mrt_ray_init(mrt_current_camera()->origin);
 	i = swidth;
+	printf("%ld %ld \n", width, height);
 	while (i < width)
 	{
 		j = sheight;
