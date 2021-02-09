@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 16:15:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 10:39:15 by omimouni         ###   ########.fr       */
+/*   Created: 2021/02/09 10:41:38 by omimouni          #+#    #+#             */
+/*   Updated: 2021/02/09 10:41:45 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "ft_string.h"
 
-t_conf		*g_conf;
-
-int	main(int argc, char **argv)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int		fd;
-	char	*line;
+	size_t			i;
+	unsigned char	*ss1;
+	unsigned char	*ss2;
 
-	mrt_init();
-	mrt_parser(argc, argv);
-	exit(0);
-	if (g_conf->is_save)
-		mrt_save_image();
-	else
-		mrt_window_loop();
+	ss1 = (unsigned char *)s1;
+	ss2 = (unsigned char *)s2;
+	i = 0;
+	while (i < n && (ss1[i] != '\0' || ss2[i] != '\0'))
+	{
+		if (ss1[i] != ss2[i])
+			return (ss1[i] - ss2[i]);
+		i++;
+	}
 	return (0);
 }

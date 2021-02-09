@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 09:35:59 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 10:45:28 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,10 @@
 void			mrt_init(void);
 
 void			mrt_parser(int argc, char **argv);
+void			mrt_trigger_error(int code);
 void			mrt_error(void);
+
+void			parse_resolution(char **key);
 
 /*
 ** mlx and raytracing

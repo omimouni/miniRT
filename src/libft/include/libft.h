@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:24:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 10:09:26 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 10:35:12 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,5 @@ int		gnl(int fd, char **line);
 
 double	ft_parsefloat(char *s);
 int		ft_clamp_int(int i, int min, int max);
+int		ft_atoi(const char *str);
 #endif

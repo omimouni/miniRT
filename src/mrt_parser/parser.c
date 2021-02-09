@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:30:25 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 09:45:52 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 10:46:44 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,18 @@
 
 extern t_conf	*g_conf;
 
-static void		mrt_trigger_error(int code)
+void		mrt_trigger_error(int code)
 {
 	g_conf->errcode = code;
 	mrt_error();
+}
+
+void			mrt_parser_switch(char *line)
+{
+	char	**key;
+
+	key = ft_split(line, ' ');
+	!ft_strncmp(key[0], "R", 1) ? parse_resolution(key) : NULL;
 }
 
 void			mrt_parser(int argc, char **argv)
@@ -38,13 +46,6 @@ void			mrt_parser(int argc, char **argv)
 			g_conf->is_save = 1;
 	}
 	while (gnl(fd, &line) && !g_conf->errcode)
-	{
-		key = ft_split(line, ' ');
-		if (!strncmp(key[0], "R", 1))
-		{
-			g_conf->width = atoi(key[1]);
-			g_conf->height = atoi(key[2]);
-		}
-	}
+		mrt_parser_switch(line);
 	free(line);
 }
