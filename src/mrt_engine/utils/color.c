@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 23:18:05 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 16:57:23 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 09:18:30 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ t_color			color_from_rgb(int r, int g, int b)
 t_color			color_from_hex(int hex)
 {
 	t_color	tmp;
-	double r;
-	double g;
-	double b;
 
 	tmp.r = ((hex >> 16) & 0xFF);
 	tmp.g = ((hex >> 8) & 0xFF);

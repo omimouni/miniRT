@@ -6,12 +6,12 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 00:04:25 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 08:59:30 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPES_H
-# define TYPES_H
+#ifndef MRT_TYPES_H
+# define MRT_TYPES_H
 
 # define MRT_TYPE_CAMERA	20
 # define MRT_TYPE_PLANE		21
@@ -63,9 +63,17 @@ typedef struct		s_mrt_ray {
 	t_color			color;
 }					t_mrt_ray;
 
+typedef	struct		s_texture {
+	t_mlx_img		xpm;
+	size_t			width;
+	size_t			height;
+}					t_texture;
+
 typedef struct		s_object {
 	char			type;
 	void			*object;
+	char			is_uv;
+	t_texture		texture;
 	t_color			color;
 }					t_object;
 
@@ -91,7 +99,7 @@ typedef struct		s_triangle {
 	t_vector3		point_a;
 	t_vector3		point_b;
 	t_vector3		point_c;
-	t_color			color;	
+	t_color			color;
 }					t_triangle;
 
 typedef	struct		s_pixel {
@@ -133,6 +141,6 @@ typedef	struct		s_conf {
 	char			is_render;
 	char			is_ambient;
 	t_generic_list	*lights;
-} 					t_conf;
+}					t_conf;
 
 #endif

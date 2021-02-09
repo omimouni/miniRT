@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 18:38:33 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 00:06:23 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 09:11:58 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void		mrt_next_cam(void)
 	mrt_render();
 }
 
-static void		mrt_light_switch()
+static void		mrt_light_switch(void)
 {
 	if (g_conf->is_ambient)
 		g_conf->is_ambient = 0;

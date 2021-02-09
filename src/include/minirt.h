@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 00:01:22 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 08:58:01 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,5 @@ t_object		*triangle_new(t_point3 pa, t_point3 pb, t_point3 pc,
 				t_color color);
 double			mrt_triangle_intersection(t_mrt_ray *ray, t_object *obj);
 
-
 void			mrt_put_string(char *str, int x, int y);
 #endif
-  

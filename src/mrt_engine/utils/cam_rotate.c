@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 09:19:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 23:09:12 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 09:17:35 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	mrt_rotate_cam_x(double x)
 	camera->target = dir;
 	camera_calc(camera);
 	mrt_render();
-	// mrt_update_window();
 }
 
 void	mrt_rotate_cam_y(double y)
@@ -39,5 +38,4 @@ void	mrt_rotate_cam_y(double y)
 	camera->target = dir;
 	camera_calc(camera);
 	mrt_render();
-	// mrt_update_window();
 }
