@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 14:19:51 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 14:47:19 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,6 @@ static void	camera_add(t_camera *camera)
 static void testScene()
 {
 	double d[] = {0, 0};
-
-	// Cameras ---
-	camera_add(camera_new_(vec3_new(0, 0, -10), vec3_new(0, 0, -1), 70));
-	camera_add(camera_new_(vec3_new(0, 0, 0), vec3_new(0, 0, -1), 70));
-	// camera_add(camera_new_(vec3_new(0, -20, -15), vec3_new(0, 1, 0), 70));
-	// camera_add(camera_new_(vec3_new(0, 0, 0), vec3_new(0, 0, -1), 70));
-	// g_conf->cameras = ft_glist_add(g_conf->cameras,
-	// 		camera_new_(vec3_new(0, 0, 0), vec3_new(0, 0, -1), 70));
-
 	// Objs ------
 	obj_add(sphere_new(vec3_new(0, 0, -15), 4, color_from_rgb(255, 0, 255)));
 	obj_add(plane_new(vec3_new(0, -5, 0), vec3_new(0, 1, 0), color_from_rgb(255, 255, 255)));
@@ -105,5 +96,5 @@ void	mrt_init(void)
 	g_conf->lights = ft_glist_init();
 	g_conf->is_ambient = 1;
 	g_conf->is_render = 0;
-	// testScene();
+	testScene();
 }
