@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 16:48:22 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 09:11:31 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 15:53:15 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ void		camera_calc(t_camera *camera)
 	camera->right = vec3_normalize(camera->right);
 	camera->up = vec3_cross(camera->normal, camera->right);
 	camera->up = vec3_normalize(camera->up);
-	vec3_show(camera->normal);
-	vec3_show(camera->upguide);
 }
 
 double		camera_position_x(size_t px)

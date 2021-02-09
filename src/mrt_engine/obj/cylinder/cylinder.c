@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:53:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 11:04:46 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 16:12:51 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ t_object	*cylinder_new(t_point3 cap, t_vector3 dir, t_color color,
 	cy = malloc(sizeof(t_cylinder));
 	cy->cap = cap;
 	cy->dir = vec3_normalize(dir);
-	cy->height = d[0];
-	cy->diameter = d[1];
+	cy->height = d[1];
+	cy->diameter = d[0];
 	obj->type = MRT_TYPE_CYLINDER;
 	obj->color = color;
 	obj->object = cy;

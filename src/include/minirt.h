@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 14:29:44 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 16:07:56 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@
 #  define MRT_KEY_ARROW_RIGHT	65363
 # endif
 
+# define ISN(x) (x == NULL)
+
 # include <math.h>
 # include <mlx.h>
 # include "libft.h"
@@ -69,7 +71,12 @@ void			mrt_error(void);
 void			mrt_parse_resolution(char **key);
 void			mrt_parse_ambient(char **key);
 void			mrt_parse_camera(char **key);
+void			mrt_parse_sphere(char **key);
+void			mrt_parse_plane(char **key);
+void			mrt_parse_cylinder(char **key);
+
 t_color			mrt_parse_color_valid(char *color);
+t_vector3		mrt_parse_vec3(char *cord, char type);
 
 /*
 ** mlx and raytracing

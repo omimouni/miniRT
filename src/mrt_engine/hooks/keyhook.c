@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 18:38:33 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 09:11:58 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 15:49:22 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,9 @@ static void		mrt_light_switch(void)
 
 int				mrt_key_handler(int keycode)
 {
-	printf("%d \n", keycode);
-	mrt_cam_event(keycode);
+	// printf("%d \n", keycode);
+	if (g_conf->is_bonus)
+		mrt_cam_event(keycode);
 	(keycode == MRT_KEY_NUM5) ? mrt_next_cam() : NULL;
 	(keycode == MRT_KEY_ESC) ? mrt_quit() : NULL;
 	(keycode == MRT_KEY_NUM1) ? mrt_light_switch() : NULL;
