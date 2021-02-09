@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:20:40 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/06 09:52:28 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 09:45:12 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	mrt_error(void)
 {
 	printf("Error\n");
 	printf("%d: %s\n", g_conf->errcode, *(g_err_list + g_conf->errcode - 1));
-	exit (-1);
+	exit(-1);
 }

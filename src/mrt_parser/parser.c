@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:30:25 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 21:24:25 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 09:45:52 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 extern t_conf	*g_conf;
 
-static void	mrt_trigger_error(int code)
+static void		mrt_trigger_error(int code)
 {
 	g_conf->errcode = code;
 	mrt_error();
 }
 
-void	mrt_parser(int argc, char **argv)
+void			mrt_parser(int argc, char **argv)
 {
 	int		fd;
 	char	*line;
@@ -40,16 +40,11 @@ void	mrt_parser(int argc, char **argv)
 	while (gnl(fd, &line) && !g_conf->errcode)
 	{
 		key = ft_split(line, ' ');
-		// if (strncmp(key[0], "R", 2))
-		// {
-		// 	printf("%s", key[0]);
-		// }
 		if (!strncmp(key[0], "R", 1))
 		{
 			g_conf->width = atoi(key[1]);
 			g_conf->height = atoi(key[2]);
 		}
 	}
-	// printf("%ld %ld", g_conf->width, g_conf->height);
 	free(line);
 }

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 08:58:01 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 09:35:59 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # ifdef __MACH__
 #  define MRT_KEY_ESC 			53
-#  define MRT_KEY_NUM1			65436
+#  define MRT_KEY_NUM1			83
 #  define MRT_KEY_NUM5			87
 #  define MRT_KEY_NUM4			86
 #  define MRT_KEY_NUM6			88
@@ -141,6 +141,7 @@ t_object		*plane_new(t_point3 cords, t_vector3 normal, t_color color);
 double			mrt_intersect_plane(t_mrt_ray *ray, t_object *obj);
 double			mrt_plane_cast_shadow(t_pixel *p, t_object *obj,
 				t_light *light);
+void			mrt_uv_plane(t_pixel *p);
 
 t_object		*sphere_new(t_point3 center, double diameter, t_color color);
 double			mrt_intersect_sphere_equation(t_mrt_ray *ray, t_sphere *s,
@@ -148,6 +149,7 @@ double			mrt_intersect_sphere_equation(t_mrt_ray *ray, t_sphere *s,
 double			mrt_intersect_sphere(t_mrt_ray *ray, t_object *obj);
 double			mrt_sphere_cast_shadow(t_pixel *p, t_object *obj,
 				t_light *light);
+void			mrt_uv_sphere(t_pixel *p);
 
 t_object		*cylinder_new(t_point3 cap, t_vector3 dir, t_color color,
 				double d[]);

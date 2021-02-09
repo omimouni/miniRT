@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:15:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 23:03:46 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 09:44:21 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_conf		*g_conf;
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int		fd;
 	char	*line;
