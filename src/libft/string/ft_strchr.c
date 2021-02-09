@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 23:54:49 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 11:26:30 by omimouni         ###   ########.fr       */
+/*   Created: 2021/02/09 11:04:58 by omimouni          #+#    #+#             */
+/*   Updated: 2021/02/09 11:06:42 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_strchr(const char *s, int c)
 {
 	size_t	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (s[i] != (unsigned char)c)
+	{
+		if (s[i] == '\0')
+			return (NULL);
 		i++;
-	return (i);
+	}
+	return ((char *)(s + i));
 }

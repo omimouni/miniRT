@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:05:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 10:42:00 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 11:06:47 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void	ft_putstr_fd(char *str, int fd);
 char	*ft_strdup(const char *s1);
 char	**ft_split(char const *str, char c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strchr(const char *s, int c);
 #endif
