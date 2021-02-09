@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 12:16:16 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 14:29:44 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 
 # define MRT_RENDER_WINDOW	10
 # define MRT_RENDER_IMAGE	11
+
+# define MRT_VEC3_NORMALIZED	43
+# define MRT_VEC3_STANDARD		44
 
 # ifdef __MACH__
 #  define MRT_KEY_ESC 			53
@@ -65,6 +68,7 @@ void			mrt_error(void);
 
 void			mrt_parse_resolution(char **key);
 void			mrt_parse_ambient(char **key);
+void			mrt_parse_camera(char **key);
 t_color			mrt_parse_color_valid(char *color);
 
 /*

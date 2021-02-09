@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:20:40 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 12:28:31 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/09 14:42:14 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,12 @@ char	*g_err_list[] = {
 	"Height can't be null or zero", //  5
 	"Width and height must be Integers", //  6
 	"Ambient light intensity should be in range [0.0, 1.0]", //  7
-	"The given color format isn't valid.", //  8
-	"A color value can only be an Integer.", //  9
+	"The given color format isn't valid", //  8
+	"A color value can only be an Integer", //  9
+	"No camera found", //  10
+	"The cordinates are invalid", //  11
+	"The vector is not normalized", //  12
+	"Camera is invalid", //  13
 };
 
 void	mrt_error(void)
