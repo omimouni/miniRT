@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 08:59:30 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/10 23:55:32 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ typedef	struct		s_pixel {
 	double			light_cof;
 	double			t;
 	double			is_cap;
+	char			is_shadow;
 }					t_pixel;
 
 typedef	struct		s_light	{

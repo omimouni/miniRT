@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/10 22:39:32 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/11 00:00:32 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	mrt_init(void)
 	g_conf = (t_conf *)malloc(sizeof(t_conf));
 	g_conf->errcode = 0;
 	g_conf->is_save = 0;
-	g_conf->is_bonus = 0;
+	g_conf->is_bonus = 1;
 	g_conf->height = 800; //423;
 	g_conf->width = 500; //752;
 	g_conf->cameras = ft_glist_init();

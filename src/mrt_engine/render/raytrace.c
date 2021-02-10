@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/10 23:21:00 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/11 00:03:25 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void		mrt_calc_light(t_pixel *pixel)
 		if (g_conf->is_ambient)
 		{
 			mrt_light_points(pixel);
-			mrt_light_ambiant(pixel);
+			// mrt_light_ambiant(pixel);
 		}
 	}
 	else

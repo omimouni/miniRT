@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 14:51:57 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 09:43:47 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/10 23:55:43 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_pixel		*pixel_new(double t, t_object *obj, t_mrt_ray *ray)
 	tmp->ray = ray;
 	tmp->is_cap = 0;
 	tmp->light_cof = 1;
+	tmp->is_shadow = 0;
 	if (ray != NULL)
 		tmp->hitpoint = mrt_ray_point(t, ray);
 	tmp->t = t;

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 10:28:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/10 23:21:59 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/11 00:12:02 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 extern	t_conf	*g_conf;
 
-static void		mrt_light_point_shadow(t_pixel *pixel, t_light *light)
+static char		mrt_light_point_shadow(t_pixel *pixel, t_light *light)
 {
 	t_object		*obj;
 	t_generic_list	*current;
@@ -40,8 +40,10 @@ static t_color	mrt_light_diffuse(t_pixel *pixel, t_light *light, t_color cq, cha
 	t_color	color_buff;
 	double	delta;
 
-	delta = (cos(light->angle) * vec3_dot(light->dir, pixel->normal) * light->brightness);
 	base_color = pixel->obj->color;
+	if (light->angle <= 0)
+		return (color_from_hex(0));
+	delta = (cos(light->angle) * vec3_dot(light->dir, pixel->normal) * light->brightness);
 	color_buff = color_multi(light->color, delta);
 	base_color = color_multi(base_color, delta + .2);
 	color_buff = color_add(color_multi(color_buff, light->brightness), color_multi(base_color, .4));
@@ -67,12 +69,16 @@ void			mrt_light_points(t_pixel *pixel)
 		light->dir = vec3_normalize(light->dir);
 		light->angle = vec3_dot(light->dir, pixel->normal);
 		light->angle = light->angle < 0 ? 0 : light->angle;
-		light_color = mrt_light_diffuse(pixel, light, light_color, adable);
 		mrt_light_point_shadow(pixel, light);
+		light_color = mrt_light_diffuse(pixel, light, light_color, adable);
 		adable = 1;
 		current = current->next;
 	}
-	pixel->ray->color = light_color;
+	if (light->angle < 0 || pixel->is_shadow)
+		pixel->ray->color = color_multi(pixel->obj->color, 0);
+	else
+		pixel->ray->color = light_color;
+	pixel->is_shadow = 0;
 }
 
 void			mrt_light_ambiant(t_pixel *pixel)
