@@ -6,11 +6,12 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 07:59:15 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 08:17:38 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/10 15:27:52 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
 
 static void		mrt_cylinder_normal_calc(t_pixel *p, double *m, double *l,
 				char type)

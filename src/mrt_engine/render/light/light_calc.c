@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 10:28:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/10 11:49:32 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/10 23:21:59 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,32 @@ static void		mrt_light_point_shadow(t_pixel *pixel, t_light *light)
 	}
 }
 
-static t_color	mrt_light_diffuse(t_pixel *pixel, t_light *light, t_color c)
+static t_color	mrt_light_diffuse(t_pixel *pixel, t_light *light, t_color cq, char add)
 {
 	t_color	rgb;
-	t_color color;
+	t_color base_color;
 	t_color	color_buff;
+	double	delta;
 
-	rgb = color_multi(c, ((light->brightness / 2) + 
-	(light->distance / light->angle)));
-	rgb = color_add(rgb, color_multi(light->color, 
-	light->brightness * light->angle / (light->distance + .1)));
-	return (rgb);
+	delta = (cos(light->angle) * vec3_dot(light->dir, pixel->normal) * light->brightness);
+	base_color = pixel->obj->color;
+	color_buff = color_multi(light->color, delta);
+	base_color = color_multi(base_color, delta + .2);
+	color_buff = color_add(color_multi(color_buff, light->brightness), color_multi(base_color, .4));
+	if (add)
+		color_buff = color_add(color_buff, cq);
+	return (color_buff);
 }
 
 void			mrt_light_points(t_pixel *pixel)
 {
 	t_generic_list	*current;
 	t_light			*light;
-	t_color			c;
+	t_color			light_color;
+	char			adable;
 
 	current = g_conf->lights;
-	c = pixel->obj->color;
+	adable = 0;
 	while (current != NULL)
 	{
 		light = (t_light *)current->obj;
@@ -62,11 +67,12 @@ void			mrt_light_points(t_pixel *pixel)
 		light->dir = vec3_normalize(light->dir);
 		light->angle = vec3_dot(light->dir, pixel->normal);
 		light->angle = light->angle < 0 ? 0 : light->angle;
+		light_color = mrt_light_diffuse(pixel, light, light_color, adable);
 		mrt_light_point_shadow(pixel, light);
-		c = mrt_light_diffuse(pixel, light, c);
+		adable = 1;
 		current = current->next;
 	}
-	pixel->ray->color = c;
+	pixel->ray->color = light_color;
 }
 
 void			mrt_light_ambiant(t_pixel *pixel)
