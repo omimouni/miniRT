@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 15:53:42 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 19:05:55 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/10 08:03:13 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ void	mrt_parse_cylinder(char **key)
 	t_vector3	normal;
 	double		d[2];
 	t_color		color;
-
-	printf("M here");
 
 	base = mrt_parse_vec3(key[1], MRT_VEC3_STANDARD);
 	normal = mrt_parse_vec3(key[2], MRT_VEC3_NORMALIZED);

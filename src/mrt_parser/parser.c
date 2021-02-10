@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:30:25 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 16:10:38 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/10 08:09:45 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ void		mrt_trigger_error(int code)
 	mrt_error();
 }
 
+/*
+** FIXME: line 35 may segfault at some point.
+*/
+
 void			mrt_parser_switch(char *line)
 {
 	char	**key;
@@ -31,6 +35,7 @@ void			mrt_parser_switch(char *line)
 	!ft_strncmp(key[0], "c", 2) ? mrt_parse_camera(key) : NULL;
 	!ft_strncmp(key[0], "sp", 2) ? mrt_parse_sphere(key) : NULL;
 	!ft_strncmp(key[0], "pl", 2) ? mrt_parse_plane(key) : NULL;
+	!ft_strncmp(key[0], "l", 1) ? mrt_parse_light(key) : NULL;
 }
 
 void			mrt_parser(int argc, char **argv)

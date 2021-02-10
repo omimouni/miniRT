@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 10:43:01 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 16:12:25 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/10 08:10:32 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,18 @@ void	mrt_parse_camera(char **key)
 	fov = ft_parsefloat(key[3]);
 	g_conf->cameras = ft_glist_add(g_conf->cameras, 
 						camera_new_(pt, orient, fov));
+}
+
+void	mrt_parse_light(char **key)
+{
+	t_point3	pt;
+	double		val;
+	t_color		color;
+
+	pt = mrt_parse_vec3(key[1], MRT_VEC3_STANDARD);
+	val = ft_parsefloat(key[2]);
+	color = mrt_parse_color_valid(key[3]);
+	
+	g_conf->lights = ft_glist_add(g_conf->lights, 
+	light_new(pt, val, color));
 }
