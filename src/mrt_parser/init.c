@@ -6,33 +6,13 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 19:08:13 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/10 09:54:51 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 extern t_conf	*g_conf;
-
-static void	obj_add(t_object *ob)
-{
-	g_conf->objs = ft_glist_add(g_conf->objs, ob);
-}
-
-static void	camera_add(t_camera *camera)
-{
-	g_conf->cameras = ft_glist_add(g_conf->cameras, camera);
-}
-
-// @todo: test scene
-static void testScene()
-{
-	g_conf->lights = ft_glist_add(g_conf->lights,
-			light_new(vec3_new(0, 0, 0), .5, color_from_rgb(255, 255, 255)));
-	// g_conf->lights = ft_glist_add(g_conf->lights,
-	// 		light_new(vec3_new(4, 10, -6), .5, color_from_rgb(255, 0, 255)));
-
-}
 
 void	mrt_init(void)
 {
@@ -51,5 +31,4 @@ void	mrt_init(void)
 	g_conf->lights = ft_glist_init();
 	g_conf->is_ambient = 1;
 	g_conf->is_render = 0;
-	testScene();
 }

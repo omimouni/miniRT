@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light_scene.c                                      :+:      :+:    :+:   */
+/*   light_calc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/01 20:43:27 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/10 08:22:02 by omimouni         ###   ########.fr       */
+/*   Created: 2021/02/10 10:28:19 by omimouni          #+#    #+#             */
+/*   Updated: 2021/02/10 11:49:32 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,27 @@ static void		mrt_light_point_shadow(t_pixel *pixel, t_light *light)
 	}
 }
 
-static void		mrt_light_point_calc(t_pixel *pixel)
+static t_color	mrt_light_diffuse(t_pixel *pixel, t_light *light, t_color c)
+{
+	t_color	rgb;
+	t_color color;
+	t_color	color_buff;
+
+	rgb = color_multi(c, ((light->brightness / 2) + 
+	(light->distance / light->angle)));
+	rgb = color_add(rgb, color_multi(light->color, 
+	light->brightness * light->angle / (light->distance + .1)));
+	return (rgb);
+}
+
+void			mrt_light_points(t_pixel *pixel)
 {
 	t_generic_list	*current;
 	t_light			*light;
-	t_color			color;
+	t_color			c;
 
 	current = g_conf->lights;
+	c = pixel->obj->color;
 	while (current != NULL)
 	{
 		light = (t_light *)current->obj;
@@ -47,26 +61,19 @@ static void		mrt_light_point_calc(t_pixel *pixel)
 		light->distance = vec3_length(light->dir);
 		light->dir = vec3_normalize(light->dir);
 		light->angle = vec3_dot(light->dir, pixel->normal);
-		if (light->angle < 0)
-			light->angle = 0;
+		light->angle = light->angle < 0 ? 0 : light->angle;
 		mrt_light_point_shadow(pixel, light);
-		color = color_multi(light->color, (.4 * light->angle *
-			(light->brightness * 6)) / (powf(light->distance, 1)));
-		pixel->ray->color = color_multi(pixel->obj->color, (.6 * (light->angle
-			* (light->brightness * 6))) / (powf(light->distance, 1)));
-		pixel->ray->color = color_add(pixel->ray->color, color);
-		if (pixel->is_cap)
-			pixel->ray->color = color_multi(pixel->ray->color, .5);
-		pixel->light_cof = light->angle / pixel->light_cof;
+		c = mrt_light_diffuse(pixel, light, c);
 		current = current->next;
 	}
+	pixel->ray->color = c;
 }
 
 void			mrt_light_ambiant(t_pixel *pixel)
 {
 	t_color	c_color;
 	t_color	color;
-
+	
 	if (pixel->light_cof < .1)
 		c_color = color_multi(pixel->obj->color, pixel->light_cof * .1);
 	else
@@ -74,9 +81,4 @@ void			mrt_light_ambiant(t_pixel *pixel)
 	c_color = color_add(c_color, g_conf->al_calculated);
 	c_color = color_add(c_color, color_multi(pixel->ray->color, .5));
 	pixel->ray->color = c_color;
-}
-
-void			mrt_light_points(t_pixel *pixel)
-{
-	mrt_light_point_calc(pixel);
 }

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:20:40 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 14:42:14 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/10 11:36:34 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	*g_err_list[] = {
 	"The cordinates are invalid", //  11
 	"The vector is not normalized", //  12
 	"Camera is invalid", //  13
+	"No light found in the scene.", //  14
 };
 
 void	mrt_error(void)

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:30:25 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/10 08:09:45 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/10 11:31:57 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,28 @@ void		mrt_trigger_error(int code)
 ** FIXME: line 35 may segfault at some point.
 */
 
-void			mrt_parser_switch(char *line)
+int				mrt_parser_switch(char *line)
 {
 	char	**key;
 
 	key = ft_split(line, ' ');
-	!ft_strncmp(key[0], "R", 1) ? mrt_parse_resolution(key) : NULL;
-	!ft_strncmp(key[0], "A", 1) ? mrt_parse_ambient(key) : NULL;
-	!ft_strncmp(key[0], "cy", 2) ? mrt_parse_cylinder(key) : NULL;
-	!ft_strncmp(key[0], "c", 2) ? mrt_parse_camera(key) : NULL;
-	!ft_strncmp(key[0], "sp", 2) ? mrt_parse_sphere(key) : NULL;
-	!ft_strncmp(key[0], "pl", 2) ? mrt_parse_plane(key) : NULL;
-	!ft_strncmp(key[0], "l", 1) ? mrt_parse_light(key) : NULL;
+	if (ISN(key[0]))
+		return (0);
+	if (!ft_strncmp(key[0], "R", 1))
+		mrt_parse_resolution(key);
+	if (!ft_strncmp(key[0], "A", 1))
+		mrt_parse_ambient(key);
+	if (!ft_strncmp(key[0], "cy", 2))
+		mrt_parse_cylinder(key);
+	if (!ft_strncmp(key[0], "c", 2))
+		mrt_parse_camera(key);
+	if (!ft_strncmp(key[0], "pl", 2))
+		mrt_parse_plane(key);
+	if (!ft_strncmp(key[0], "sp", 2))
+		mrt_parse_sphere(key);
+	if (!ft_strncmp(key[0], "l", 1))
+		mrt_parse_light(key);
+	return (0);
 }
 
 void			mrt_parser(int argc, char **argv)

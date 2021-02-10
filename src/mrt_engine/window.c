@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:41:18 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 14:26:42 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/10 11:35:48 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ void	mrt_mlx_init(void)
 
 void	mrt_window_loop(void)
 {
-	if(g_conf->cameras == NULL)
-		mrt_trigger_error(10);
 	mrt_mlx_init();
 	g_conf->current_camera = g_conf->cameras;
 	g_conf->mlx.win = mlx_new_window(g_conf->mlx.ptr,
