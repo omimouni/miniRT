@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 15:53:42 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/10 08:03:13 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/11 11:41:40 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,18 @@ void	mrt_parse_cylinder(char **key)
 	
 	g_conf->objs = ft_glist_add(g_conf->objs, 
 		cylinder_new(base, normal, color, d));
+}
+
+void	mrt_parse_triangle(char **key)
+{
+	t_point3	pa;
+	t_point3	pb;
+	t_point3	pc;
+	t_color		c;
+
+	pa = mrt_parse_vec3(key[1], MRT_VEC3_STANDARD);
+	pb = mrt_parse_vec3(key[2], MRT_VEC3_STANDARD);
+	pc = mrt_parse_vec3(key[3], MRT_VEC3_STANDARD);
+	c = mrt_parse_color_valid(key[4]);
+	g_conf->objs = ft_glist_add(g_conf->objs, triangle_new(pa, pb, pc, c));
 }

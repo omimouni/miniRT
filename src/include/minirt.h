@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/10 08:04:25 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/11 12:05:18 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void			mrt_parse_light(char **key);
 void			mrt_parse_sphere(char **key);
 void			mrt_parse_plane(char **key);
 void			mrt_parse_cylinder(char **key);
+void			mrt_parse_triangle(char **key);
 
 t_color			mrt_parse_color_valid(char *color);
 t_vector3		mrt_parse_vec3(char *cord, char type);
@@ -187,6 +188,7 @@ char			mrt_cylinder_check_cap(t_cylinder *cy, t_mrt_ray *ray, double t,
 t_object		*triangle_new(t_point3 pa, t_point3 pb, t_point3 pc,
 				t_color color);
 double			mrt_triangle_intersection(t_mrt_ray *ray, t_object *obj);
+t_vector3		mrt_triangle_normal(t_pixel *p);
 
 void			mrt_put_string(char *str, int x, int y);
 #endif
