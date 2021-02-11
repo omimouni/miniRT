@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 23:33:06 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/11 16:13:45 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/11 16:42:18 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,5 @@ double		mrt_plane_cast_shadow(t_pixel *p, t_object *obj, t_light *light)
 		p->is_shadow = 1;
 		return (-1);
 	}
-	p->is_shadow = 0;
 	return (light->angle);
 }
