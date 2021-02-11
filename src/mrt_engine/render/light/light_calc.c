@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 10:28:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/11 00:12:02 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/11 10:51:55 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ static t_color	mrt_light_diffuse(t_pixel *pixel, t_light *light, t_color cq, cha
 	t_color base_color;
 	t_color	color_buff;
 	double	delta;
-
+	
 	base_color = pixel->obj->color;
-	if (light->angle <= 0)
-		return (color_from_hex(0));
+	if (pixel->is_shadow)
+		return (color_from_hex(0xFF0000));
 	delta = (cos(light->angle) * vec3_dot(light->dir, pixel->normal) * light->brightness);
 	color_buff = color_multi(light->color, delta);
 	base_color = color_multi(base_color, delta + .2);
@@ -74,11 +74,7 @@ void			mrt_light_points(t_pixel *pixel)
 		adable = 1;
 		current = current->next;
 	}
-	if (light->angle < 0 || pixel->is_shadow)
-		pixel->ray->color = color_multi(pixel->obj->color, 0);
-	else
-		pixel->ray->color = light_color;
-	pixel->is_shadow = 0;
+	pixel->ray->color = light_color;
 }
 
 void			mrt_light_ambiant(t_pixel *pixel)

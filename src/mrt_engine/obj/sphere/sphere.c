@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 22:23:10 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/10 23:56:33 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/11 10:47:23 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,6 @@ double		mrt_sphere_cast_shadow(t_pixel *p, t_object *obj, t_light *light)
 		return (-1);
 		p->is_shadow = 1;
 	}
+	p->is_shadow = 0;
 	return (light->angle);
 }
