@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 10:28:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/11 11:16:17 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/12 09:42:27 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 extern	t_conf	*g_conf;
 
-static char		mrt_light_point_shadow(t_pixel *pixel, t_light *light)
+static void		mrt_light_point_shadow(t_pixel *pixel, t_light *light)
 {
 	t_object		*obj;
 	t_generic_list	*current;

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/10 23:55:32 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/12 09:38:35 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define MRT_TYPE_SPHERE	22
 # define MRT_TYPE_CYLINDER	23
 # define MRT_TYPE_TRIANGLE	24
+# define MRT_TYPE_SQUARE	25
 
 # define MRT_CYLINDER_CAP_TOP -1
 # define MRT_CYLINDER_CAP_END 1
@@ -101,6 +102,13 @@ typedef struct		s_triangle {
 	t_vector3		point_c;
 	t_color			color;
 }					t_triangle;
+
+typedef struct		s_square {
+	t_point3		point;
+	t_vector3		normal;
+	double			size;
+	t_color			color;
+}					t_square;
 
 typedef	struct		s_pixel {
 	t_object		*obj;
