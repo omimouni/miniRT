@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/11 00:03:25 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/12 09:52:01 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ static double	mrt_ray_switch(t_object *obj, t_mrt_ray *ray, t_pixel *p)
 		tmp_t = mrt_cylinder_intersect(ray, obj);
 	if (obj->type == MRT_TYPE_TRIANGLE)
 		tmp_t = mrt_triangle_intersection(ray, obj);
+	if (obj->type == MRT_TYPE_SQUARE)
+		tmp_t = mrt_square_intersection(ray, obj);
 	if (tmp_t < p->t && tmp_t > 0)
 		mrt_pixel_update(p, tmp_t, ray, obj);
 	return (tmp_t);

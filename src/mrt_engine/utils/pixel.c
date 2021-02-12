@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 14:51:57 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/11 12:02:15 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/12 10:25:57 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void		mrt_pixel_update(t_pixel *p, double t, t_mrt_ray *ray,
 		p->normal = mrt_cylinder_normal(p);
 	else if (p->obj->type == MRT_TYPE_TRIANGLE)
 		p->normal = mrt_triangle_normal(p);
+	else if (p->obj->type == MRT_TYPE_SQUARE)
+		p->normal = ((t_square *)p->obj->object)->normal;
 	p->normal = vec3_normalize(p->normal);
 }
 

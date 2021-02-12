@@ -6,19 +6,28 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/12 09:40:08 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/12 10:21:20 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
+
+/*
+** Program configs
+*/
+
 # define WINDOW_TITLE "miniRT"
 
-# define MRT_RENDER_WINDOW	10
-# define MRT_RENDER_IMAGE	11
+# define MRT_RENDER_WINDOW		10
+# define MRT_RENDER_IMAGE		11
 
 # define MRT_VEC3_NORMALIZED	43
 # define MRT_VEC3_STANDARD		44
+
+/*
+** Key mapping
+*/
 
 # ifdef __MACH__
 #  define MRT_KEY_ESC 			53
@@ -52,7 +61,16 @@
 #  define MRT_KEY_ARROW_RIGHT	65363
 # endif
 
+/*
+** Utility Marcos
+** TODO: add them to libft
+*/
+
 # define ISN(x) (x == NULL)
+
+/*
+** Header files
+*/
 
 # include <math.h>
 # include <mlx.h>
@@ -192,6 +210,7 @@ double			mrt_triangle_intersection(t_mrt_ray *ray, t_object *obj);
 t_vector3		mrt_triangle_normal(t_pixel *p);
 
 t_object		*square_new(t_point3 p, t_vector3 n, double s, t_color c);
+double			mrt_square_intersection(t_mrt_ray *ray, t_object *obj);
 
 void			mrt_put_string(char *str, int x, int y);
 #endif
