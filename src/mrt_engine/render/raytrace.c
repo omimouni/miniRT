@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/12 09:52:01 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/12 18:34:05 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ static void		mrt_calc_light(t_pixel *pixel)
 	if (pixel->obj != NULL)
 	{
 		pixel->ray->color = pixel->obj->color;
-		if (g_conf->is_bonus)
-		{
-			pixel->obj->type == MRT_TYPE_SPHERE ? mrt_uv_sphere(pixel) : NULL;
-			pixel->obj->type == MRT_TYPE_PLANE ? mrt_uv_plane(pixel) : NULL;
-		}
+		// if (g_conf->is_bonus)
+		// {
+		// 	pixel->obj->type == MRT_TYPE_SPHERE ? mrt_uv_sphere(pixel) : NULL;
+		// 	pixel->obj->type == MRT_TYPE_PLANE ? mrt_uv_plane(pixel) : NULL;
+		// }
 		if (g_conf->is_ambient)
 		{
 			mrt_light_points(pixel);
-			// mrt_light_ambiant(pixel);
+			mrt_light_ambiant(pixel);
 		}
 	}
 	else

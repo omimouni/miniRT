@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 10:28:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/12 09:42:27 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/12 18:35:31 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,16 @@ static t_color	mrt_light_diffuse(t_pixel *pixel, t_light *light, t_color cq, cha
 	double	delta;
 	
 	base_color = pixel->obj->color;
-	if (pixel->is_shadow)
-		return (color_from_hex(0xFF0000));
 	delta = (cos(light->angle) * vec3_dot(light->dir, pixel->normal) 
 	* light->brightness);
+	if (pixel->is_shadow)
+		delta = 0;
 	color_buff = color_multi(light->color, delta * 2);
 	base_color = color_multi(base_color, delta);
-	color_buff = color_add(color_multi(color_buff, light->brightness), 
-	color_multi(base_color, .4));
+	color_buff = color_add(color_multi(color_buff, delta), 
+	color_multi(base_color, 1));
+	if (pixel->is_shadow)
+		return (color_from_hex(0));
 	if (add)
 		color_buff = color_add(color_buff, cq);
 	return (color_buff);
@@ -71,8 +73,10 @@ void			mrt_light_points(t_pixel *pixel)
 		light->dir = vec3_normalize(light->dir);
 		light->angle = vec3_dot(light->dir, pixel->normal);
 		light->angle = light->angle < 0 ? 0 : light->angle;
+		mrt_light_point_shadow(pixel, light);
 		light_color = mrt_light_diffuse(pixel, light, light_color, adable);
-		//mrt_light_point_shadow(pixel, light);
+		if (pixel->is_shadow)
+			break ;
 		adable = 1;
 		current = current->next;
 	}
