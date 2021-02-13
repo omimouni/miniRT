@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 15:42:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/10 08:08:40 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/13 15:52:27 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,22 @@ t_vector3	mrt_parse_vec3(char *cord, char type)
 t_color		mrt_parse_color_valid(char *color)
 {
 	char	**rgb;
+	t_color	c;
 
 	rgb = ft_split(color, ',');
 	if (ISN(rgb[0]) || ISN(rgb[1]) || ISN(rgb[2]) || !ISN(rgb[3]))
 		mrt_trigger_error(8);
+	mrt_has_alphabet(rgb[0]);
+	mrt_has_alphabet(rgb[1]);
+	mrt_has_alphabet(rgb[2]);
 	(ft_strchr(rgb[0], '.') != NULL) ? mrt_trigger_error(9) : NULL; 
 	(ft_strchr(rgb[1], '.') != NULL) ? mrt_trigger_error(9) : NULL; 
 	(ft_strchr(rgb[2], '.') != NULL) ? mrt_trigger_error(9) : NULL;
-	return (color_from_rgb(ft_atoi(rgb[0]),
-			ft_atoi(rgb[1]), ft_atoi(rgb[2])));
+	c.r = ft_atoi(rgb[0]);
+	c.g = ft_atoi(rgb[1]);
+	c.b = ft_atoi(rgb[2]);
+	if ((c.r > 255 || c.r < 0) || (c.g > 255 || c.g < 0)
+		|| (c.b > 255 || c.b < 0))
+		mrt_trigger_error(8);
+	return (color_from_rgb(c.r, c.g, c.b));
 }

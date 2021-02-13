@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:20:40 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/10 11:36:34 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/13 15:52:21 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ char	*g_err_list[] = {
 	"The vector is not normalized", //  12
 	"Camera is invalid", //  13
 	"No light found in the scene.", //  14
+	"Invalid format", // 15
+	"Height and width can't be negative", // 16
+	"input can only be a number", //17
+	"Resolution can only be set once", //18
+	"Ambient light can only be set once", //19
 };
 
 void	mrt_error(void)

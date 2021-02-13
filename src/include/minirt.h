@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/13 11:58:13 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/13 15:46:42 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void			mrt_init(void);
 void			mrt_parser(int argc, char **argv);
 void			mrt_trigger_error(int code);
 void			mrt_error(void);
+void			mrt_has_alphabet(char *s);
 
 void			mrt_parse_resolution(char **key);
 void			mrt_parse_ambient(char **key);

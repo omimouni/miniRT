@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 10:43:01 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/10 08:18:07 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/13 15:44:16 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,36 @@ extern	t_conf	*g_conf;
 ** FIXME: memory Leaks
 */
 
+void		mrt_has_alphabet(char *s)
+{
+	size_t	i;
+
+	i = 0;
+	if (s[i] == '-' || s[i] == '+')
+		i++;
+	while (s[i] != 0)
+	{
+		if (s[i] < '0' || s[i] > '9')
+			mrt_trigger_error(17);
+		i++;
+	}
+}
+
 void		mrt_parse_resolution(char **key)
 {
 	double	width;
 	double	height;
 
+	if (g_conf->res_parsed)
+		mrt_trigger_error(18);
+	mrt_has_alphabet(key[1]);
+	mrt_has_alphabet(key[2]);
+	if (ISN(key[1]) || ISN(key[2]) || !ISN(key[3]))
+		mrt_trigger_error(15);
 	width = ft_atoi(key[1]);
 	height = ft_atoi(key[2]);
+	if (width < 0 || height < 0)
+		mrt_trigger_error(16);
 	if (width == 0)
 		mrt_trigger_error(4);
 	if (height == 0)
@@ -36,6 +59,7 @@ void		mrt_parse_resolution(char **key)
 		mrt_trigger_error(6);
 	g_conf->width = width;
 	g_conf->height = height;
+	g_conf->res_parsed = 1;
 }
 
 void	mrt_parse_ambient(char **key)
@@ -43,12 +67,16 @@ void	mrt_parse_ambient(char **key)
 	double	i;
 	t_color	c;
 
+	if (g_conf->am_parsed)
+		mrt_trigger_error(19);
+	mrt_has_alphabet(key[1]);
 	i =	ft_parsefloat(key[1]);
 	i > 1 || i < 0 ? mrt_trigger_error(7) : NULL;
 	c = mrt_parse_color_valid(key[2]);
 	g_conf->ambient_light = ambiant_light_new(i, c.r, c.g, c.b);
 	g_conf->al_calculated = color_multi(g_conf->ambient_light.color,
 		powf(g_conf->ambient_light.intensity, 2));
+	g_conf->am_parsed = 1;
 }
 
 void	mrt_parse_camera(char **key)

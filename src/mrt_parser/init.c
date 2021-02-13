@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:55:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/11 00:00:32 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/13 15:39:44 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,6 @@ void	mrt_init(void)
 	g_conf->lights = ft_glist_init();
 	g_conf->is_ambient = 1;
 	g_conf->is_render = 0;
+	g_conf->res_parsed = 0;
+	g_conf->am_parsed = 0;
 }
