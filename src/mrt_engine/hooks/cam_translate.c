@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 09:17:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/12 17:01:47 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/13 11:42:47 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,4 @@ void	mrt_cam_event(int keycode)
 	(keycode == MRT_KEY_NUM9) ? mrt_move_cam_z(1) : NULL;
 	(keycode == MRT_KEY_ARROW_UP) ? mrt_rotate_cam_y(-.2) : NULL;
 	(keycode == MRT_KEY_ARROW_DOWN) ? mrt_rotate_cam_y(.2) : NULL;
-	// (keycode == MRT_KEY_ARROW_LEFT) ? mrt_rotate_cam_x(-.2) : NULL;
-	// (keycode == MRT_KEY_ARROW_RIGHT) ? mrt_rotate_cam_x(.2) : NULL;
 }

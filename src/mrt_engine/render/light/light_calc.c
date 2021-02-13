@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 10:28:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/13 10:28:03 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/13 11:40:21 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,69 +14,63 @@
 
 extern	t_conf	*g_conf;
 
-// static void		mrt_light_point_shadow(t_pixel *pixel, t_light *light)
-// {
-// 	t_object		*obj;
-// 	t_generic_list	*current;
 
-// 	current = g_conf->objs;
-// 	while (current != NULL)
-// 	{
-// 		obj = (t_object *)current->obj;
-// 		if (obj->type == MRT_TYPE_SPHERE)
-// 			light->angle = mrt_sphere_cast_shadow(pixel, obj, light);
-// 		else if (obj->type == MRT_TYPE_PLANE)
-// 			light->angle = mrt_plane_cast_shadow(pixel, obj, light);
-// 		else if (obj->type == MRT_TYPE_CYLINDER)
-// 			light->angle = mrt_cylinder_cast_shadow(pixel, obj, light);
-// 		current = current->next;
-// 	}
-// }
+static t_color	mrt_light_diffuse(t_pixel *p, t_light *light)
+{
+	double	delta;
+	t_color	color;
+	t_color base_color;
 
-// static t_color	mrt_light_diffuse(t_pixel *pixel, t_light *light, t_color cq, char add)
-// {
-// 	t_color	rgb;
-// 	t_color base_color;
-// 	t_color	color_buff;
-// 	double	delta;
-	
-// 	base_color = pixel->obj->color;
-// 	delta = (cos(light->angle) * vec3_dot(light->dir, pixel->normal) 
-// 	* light->brightness);
-// 	if (pixel->is_shadow)
-// 		delta = 0;
-// 	color_buff = color_multi(light->color, delta * 2);
-// 	base_color = color_multi(base_color, delta);
-// 	color_buff = color_add(color_multi(color_buff, delta), 
-// 	color_multi(base_color, 1));
-// 	if (add)
-// 		color_buff = color_add(color_buff, cq);
-// 	return (color_buff);
-// }
+	delta = cos(light->angle) * light->angle * light->brightness;
+	base_color = p->obj->color;
+	base_color = color_multi(base_color, delta);
+	color = color_multi(light->color, delta);
+	color = color_add(base_color, color);
+	color = color_add(p->ray->color, color);
+	return (color);
+}
 
-void			mrt_light_points(t_pixel *pixel)
+void		mrt_light_point_shadow(t_pixel *pixel, t_light *light)
+{
+	t_object		*obj;
+	t_generic_list	*current;
+
+	current = g_conf->objs;
+	while (current != NULL)
+	{
+		obj = (t_object *)current->obj;
+		if (obj->type == MRT_TYPE_SPHERE)
+			light->angle = mrt_sphere_cast_shadow(pixel, obj, light);
+		else if (obj->type == MRT_TYPE_PLANE)
+			light->angle = mrt_plane_cast_shadow(pixel, obj, light);
+		else if (obj->type == MRT_TYPE_CYLINDER)
+			light->angle = mrt_cylinder_cast_shadow(pixel, obj, light);
+		else if (obj->type == MRT_TYPE_SQUARE)
+			light->angle = mrt_square_cast_shadow(pixel, obj, light);
+		else if (obj->type == MRT_TYPE_TRIANGLE)
+			light->angle = mrt_triangle_cast_shadow(pixel, obj, light);
+		current = current->next;
+	}
+}
+
+void		mrt_light_points(t_pixel *p)
 {
 	t_generic_list	*current;
 	t_light			*light;
-	t_color			light_color;
-	char			adable;
 
 	current = g_conf->lights;
-	adable = 0;
-	pixel->is_shadow = 0;
 	while (current != NULL)
 	{
 		light = (t_light *)current->obj;
-		light->dir = vec3_sub(light->point, pixel->hitpoint);
+		light->dir = vec3_sub(light->point, p->hitpoint);
 		light->distance = vec3_length(light->dir);
 		light->dir = vec3_normalize(light->dir);
-		light->angle = vec3_dot(light->dir, pixel->normal);
+		light->angle = vec3_dot(light->dir, p->normal);
 		light->angle = light->angle < 0 ? 0 : light->angle;
-		// mrt_light_point_shadow(pixel, light);
-		// light_color = mrt_light_diffuse(pixel, light, light_color, adable); adable = 1;
+		mrt_light_point_shadow(p, light);
+		p->ray->color = mrt_light_diffuse(p, light);
 		current = current->next;
 	}
-	pixel->ray->color = light_color;
 }
 
 void			mrt_light_ambiant(t_pixel *pixel)

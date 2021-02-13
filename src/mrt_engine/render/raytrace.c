@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/13 11:06:28 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/13 11:41:50 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,80 +14,19 @@
 
 extern t_conf	*g_conf;
 
-static t_color	mrt_light_diffuse(t_pixel *p, t_light *light)
-{
-	double	delta;
-	t_color	color;
-	t_color base_color;
 
-	delta = cos(light->angle) * light->angle * light->brightness;
-	base_color = p->obj->color;
-	base_color = color_multi(base_color, delta);
-	color = color_multi(light->color, delta);
-	color = color_add(base_color, color);
-	color = color_add(p->ray->color, color);
-	return (color);
-}
-
-static void		mrt_light_point_shadow(t_pixel *pixel, t_light *light)
-{
-	t_object		*obj;
-	t_generic_list	*current;
-
-	current = g_conf->objs;
-	while (current != NULL)
-	{
-		obj = (t_object *)current->obj;
-		if (obj->type == MRT_TYPE_SPHERE)
-			light->angle = mrt_sphere_cast_shadow(pixel, obj, light);
-		else if (obj->type == MRT_TYPE_PLANE)
-			light->angle = mrt_plane_cast_shadow(pixel, obj, light);
-		else if (obj->type == MRT_TYPE_CYLINDER)
-			light->angle = mrt_cylinder_cast_shadow(pixel, obj, light);
-		else if (obj->type == MRT_TYPE_SQUARE)
-			light->angle = mrt_square_cast_shadow(pixel, obj, light);
-		else if (obj->type == MRT_TYPE_TRIANGLE)
-			light->angle = mrt_triangle_cast_shadow(pixel, obj, light);
-		current = current->next;
-	}
-}
-
-static void		mrt_light_points_2(t_pixel *p)
-{
-	t_generic_list	*current;
-	t_light			*light;
-
-	current = g_conf->lights;
-	while (current != NULL)
-	{
-		light = (t_light *)current->obj;
-		light->dir = vec3_sub(light->point, p->hitpoint);
-		light->distance = vec3_length(light->dir);
-		light->dir = vec3_normalize(light->dir);
-		light->angle = vec3_dot(light->dir, p->normal);
-		light->angle = light->angle < 0 ? 0 : light->angle;
-		mrt_light_point_shadow(p, light);
-		p->ray->color = mrt_light_diffuse(p, light);
-		current = current->next;
-	}
-}
+/*
+** TODO: Add UV maps
+*/
 
 static void		mrt_calc_light(t_pixel *pixel)
 {
 	pixel->ray->color = color_from_rgb(0, 0, 0);
 	if (pixel->obj != NULL)
 	{
-		// if (g_conf->is_bonus)
-		// {
-		// 	pixel->obj->type == MRT_TYPE_SPHERE ? mrt_uv_sphere(pixel) : NULL;
-		// 	pixel->obj->type == MRT_TYPE_PLANE ? mrt_uv_plane(pixel) : NULL;
-		// }
+		mrt_light_points(pixel);
 		if (g_conf->is_ambient)
-		{
-			mrt_light_points_2(pixel);
-			// mrt_light_points(pixel);
-			// mrt_light_ambiant(pixel);
-		}
+			mrt_light_ambiant(pixel);
 	}
 }
 
