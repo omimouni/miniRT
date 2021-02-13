@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 10:28:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/13 10:13:03 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/13 10:28:03 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 extern	t_conf	*g_conf;
 
-static void		mrt_light_point_shadow(t_pixel *pixel, t_light *light)
-{
-	t_object		*obj;
-	t_generic_list	*current;
+// static void		mrt_light_point_shadow(t_pixel *pixel, t_light *light)
+// {
+// 	t_object		*obj;
+// 	t_generic_list	*current;
 
-	current = g_conf->objs;
-	while (current != NULL)
-	{
-		obj = (t_object *)current->obj;
-		if (obj->type == MRT_TYPE_SPHERE)
-			light->angle = mrt_sphere_cast_shadow(pixel, obj, light);
-		else if (obj->type == MRT_TYPE_PLANE)
-			light->angle = mrt_plane_cast_shadow(pixel, obj, light);
-		else if (obj->type == MRT_TYPE_CYLINDER)
-			light->angle = mrt_cylinder_cast_shadow(pixel, obj, light);
-		current = current->next;
-	}
-}
+// 	current = g_conf->objs;
+// 	while (current != NULL)
+// 	{
+// 		obj = (t_object *)current->obj;
+// 		if (obj->type == MRT_TYPE_SPHERE)
+// 			light->angle = mrt_sphere_cast_shadow(pixel, obj, light);
+// 		else if (obj->type == MRT_TYPE_PLANE)
+// 			light->angle = mrt_plane_cast_shadow(pixel, obj, light);
+// 		else if (obj->type == MRT_TYPE_CYLINDER)
+// 			light->angle = mrt_cylinder_cast_shadow(pixel, obj, light);
+// 		current = current->next;
+// 	}
+// }
 
 // static t_color	mrt_light_diffuse(t_pixel *pixel, t_light *light, t_color cq, char add)
 // {
@@ -72,7 +72,7 @@ void			mrt_light_points(t_pixel *pixel)
 		light->dir = vec3_normalize(light->dir);
 		light->angle = vec3_dot(light->dir, pixel->normal);
 		light->angle = light->angle < 0 ? 0 : light->angle;
-		mrt_light_point_shadow(pixel, light);
+		// mrt_light_point_shadow(pixel, light);
 		// light_color = mrt_light_diffuse(pixel, light, light_color, adable); adable = 1;
 		current = current->next;
 	}
