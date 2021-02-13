@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 09:36:53 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/12 17:13:14 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/13 10:52:04 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,22 @@ double		mrt_square_intersection(t_mrt_ray *ray, t_object *obj)
 	if ((proj1 < sq->size && proj1 > 0) && (proj2 < sq->size && proj2 > 0))
 		return (t);
 	return (INFINITY);
+}
+
+double	mrt_square_cast_shadow(t_pixel *p, t_object *obj, t_light *light)
+{
+	t_mrt_ray	*ray;
+	double		t;
+
+	ray = mrt_ray_init(p->hitpoint);
+	ray->direction = light->dir;
+	if (obj == p->obj)
+		return (light->angle);
+	t = mrt_square_intersection(ray, obj);
+	if (t < INFINITY && (t < light->distance && t > 0))
+	{
+		p->is_shadow = 1;
+		return (0);
+	}
+	return (light->angle);
 }

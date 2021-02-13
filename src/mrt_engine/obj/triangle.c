@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 08:24:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/11 12:05:01 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/13 11:10:43 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,19 @@ t_vector3	mrt_triangle_normal(t_pixel *p)
 	edge2 = vec3_sub(tr->point_c, tr->point_a);
 	normal = vec3_cross(edge1, edge2);
 	return (normal);
+}
+
+double	mrt_triangle_cast_shadow(t_pixel *p, t_object *obj, t_light *light)
+{
+	double		t;
+	t_mrt_ray	*ray;
+
+	ray = mrt_ray_init(p->hitpoint);
+	ray->direction = light->dir;
+	if (obj == p->obj)
+		return (light->angle);
+	t = mrt_triangle_intersection(ray, obj);
+	if (t < INFINITY && (t < light->distance && t > 0))
+		return (0);
+	return (light->angle);
 }

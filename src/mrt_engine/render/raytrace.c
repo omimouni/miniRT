@@ -6,18 +6,13 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/13 10:30:25 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/13 11:06:28 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 extern t_conf	*g_conf;
-
-void	printcolor(char *pre, t_color c)
-{
-	printf("%s %d %d %d \n",pre, c.r, c.g, c.b);
-}
 
 static t_color	mrt_light_diffuse(t_pixel *p, t_light *light)
 {
@@ -49,6 +44,10 @@ static void		mrt_light_point_shadow(t_pixel *pixel, t_light *light)
 			light->angle = mrt_plane_cast_shadow(pixel, obj, light);
 		else if (obj->type == MRT_TYPE_CYLINDER)
 			light->angle = mrt_cylinder_cast_shadow(pixel, obj, light);
+		else if (obj->type == MRT_TYPE_SQUARE)
+			light->angle = mrt_square_cast_shadow(pixel, obj, light);
+		else if (obj->type == MRT_TYPE_TRIANGLE)
+			light->angle = mrt_triangle_cast_shadow(pixel, obj, light);
 		current = current->next;
 	}
 }
