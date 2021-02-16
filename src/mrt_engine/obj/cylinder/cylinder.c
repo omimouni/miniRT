@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:53:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 14:14:37 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 15:34:02 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,10 @@ double		mrt_cylinder_cast_shadow(t_pixel *p, t_object *obj, t_light *light)
 	ray = mrt_ray_init(p->hitpoint);
 	ray->direction = light->dir;
 	if (obj == p->obj)
+	{
+		free(ray);
 		return (light->angle);
+	}
 	t = mrt_cylinder_intersect(ray, obj);
 	free(ray);
 	if (t < INFINITY && (t < light->distance && t > 0))

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 23:33:06 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 14:15:34 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 15:33:31 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ double		mrt_plane_cast_shadow(t_pixel *p, t_object *obj, t_light *light)
 	tmp = vec3_normalize(tmp);
 	ray->direction = tmp;
 	if (obj == p->obj)
+	{
+		free(ray);
 		return (light->angle);
+	}
 	t = mrt_intersect_plane(ray, obj);
 	free(ray);
 	if (t < INFINITY && (t < light->distance && t > 0))
