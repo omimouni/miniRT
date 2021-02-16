@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:30:25 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/12 09:39:46 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 14:46:21 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,21 @@ int				mrt_parser_switch(char *line)
 		return (0);
 	if (!ft_strncmp(key[0], "R", 1))
 		mrt_parse_resolution(key);
-	if (!ft_strncmp(key[0], "A", 1))
+	else if (!ft_strncmp(key[0], "A", 1))
 		mrt_parse_ambient(key);
-	if (!ft_strncmp(key[0], "cy", 2))
+	else if (!ft_strncmp(key[0], "cy", 2))
 		mrt_parse_cylinder(key);
-	if (!ft_strncmp(key[0], "c", 2))
+	else if (!ft_strncmp(key[0], "c", 2))
 		mrt_parse_camera(key);
-	if (!ft_strncmp(key[0], "pl", 2))
+	else if (!ft_strncmp(key[0], "pl", 2))
 		mrt_parse_plane(key);
-	if (!ft_strncmp(key[0], "sp", 2))
+	else if (!ft_strncmp(key[0], "sp", 2))
 		mrt_parse_sphere(key);
-	if (!ft_strncmp(key[0], "l", 1))
+	else if (!ft_strncmp(key[0], "l", 1))
 		mrt_parse_light(key);
-	if (!ft_strncmp(key[0], "tr", 2))
+	else if (!ft_strncmp(key[0], "tr", 2))
 		mrt_parse_triangle(key);
-	if (!ft_strncmp(key[0], "sq", 2))
+	else if (!ft_strncmp(key[0], "sq", 2))
 		mrt_parse_square(key);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 18:38:33 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/13 11:43:05 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 14:43:18 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,44 @@ extern t_conf	*g_conf;
 
 static void		mrt_quit(void)
 {
+	t_generic_list	*current;
+	t_generic_list	*tmp;
+
 	mlx_clear_window(g_conf->mlx.ptr, g_conf->mlx.win);
 	mlx_destroy_image(g_conf->mlx.ptr, g_conf->mlx.img.ptr);
 	mlx_destroy_window(g_conf->mlx.ptr, g_conf->mlx.win);
+
+	// Free Cameras
+	current = g_conf->cameras;
+	while (current != NULL)
+	{
+		tmp = current;	
+		current = current->next;
+		free(tmp->obj);
+		free(tmp);
+	}
+	
+	// Free objs
+	current = g_conf->objs;
+	while (current != NULL)
+	{
+		tmp = current;
+		current = current->next;
+		free(((t_object *)tmp->obj)->object);
+		free(tmp->obj);
+		free(tmp);
+	}
 	printf("👋 Quitting !\n");
+
+	current = g_conf->lights;
+	while (current != NULL)
+	{
+		tmp = current;
+		current = current->next;
+		free(tmp->obj);
+		free(tmp);
+	}
+	free(g_conf);
 	exit(0);
 }
 

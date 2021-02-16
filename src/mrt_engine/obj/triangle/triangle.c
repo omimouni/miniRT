@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 08:24:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/13 11:57:41 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 14:15:48 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ double			mrt_triangle_cast_shadow(t_pixel *p, t_object *obj,
 	if (obj == p->obj)
 		return (light->angle);
 	t = mrt_triangle_intersection(ray, obj);
+	free(ray);
 	if (t < INFINITY && (t < light->distance && t > 0))
 		return (0);
 	return (light->angle);

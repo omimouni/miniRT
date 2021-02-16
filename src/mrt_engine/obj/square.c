@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 09:36:53 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 09:24:54 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 14:14:30 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ double	mrt_square_cast_shadow(t_pixel *p, t_object *obj, t_light *light)
 	if (obj == p->obj)
 		return (light->angle);
 	t = mrt_square_intersection(ray, obj);
+	free(ray);
 	if (t < INFINITY && (t < light->distance && t > 0))
 	{
 		p->is_shadow = 1;
