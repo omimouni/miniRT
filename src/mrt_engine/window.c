@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:41:18 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 14:30:08 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 15:44:25 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	mrt_update_window(void)
 		g_conf->mlx.img.ptr, 0, 0);
 }
 
-void	mrt_mlx_init(void)
+void	mrt_img_init(void)
 {
 	g_conf->mlx.ptr = mlx_init();
 	g_conf->mlx.img.ptr = mlx_new_image(g_conf->mlx.ptr,
@@ -37,7 +37,7 @@ void	mrt_mlx_init(void)
 
 void	mrt_window_loop(void)
 {
-	mrt_mlx_init();
+	mrt_img_init();
 	g_conf->current_camera = g_conf->cameras;
 	g_conf->mlx.win = mlx_new_window(g_conf->mlx.ptr,
 		g_conf->width, g_conf->height, WINDOW_TITLE);

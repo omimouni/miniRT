@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bmp.h                                           :+:      :+:    :+:   */
+/*   bmp.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/26 12:01:35 by omimouni          #+#    #+#             */
-/*   Updated: 2021/01/27 16:17:52 by omimouni         ###   ########.fr       */
+/*   Created: 2021/02/16 16:56:26 by omimouni          #+#    #+#             */
+/*   Updated: 2021/02/16 16:58:53 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BMP_H
-# define FT_BMP_H
-# include <stdlib.h>
+#include "minirt.h"
 
-typedef	struct		s_bmp_file_header {
-	size_t			file_size;
-	size_t			header_size;
-	size_t			header_offset;
-	size_t			image_height;
-	size_t			image_width;
-}					t_bmp_file_header;
+extern	t_conf	*g_conf;
 
-typedef struct		s_bmp_pixel {
-	int				red;
-	int				green;
-	int				blue;
-}					t_bmp_pixel;
-#endif
+void	mrt_bmp_header(int fd)
+{
+	ft_putstr_fd("BM", fd);
+	ft_putstr_fd("54054", fd);
+}

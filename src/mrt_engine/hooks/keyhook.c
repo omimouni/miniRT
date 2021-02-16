@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 18:38:33 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 14:43:18 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 16:26:45 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 extern t_conf	*g_conf;
 
-static void		mrt_quit(void)
+void		mrt_quit(void)
 {
 	t_generic_list	*current;
 	t_generic_list	*tmp;
 
-	mlx_clear_window(g_conf->mlx.ptr, g_conf->mlx.win);
+	if (!g_conf->is_save)
+	{
+		mlx_clear_window(g_conf->mlx.ptr, g_conf->mlx.win);
+		mlx_destroy_window(g_conf->mlx.ptr, g_conf->mlx.win);
+	}
 	mlx_destroy_image(g_conf->mlx.ptr, g_conf->mlx.img.ptr);
-	mlx_destroy_window(g_conf->mlx.ptr, g_conf->mlx.win);
-
-	// Free Cameras
+	free(g_conf->mlx.ptr);
 	current = g_conf->cameras;
 	while (current != NULL)
 	{
@@ -32,8 +34,6 @@ static void		mrt_quit(void)
 		free(tmp->obj);
 		free(tmp);
 	}
-	
-	// Free objs
 	current = g_conf->objs;
 	while (current != NULL)
 	{
@@ -43,8 +43,6 @@ static void		mrt_quit(void)
 		free(tmp->obj);
 		free(tmp);
 	}
-	printf("👋 Quitting !\n");
-
 	current = g_conf->lights;
 	while (current != NULL)
 	{
@@ -54,6 +52,7 @@ static void		mrt_quit(void)
 		free(tmp);
 	}
 	free(g_conf);
+	printf("👋 Quitting !\n");
 	exit(0);
 }
 

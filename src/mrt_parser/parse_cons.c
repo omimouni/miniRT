@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 10:43:01 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 15:12:19 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 18:14:33 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void		mrt_has_alphabet(char *s)
 void		mrt_parse_resolution(char **key)
 {
 	double	width;
-	int		i;
 	double	height;
 
 	if (g_conf->res_parsed)

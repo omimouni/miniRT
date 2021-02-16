@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:30:25 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 15:25:07 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 18:14:45 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void			mrt_parser(int argc, char **argv)
 {
 	int		fd;
 	char	*line;
-	char	**key;
 
 	if (argc < 2 || argc > 3)
 		mrt_trigger_error(1);

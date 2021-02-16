@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:40:21 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 09:16:10 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 15:46:18 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,12 @@ void				mrt_render_loop(size_t swidth, size_t width,
 		{
 			mrt_ray_update(&ray, i, j);
 			mrt_raytrace(ray);
-			if (g_conf->is_save)
-				continue;
-			else
-				mrt_put_pixel(i, j, ray->color);
+			mrt_put_pixel(i, j, ray->color);
 			j++;
 		}
 		i++;
 	}
-	mrt_update_window();
+	if (!g_conf->is_save)
+		mrt_update_window();
 	free(ray);
 }

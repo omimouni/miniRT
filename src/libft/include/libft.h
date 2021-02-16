@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:24:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 09:27:17 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 17:24:01 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # include "ft_string.h"
 # include "ft_maths.h"
 # include "linked_list.h"
-# include "ft_bmp.h"
 
 int		gnl(int fd, char **line);
 

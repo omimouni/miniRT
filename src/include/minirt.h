@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 15:20:07 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 18:07:08 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,8 @@ void			mrt_update_window(void);
 */
 
 void			mrt_save_image(void);
+void			mrt_img_init(void);
+void			mrt_bmp_header(int fd);
 
 /*
 ** Hooks and utils
@@ -126,6 +128,7 @@ void			mrt_save_image(void);
 
 void			mrt_hooks(void);
 int				mrt_key_handler(int keycode);
+void			mrt_quit(void);
 
 t_mrt_ray		*mrt_ray_init(t_point3 orig);
 t_point3		mrt_ray_point(double t, t_mrt_ray *ray);

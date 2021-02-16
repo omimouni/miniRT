@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:15:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 14:44:43 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 18:14:55 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@ t_conf		*g_conf;
 
 int	main(int argc, char **argv)
 {
-	int		fd;
-	char	*line;
-
 	mrt_init();
 	mrt_parser(argc, argv);
 	if(g_conf->cameras == NULL)

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 07:59:15 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/13 11:44:08 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 18:14:03 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static void		mrt_cylinder_normal_calc(t_pixel *p, double *m, double *l,
 				char type)
 {
-	t_vector3	normal;
 	t_cylinder	*cy;
 
 	cy = (t_cylinder *)p->obj->object;
