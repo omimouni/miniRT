@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 15:42:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/13 15:52:27 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 15:21:39 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_vector3	mrt_parse_vec3(char *cord, char type)
 	tmp.z = ft_parsefloat(key[2]);
 	if (type == MRT_VEC3_NORMALIZED && vec3_length(tmp) != 1)
 		mrt_trigger_error(12);
+	free_split(key);
 	return (tmp);
 }
 
@@ -49,5 +50,6 @@ t_color		mrt_parse_color_valid(char *color)
 	if ((c.r > 255 || c.r < 0) || (c.g > 255 || c.g < 0)
 		|| (c.b > 255 || c.b < 0))
 		mrt_trigger_error(8);
+	free_split(rgb);
 	return (color_from_rgb(c.r, c.g, c.b));
 }

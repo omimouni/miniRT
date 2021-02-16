@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:30:25 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 14:46:21 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 15:25:07 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,20 @@ void		mrt_trigger_error(int code)
 /*
 ** FIXME: line 35 may segfault at some point.
 */
+
+void		free_split(char **key)
+{
+	int	i;
+
+	i = 0;
+	while (key[i] != NULL)
+	{
+		free(key[i]);
+		i++;
+	}
+	free(key[i]);
+	free(key);
+}
 
 int				mrt_parser_switch(char *line)
 {
@@ -49,6 +63,7 @@ int				mrt_parser_switch(char *line)
 		mrt_parse_triangle(key);
 	else if (!ft_strncmp(key[0], "sq", 2))
 		mrt_parse_square(key);
+	free_split(key);
 	return (0);
 }
 
@@ -70,6 +85,9 @@ void			mrt_parser(int argc, char **argv)
 			g_conf->is_save = 1;
 	}
 	while (gnl(fd, &line) && !g_conf->errcode)
+	{
 		mrt_parser_switch(line);
+		free(line);
+	}
 	free(line);
 }

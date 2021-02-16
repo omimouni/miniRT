@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/13 15:46:42 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 15:20:07 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void			mrt_parse_square(char **key);
 
 t_color			mrt_parse_color_valid(char *color);
 t_vector3		mrt_parse_vec3(char *cord, char type);
+void			free_split(char **key);
 
 /*
 ** mlx and raytracing
