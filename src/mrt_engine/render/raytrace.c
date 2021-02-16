@@ -6,14 +6,13 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/13 11:41:50 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 10:01:52 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 extern t_conf	*g_conf;
-
 
 /*
 ** TODO: Add UV maps

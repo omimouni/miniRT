@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 10:43:01 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/13 15:44:16 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 11:01:18 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void		mrt_parse_resolution(char **key)
 		mrt_trigger_error(15);
 	width = ft_atoi(key[1]);
 	height = ft_atoi(key[2]);
+	width = ft_clamp_int(width, 0, 2600);
+	height = ft_clamp_int(height, 0, 1600);
 	if (width < 0 || height < 0)
 		mrt_trigger_error(16);
 	if (width == 0)
@@ -88,7 +90,8 @@ void	mrt_parse_camera(char **key)
 	if (ISN(key[1]) || ISN(key[2]) ||ISN(key[3]) || !ISN(key[4]))
 		mrt_trigger_error(13);
 	pt = mrt_parse_vec3(key[1], MRT_VEC3_STANDARD);
-	orient = mrt_parse_vec3(key[2], MRT_VEC3_NORMALIZED);
+	orient = mrt_parse_vec3(key[2], MRT_VEC3_STANDARD);
+	orient = vec3_normalize(orient);
 	fov = ft_parsefloat(key[3]);
 	g_conf->cameras = ft_glist_add(g_conf->cameras, 
 						camera_new_(pt, orient, fov));

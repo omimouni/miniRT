@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 11:57:08 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/13 15:16:44 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 11:14:21 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,45 +18,37 @@
 ** e[2] = {edge_ab, edge_ac}
 */
 
+static void		mrt_triangle_vex(t_triangle *tr, t_vector3 *vex)
+{
+	vex[0] = tr->point_a;
+	vex[1] = tr->point_b;
+	vex[2] = tr->point_c;
+	vex[3] = vec3_sub(vex[1], vex[0]);
+	vex[4] = vec3_sub(vex[2], vex[0]);
+}
 
 double			mrt_triangle_intersection(t_mrt_ray *ray, t_object *obj)
 {
-	t_point3	v0;
-	t_point3	v1;
-	t_point3	v2;
-	t_triangle	*tr;
-	t_vector3	edge1;
-	t_vector3	edge2;
-	t_vector3	h;
-	t_vector3	s;
-	t_vector3	q;
-	double		a, f, u, v, t;
+	t_vector3	vex[8];
+	double		d[5];
 
-	
-	tr = (t_triangle *)obj->object;
-	v0 = tr->point_a;
-	v1 = tr->point_b;
-	v2 = tr->point_c;
-	edge1 = vec3_sub(v1, v0);
-	edge2 = vec3_sub(v2, v0);
-	
-	h = vec3_cross(ray->direction, edge2);
-	a = vec3_dot(edge1, h);
-	if (a > -__FLT_EPSILON__ && a < __FLT_EPSILON__)
+	mrt_triangle_vex(obj->object, vex);
+	vex[5] = vec3_cross(ray->direction, vex[4]);
+	d[0] = vec3_dot(vex[3], vex[5]);
+	if (d[0] > -__FLT_EPSILON__ && d[0] < __FLT_EPSILON__)
 		return (INFINITY);
-	f = 1 / a;
-	s = vec3_sub(ray->origin, v0);
-	u = f * vec3_dot(s, h);
-	if (u < 0 || u > 1)
+	d[1] = 1 / d[0];
+	vex[6] = vec3_sub(ray->origin, vex[0]);
+	d[2] = d[1] * vec3_dot(vex[6], vex[5]);
+	if (d[2] < 0 || d[2] > 1)
 		return (INFINITY);
-	
-	q = vec3_cross(s, edge1);
-	v = f * vec3_dot(ray->direction, q);
-	if (v < 0 || u + v > 1)
+	vex[7] = vec3_cross(vex[6], vex[3]);
+	d[3] = d[1] * vec3_dot(ray->direction, vex[7]);
+	if (d[3] < 0 || d[2] + d[3] > 1)
 		return (INFINITY);
-	t = f * vec3_dot(edge2, q);
-	if (t > __FLT_EPSILON__)
-		return (t);
+	d[4] = d[1] * vec3_dot(vex[4], vex[7]);
+	if (d[4] > __FLT_EPSILON__)
+		return (d[4]);
 	else
 		return (INFINITY);
 }

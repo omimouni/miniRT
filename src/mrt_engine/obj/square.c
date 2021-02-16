@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 09:36:53 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/13 10:52:04 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 09:24:54 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ double		mrt_square_intersection(t_mrt_ray *ray, t_object *obj)
 	t_vector3	e1;
 	t_vector3	e2;
 
-	u = vec3_cross(sq->normal, mrt_current_camera()->normal);
+	u = vec3_cross(sq->normal, vec3_new(0, 0, -1));
 	u = vec3_normalize(u);
 	v = vec3_cross(u, sq->normal);
 	v = vec3_normalize(v);

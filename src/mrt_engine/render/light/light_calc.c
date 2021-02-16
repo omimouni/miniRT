@@ -6,14 +6,13 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 10:28:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/13 11:40:21 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/16 09:32:24 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 extern	t_conf	*g_conf;
-
 
 static t_color	mrt_light_diffuse(t_pixel *p, t_light *light)
 {
@@ -30,7 +29,7 @@ static t_color	mrt_light_diffuse(t_pixel *p, t_light *light)
 	return (color);
 }
 
-void		mrt_light_point_shadow(t_pixel *pixel, t_light *light)
+void			mrt_light_point_shadow(t_pixel *pixel, t_light *light)
 {
 	t_object		*obj;
 	t_generic_list	*current;
@@ -53,7 +52,7 @@ void		mrt_light_point_shadow(t_pixel *pixel, t_light *light)
 	}
 }
 
-void		mrt_light_points(t_pixel *p)
+void			mrt_light_points(t_pixel *p)
 {
 	t_generic_list	*current;
 	t_light			*light;
@@ -76,8 +75,7 @@ void		mrt_light_points(t_pixel *p)
 void			mrt_light_ambiant(t_pixel *pixel)
 {
 	t_color	c_color;
-	t_color	color;
-	
+
 	if (pixel->light_cof < .1)
 		c_color = color_multi(pixel->obj->color, pixel->light_cof * .1);
 	else
