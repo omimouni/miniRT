@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:30:25 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/17 08:49:50 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 16:50:06 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ int				mrt_parser_switch(char *line)
 
 	key = ft_split(line, ' ');
 	if (key[0] == NULL)
+	{
+		free_split(key);
 		return (0);
+	}
 	if (!ft_strncmp(key[0], "R", 1))
 		mrt_parse_resolution(key);
 	else if (!ft_strncmp(key[0], "A", 1))
