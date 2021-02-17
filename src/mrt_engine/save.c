@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:24:39 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 16:59:35 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 09:07:29 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	mrt_save_image(void)
 	mrt_img_init();
 	g_conf->current_camera = g_conf->cameras;
 	camera_calc(mrt_current_camera());
-	mrt_render();
 
 	// Generate BMP File
 	int	fd;
@@ -28,8 +27,12 @@ void	mrt_save_image(void)
 	filename = ft_strjoin(WINDOW_TITLE, ".bmp");
 	fd = open(filename, O_RDWR | O_CREAT, 777);
 	free(filename);
+	// Print file
 
-	mrt_bmp_header(fd);
+	// Print pixels
+	mrt_render();
+
+	close(fd);
 	//End of line
 	mrt_quit();
 }

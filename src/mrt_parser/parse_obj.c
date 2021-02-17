@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 15:53:42 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/12 09:41:43 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 10:26:44 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	mrt_parse_plane(char **key)
 	t_color		color;
 
 	point = mrt_parse_vec3(key[1], MRT_VEC3_STANDARD);
-	normal = mrt_parse_vec3(key[2], MRT_VEC3_NORMALIZED);
+	normal = mrt_parse_vec3(key[2], MRT_VEC3_STANDARD);
 	color = mrt_parse_color_valid(key[3]);
 
 	g_conf->objs = ft_glist_add(g_conf->objs, 
@@ -50,7 +50,7 @@ void	mrt_parse_cylinder(char **key)
 	t_color		color;
 
 	base = mrt_parse_vec3(key[1], MRT_VEC3_STANDARD);
-	normal = mrt_parse_vec3(key[2], MRT_VEC3_NORMALIZED);
+	normal = mrt_parse_vec3(key[2], MRT_VEC3_STANDARD);
 	d[0] = ft_parsefloat(key[3]);
 	d[1] = ft_parsefloat(key[4]);
 	color = mrt_parse_color_valid(key[5]);

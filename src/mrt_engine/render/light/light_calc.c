@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 10:28:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 09:32:24 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 11:44:58 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void			mrt_light_points(t_pixel *p)
 	t_light			*light;
 
 	current = g_conf->lights;
+	p->light_cof = 0;
 	while (current != NULL)
 	{
 		light = (t_light *)current->obj;
@@ -66,6 +67,7 @@ void			mrt_light_points(t_pixel *p)
 		light->dir = vec3_normalize(light->dir);
 		light->angle = vec3_dot(light->dir, p->normal);
 		light->angle = light->angle < 0 ? 0 : light->angle;
+		p->light_cof += light->angle;
 		mrt_light_point_shadow(p, light);
 		p->ray->color = mrt_light_diffuse(p, light);
 		current = current->next;
@@ -75,12 +77,6 @@ void			mrt_light_points(t_pixel *p)
 void			mrt_light_ambiant(t_pixel *pixel)
 {
 	t_color	c_color;
-
-	if (pixel->light_cof < .1)
-		c_color = color_multi(pixel->obj->color, pixel->light_cof * .1);
-	else
-		c_color = color_multi(pixel->ray->color, .4);
-	c_color = color_add(c_color, g_conf->al_calculated);
-	c_color = color_add(c_color, color_multi(pixel->ray->color, .5));
-	pixel->ray->color = c_color;
+	c_color = color_multi(g_conf->ambient_light.color,  g_conf->ambient_light.intensity / 2);
+	pixel->ray->color = color_add(c_color, pixel->ray->color);
 }

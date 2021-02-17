@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 10:43:01 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/17 08:40:20 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 11:45:46 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	mrt_parse_ambient(char **key)
 
 	if (g_conf->am_parsed)
 		mrt_trigger_error(19);
-	mrt_has_alphabet(key[1]);
 	i =	ft_parsefloat(key[1]);
 	i > 1 || i < 0 ? mrt_trigger_error(7) : NULL;
 	c = mrt_parse_color_valid(key[2]);
