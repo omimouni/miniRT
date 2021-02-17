@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 23:33:06 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/17 10:40:01 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 17:42:22 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ double		mrt_plane_cast_shadow(t_pixel *p, t_object *obj, t_light *light)
 
 	ray = mrt_ray_init(p->hitpoint);
 	tmp = light->dir;
+	tmp.x -= __FLT_EPSILON__;
+	tmp.y -= __FLT_EPSILON__;
+	tmp.z -= __FLT_EPSILON__;
 	tmp = vec3_normalize(tmp);
 	ray->direction = tmp;
 	if (obj == p->obj)

@@ -6,55 +6,13 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 18:38:33 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 16:26:45 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 17:15:26 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 extern t_conf	*g_conf;
-
-void		mrt_quit(void)
-{
-	t_generic_list	*current;
-	t_generic_list	*tmp;
-
-	if (!g_conf->is_save)
-	{
-		mlx_clear_window(g_conf->mlx.ptr, g_conf->mlx.win);
-		mlx_destroy_window(g_conf->mlx.ptr, g_conf->mlx.win);
-	}
-	mlx_destroy_image(g_conf->mlx.ptr, g_conf->mlx.img.ptr);
-	free(g_conf->mlx.ptr);
-	current = g_conf->cameras;
-	while (current != NULL)
-	{
-		tmp = current;	
-		current = current->next;
-		free(tmp->obj);
-		free(tmp);
-	}
-	current = g_conf->objs;
-	while (current != NULL)
-	{
-		tmp = current;
-		current = current->next;
-		free(((t_object *)tmp->obj)->object);
-		free(tmp->obj);
-		free(tmp);
-	}
-	current = g_conf->lights;
-	while (current != NULL)
-	{
-		tmp = current;
-		current = current->next;
-		free(tmp->obj);
-		free(tmp);
-	}
-	free(g_conf);
-	printf("👋 Quitting !\n");
-	exit(0);
-}
 
 static void		mrt_next_cam(void)
 {

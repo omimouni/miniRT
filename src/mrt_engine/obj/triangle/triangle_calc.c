@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 11:57:08 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/17 08:43:22 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 17:35:21 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ double			mrt_triangle_intersection(t_mrt_ray *ray, t_object *obj)
 		return (INFINITY);
 	d[4] = d[1] * vec3_dot(vex[4], vex[7]);
 	if (d[4] > 0)
-		return (d[4]);
+		return (d[4] - __FLT_EPSILON__);
 	else
 		return (INFINITY);
 }

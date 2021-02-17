@@ -6,12 +6,11 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 16:34:16 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/17 16:42:36 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 17:20:14 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
 
 /*
 ** vex[6] = {u, v, a, b, c, d}
@@ -23,7 +22,6 @@ static void		mrt_square_vex(t_square *sq, t_vector3 *vex)
 	vex[0] = vec3_normalize(vex[0]);
 	vex[1] = vec3_cross(vex[0], sq->normal);
 	vex[1] = vec3_normalize(vex[1]);
-
 	vex[2] = vec3_add(vec3_add(vec3_mult(sq->size / 2, vex[1]), sq->point),
 		vec3_mult(sq->size / 2, vex[0]));
 	vex[3] = vec3_add(vex[2], vec3_mult(-sq->size, vex[1]));
@@ -46,7 +44,6 @@ double			mrt_square_intersection(t_mrt_ray *ray, t_object *obj)
 	t_square	*sq;
 
 	sq = (t_square *)obj->object;
-	// Get square vertices
 	mrt_square_vex(sq, vex);
 	tr = triangle_new(vex[2], vex[3], vex[4], sq->color);
 	t = mrt_triangle_intersection(ray, tr);

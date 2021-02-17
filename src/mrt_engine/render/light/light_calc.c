@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 10:28:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/17 11:44:58 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 17:14:28 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ void			mrt_light_points(t_pixel *p)
 void			mrt_light_ambiant(t_pixel *pixel)
 {
 	t_color	c_color;
-	c_color = color_multi(g_conf->ambient_light.color,  g_conf->ambient_light.intensity / 2);
+
+	c_color = color_multi(g_conf->ambient_light.color,
+				g_conf->ambient_light.intensity / 2);
 	pixel->ray->color = color_add(c_color, pixel->ray->color);
 }

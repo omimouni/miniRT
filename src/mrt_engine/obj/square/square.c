@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 09:36:53 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/17 16:34:30 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 17:19:58 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_object	*square_new(t_point3 p, t_vector3 n, double s, t_color c)
 	return (obj);
 }
 
-double	mrt_square_cast_shadow(t_pixel *p, t_object *obj, t_light *light)
+double		mrt_square_cast_shadow(t_pixel *p, t_object *obj, t_light *light)
 {
 	t_mrt_ray	*ray;
 	double		t;
