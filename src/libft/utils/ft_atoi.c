@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 10:34:51 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/09 10:48:41 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 08:55:29 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ int			ft_atoi(const char *str)
 	int		flag;
 
 	flag = 1;
-	if (str == NULL)
-		return (0);
 	s = (char *)str;
 	while (*s == ' ' || *s == '\n' || *s == '\r' || *s == '\t'
 			|| *s == '\v' || *s == '\f')

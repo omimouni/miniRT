@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:37:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/13 15:39:20 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 08:51:30 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,6 @@ typedef	struct		s_conf {
 	char			is_bonus;
 	char			is_render;
 	char			is_ambient;
-	
 	char			res_parsed;
 	char			am_parsed;
 	t_generic_list	*lights;

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:30:25 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 18:14:45 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 08:49:50 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@ void		mrt_trigger_error(int code)
 	g_conf->errcode = code;
 	mrt_error();
 }
-
-/*
-** FIXME: line 35 may segfault at some point.
-*/
 
 void		free_split(char **key)
 {
@@ -43,7 +39,7 @@ int				mrt_parser_switch(char *line)
 	char	**key;
 
 	key = ft_split(line, ' ');
-	if (ISN(key[0]))
+	if (key[0] == NULL)
 		return (0);
 	if (!ft_strncmp(key[0], "R", 1))
 		mrt_parse_resolution(key);

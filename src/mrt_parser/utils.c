@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 15:42:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 15:21:39 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 08:41:07 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ t_color		mrt_parse_color_valid(char *color)
 	t_color	c;
 
 	rgb = ft_split(color, ',');
-	if (ISN(rgb[0]) || ISN(rgb[1]) || ISN(rgb[2]) || !ISN(rgb[3]))
+	if ((rgb[0] == NULL) || (rgb[1] == NULL) || 
+	(rgb[2] == NULL) || (rgb[3] != NULL))
 		mrt_trigger_error(8);
 	mrt_has_alphabet(rgb[0]);
 	mrt_has_alphabet(rgb[1]);

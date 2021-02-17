@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 10:43:01 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 18:14:33 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 08:40:20 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void		mrt_parse_resolution(char **key)
 		mrt_trigger_error(18);
 	mrt_has_alphabet(key[1]);
 	mrt_has_alphabet(key[2]);
-	if (ISN(key[1]) || ISN(key[2]) || !ISN(key[3]))
+	if ((key[1] == NULL) || (key[2] == NULL) || (key[3] != NULL))
 		mrt_trigger_error(15);
 	width = ft_atoi(key[1]);
 	height = ft_atoi(key[2]);
@@ -87,7 +87,8 @@ void	mrt_parse_camera(char **key)
 	t_vector3	orient;
 	double		fov;
 
-	if (ISN(key[1]) || ISN(key[2]) ||ISN(key[3]) || !ISN(key[4]))
+	if ((key[1] == NULL) || (key[2] == NULL) ||(key[3] == NULL)
+		|| (key[4] != NULL))
 		mrt_trigger_error(13);
 	pt = mrt_parse_vec3(key[1], MRT_VEC3_STANDARD);
 	orient = mrt_parse_vec3(key[2], MRT_VEC3_STANDARD);

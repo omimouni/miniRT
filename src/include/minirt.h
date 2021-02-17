@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 18:07:08 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 08:50:58 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,6 @@
 #  define MRT_KEY_ARROW_LEFT	65361
 #  define MRT_KEY_ARROW_RIGHT	65363
 # endif
-
-/*
-** Utility Marcos
-** TODO: add them to libft
-*/
-
-# define ISN(x) (x == NULL)
 
 /*
 ** Header files
@@ -213,10 +206,12 @@ t_object		*triangle_new(t_point3 pa, t_point3 pb, t_point3 pc,
 				t_color color);
 double			mrt_triangle_intersection(t_mrt_ray *ray, t_object *obj);
 t_vector3		mrt_triangle_normal(t_pixel *p);
-double			mrt_triangle_cast_shadow(t_pixel *p, t_object *obj, t_light *light);
+double			mrt_triangle_cast_shadow(t_pixel *p, t_object *obj,
+				t_light *light);
 
 t_object		*square_new(t_point3 p, t_vector3 n, double s, t_color c);
 double			mrt_square_intersection(t_mrt_ray *ray, t_object *obj);
-double			mrt_square_cast_shadow(t_pixel *p, t_object *obj, t_light *light);
+double			mrt_square_cast_shadow(t_pixel *p, t_object *obj,
+				t_light *light);
 void			mrt_put_string(char *str, int x, int y);
 #endif

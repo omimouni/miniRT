@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:50:42 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 18:39:06 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/17 08:53:05 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ double	ft_parsefloat(char *s)
 	double	n_float;
 	char	*s_float;
 	int		flag;
-	double	x;
 
 	flag = 1;
 	n = ft_atoi(s);
@@ -28,6 +27,5 @@ double	ft_parsefloat(char *s)
 	if (s_float == NULL)
 		return (n);
 	n_float = ft_atoi(s_float + 1);
-	x = flag * ( n + n_float / powf(10, ft_strlen(s_float + 1)));
-	return x;
+	return (flag * (n + n_float / powf(10, ft_strlen(s_float + 1))));
 }
