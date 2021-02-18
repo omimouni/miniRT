@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:30:25 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/18 10:07:59 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/18 18:01:24 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,15 @@ int				mrt_parser_switch(char *line)
 		mrt_parse_triangle(key);
 	else if (!ft_strncmp(key[0], "sq", 2))
 		mrt_parse_square(key);
+	else if (!ft_strncmp(key[0], "#", 1))
+		free_split(key);
+	else
+	{
+		free_split(key);
+		mrt_trigger_error(22);
+	}
 	free_split(key);
+
 	return (0);
 }
 

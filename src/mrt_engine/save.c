@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:24:39 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/17 09:07:29 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/18 22:43:32 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void	mrt_save_image(void)
 
 	filename = ft_strjoin(WINDOW_TITLE, ".bmp");
 	fd = open(filename, O_RDWR | O_CREAT, 777);
-	free(filename);
 	// Print file
 
 	// Print pixels
 	mrt_render();
 
+	free(filename);
 	close(fd);
 	//End of line
 	mrt_quit();
