@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 10:43:01 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/17 11:45:46 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/18 11:56:53 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,21 @@ extern	t_conf	*g_conf;
 ** FIXME: memory Leaks
 */
 
-void		mrt_has_alphabet(char *s)
+void		mrt_isdigit(char *s)
 {
 	size_t	i;
 
 	i = 0;
 	if (s[i] == '-' || s[i] == '+')
 		i++;
+	
 	while (s[i] != 0)
 	{
-		if (s[i] < '0' || s[i] > '9')
+		if (!ft_isdigit(s[i]))
 			mrt_trigger_error(17);
+		if (s[i] == '.')
+			if (i - 1 != 0 && !ft_isdigit(s[i + 1]))
+				mrt_trigger_error(17);
 		i++;
 	}
 }
@@ -43,8 +47,8 @@ void		mrt_parse_resolution(char **key)
 
 	if (g_conf->res_parsed)
 		mrt_trigger_error(18);
-	mrt_has_alphabet(key[1]);
-	mrt_has_alphabet(key[2]);
+	mrt_is_integer(key[1]);
+	mrt_is_integer(key[2]);
 	if ((key[1] == NULL) || (key[2] == NULL) || (key[3] != NULL))
 		mrt_trigger_error(15);
 	width = ft_atoi(key[1]);

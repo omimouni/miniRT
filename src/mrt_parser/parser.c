@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:30:25 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/17 16:50:06 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/18 10:07:59 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,16 @@ void		free_split(char **key)
 int				mrt_parser_switch(char *line)
 {
 	char	**key;
+	int		i;
 
+	// Replace \t by spaces
+	i = 0;
+	while (line[i] != '\0')
+	{
+		if (line[i] == '\t')
+			line[i] = ' ';
+		i++;
+	}
 	key = ft_split(line, ' ');
 	if (key[0] == NULL)
 	{

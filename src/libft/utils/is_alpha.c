@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   is_alpha.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 16:15:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/18 10:12:38 by omimouni         ###   ########.fr       */
+/*   Created: 2021/02/18 10:45:44 by omimouni          #+#    #+#             */
+/*   Updated: 2021/02/18 10:45:50 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "libft.h"
 
-t_conf		*g_conf;
-
-int	main(int argc, char **argv)
+int	ft_isalpha(int c)
 {
-	mrt_init();
-	mrt_parser(argc, argv);
-	g_conf->is_bonus = 0;
-	if (!g_conf->res_parsed || !g_conf->am_parsed)
-		mrt_trigger_error(20);
-	if(g_conf->cameras == NULL)
-		mrt_trigger_error(10);
-	if (g_conf->is_save)
-		mrt_save_image();
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
 	else
-		mrt_window_loop();
-	return (0);
+		return (0);
 }
- 

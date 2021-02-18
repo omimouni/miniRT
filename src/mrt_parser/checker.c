@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/19 16:15:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/18 10:12:38 by omimouni         ###   ########.fr       */
+/*   Created: 2021/02/18 10:58:41 by omimouni          #+#    #+#             */
+/*   Updated: 2021/02/18 11:11:28 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_conf		*g_conf;
-
-int	main(int argc, char **argv)
+void	mrt_is_integer(char *s)
 {
-	mrt_init();
-	mrt_parser(argc, argv);
-	g_conf->is_bonus = 0;
-	if (!g_conf->res_parsed || !g_conf->am_parsed)
-		mrt_trigger_error(20);
-	if(g_conf->cameras == NULL)
-		mrt_trigger_error(10);
-	if (g_conf->is_save)
-		mrt_save_image();
-	else
-		mrt_window_loop();
-	return (0);
+	int	i;
+
+	i = 0;
+	if (s[i] == '-' || s[i] == '+')
+		i++;
+	while (s[i])
+	{
+		if (!ft_isdigit(s[i]))
+			mrt_trigger_error(21);
+		i++;
+	}
 }
- 
+
+void	mrt_is_double(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (s[i] == '-' || s[i] == '+')
+		i++;
+	
+	
+}
