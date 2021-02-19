@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 15:42:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 11:42:57 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/19 11:48:03 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ t_vector3	mrt_parse_vec3(char *cord, char type)
 	if (key[0] == NULL || key[1] == NULL ||
 		key[2] == NULL || key[3] != NULL)
 		mrt_trigger_error(11);
-	tmp.x = ft_parsefloat(key[0]);	
-	tmp.y = ft_parsefloat(key[1]);	
+	tmp.x = ft_parsefloat(key[0]);
+	tmp.y = ft_parsefloat(key[1]);
 	tmp.z = ft_parsefloat(key[2]);
 	if (type == MRT_VEC3_NORMALIZED && vec3_length(tmp) != 1)
 		mrt_trigger_error(12);
