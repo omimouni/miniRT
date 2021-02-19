@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:15:07 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/18 10:12:38 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/19 12:41:43 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 		mrt_save_image();
 	else
 		mrt_window_loop();
+	system("leaks");
 	return (0);
 }
  

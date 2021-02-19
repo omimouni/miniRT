@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:20:40 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 12:09:02 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/19 12:33:42 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ char	*g_err_list[] = {
 	"Wrong format .rt file", //22
 	"Float format is invalid.", //23
 	"FOV should be in range [0, 180]", //24
+	"Light intensity should be in range [0.0, 1.0]", //25
+	"sphere diametre can't be null or negative", //26
 };
 
 void	mrt_error(void)
