@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 15:42:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 11:48:03 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/19 12:01:58 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ t_vector3	mrt_parse_vec3(char *cord, char type)
 	key = ft_split(cord, ',');
 	if (key[0] == NULL || key[1] == NULL ||
 		key[2] == NULL || key[3] != NULL)
+		mrt_trigger_error(11);
+	if (mrt_is_double(key[0], 1) || mrt_is_double(key[1], 1)
+	|| mrt_is_double(key[2], 1))
 		mrt_trigger_error(11);
 	tmp.x = ft_parsefloat(key[0]);
 	tmp.y = ft_parsefloat(key[1]);

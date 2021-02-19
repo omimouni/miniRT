@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:20:40 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 09:31:52 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/19 12:09:02 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ char	*g_err_list[] = {
 	"Value can only be an integer.", //21
 	"Wrong format .rt file", //22
 	"Float format is invalid.", //23
+	"FOV should be in range [0, 180]", //24
 };
 
 void	mrt_error(void)
