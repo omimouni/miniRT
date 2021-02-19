@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:20:40 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/18 11:03:00 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/19 09:31:52 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ char	*g_err_list[] = {
 	"Ambient light can only be set once", //19
 	"The parsed file must have R and A.", //20
 	"Value can only be an integer.", //21
+	"Wrong format .rt file", //22
+	"Float format is invalid.", //23
 };
 
 void	mrt_error(void)

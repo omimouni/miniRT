@@ -6,15 +6,27 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:24:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/18 10:46:28 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/19 10:46:16 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # define BUFFER_SIZE 255
+
+/*
+** Libft Header
+** -----
+** Libft is a DIY library using C
+** the main goal of libft is to understand
+** the functionality of libc and other utils.
+** we used to take for granted.
+** -----
+** TODO: clean up
+** TODO: add more utilities
+*/
+
 # include <stdlib.h>
-# include <string.h>
 # include <sys/stat.h>
 # include <stdio.h>
 # include <fcntl.h>

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 10:43:01 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/18 11:56:53 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/19 11:36:10 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,50 +38,6 @@ void		mrt_isdigit(char *s)
 				mrt_trigger_error(17);
 		i++;
 	}
-}
-
-void		mrt_parse_resolution(char **key)
-{
-	double	width;
-	double	height;
-
-	if (g_conf->res_parsed)
-		mrt_trigger_error(18);
-	mrt_is_integer(key[1]);
-	mrt_is_integer(key[2]);
-	if ((key[1] == NULL) || (key[2] == NULL) || (key[3] != NULL))
-		mrt_trigger_error(15);
-	width = ft_atoi(key[1]);
-	height = ft_atoi(key[2]);
-	width = ft_clamp_int(width, 0, 2600);
-	height = ft_clamp_int(height, 0, 1600);
-	if (width < 0 || height < 0)
-		mrt_trigger_error(16);
-	if (width == 0)
-		mrt_trigger_error(4);
-	if (height == 0)
-		mrt_trigger_error(5);
-	if (ft_strchr(key[1], '.') || ft_strchr(key[2], '.'))
-		mrt_trigger_error(6);
-	g_conf->width = width;
-	g_conf->height = height;
-	g_conf->res_parsed = 1;
-}
-
-void	mrt_parse_ambient(char **key)
-{
-	double	i;
-	t_color	c;
-
-	if (g_conf->am_parsed)
-		mrt_trigger_error(19);
-	i =	ft_parsefloat(key[1]);
-	i > 1 || i < 0 ? mrt_trigger_error(7) : NULL;
-	c = mrt_parse_color_valid(key[2]);
-	g_conf->ambient_light = ambiant_light_new(i, c.r, c.g, c.b);
-	g_conf->al_calculated = color_multi(g_conf->ambient_light.color,
-		powf(g_conf->ambient_light.intensity, 2));
-	g_conf->am_parsed = 1;
 }
 
 void	mrt_parse_camera(char **key)

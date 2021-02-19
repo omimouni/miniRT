@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:30:25 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/18 10:07:59 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/19 10:44:15 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,24 +53,34 @@ int				mrt_parser_switch(char *line)
 		free_split(key);
 		return (0);
 	}
-	if (!ft_strncmp(key[0], "R", 1))
+	if (!ft_strncmp(key[0], "R", 4))
 		mrt_parse_resolution(key);
-	else if (!ft_strncmp(key[0], "A", 1))
+	else if (!ft_strncmp(key[0], "A", 4))
 		mrt_parse_ambient(key);
-	else if (!ft_strncmp(key[0], "cy", 2))
+	else if (!ft_strncmp(key[0], "cy", 4))
 		mrt_parse_cylinder(key);
-	else if (!ft_strncmp(key[0], "c", 2))
+	else if (!ft_strncmp(key[0], "c", 4))
 		mrt_parse_camera(key);
-	else if (!ft_strncmp(key[0], "pl", 2))
+	else if (!ft_strncmp(key[0], "pl", 4))
 		mrt_parse_plane(key);
-	else if (!ft_strncmp(key[0], "sp", 2))
+	else if (!ft_strncmp(key[0], "sp", 4))
 		mrt_parse_sphere(key);
-	else if (!ft_strncmp(key[0], "l", 1))
+	else if (!ft_strncmp(key[0], "l", 4))
 		mrt_parse_light(key);
-	else if (!ft_strncmp(key[0], "tr", 2))
+	else if (!ft_strncmp(key[0], "tr", 4))
 		mrt_parse_triangle(key);
-	else if (!ft_strncmp(key[0], "sq", 2))
+	else if (!ft_strncmp(key[0], "sq", 4))
 		mrt_parse_square(key);
+	else if (!ft_strncmp(key[0], "#", 1))
+	{
+		free_split(key);
+		return (0);
+	}
+	else
+	{
+		free_split(key);
+		mrt_trigger_error(22);
+	}
 	free_split(key);
 	return (0);
 }
@@ -86,10 +96,10 @@ void			mrt_parser(int argc, char **argv)
 		mrt_trigger_error(2);
 	if (argc == 3)
 	{
-		if (strcmp(argv[2], "--save"))
-			mrt_trigger_error(3);
-		else
+		if (!ft_strncmp(argv[2], "--save", 6))
 			g_conf->is_save = 1;
+		else
+			mrt_trigger_error(3);
 	}
 	while (gnl(fd, &line) && !g_conf->errcode)
 	{

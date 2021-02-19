@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:18:24 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/08 12:28:11 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/19 10:40:41 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int		gnl_buffer(int fd, char **ptr)
 			free(*ptr);
 			*ptr = tmp;
 		}
-		if (strchr(*ptr, '\n'))
+		if (ft_strchr(*ptr, '\n'))
 			break ;
 	}
 	free(buffer);
