@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 11:52:14 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 12:51:17 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/19 15:22:29 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	mrt_parse_cylinder(char **key)
 		mrt_trigger_error(15);
 	base = mrt_parse_vec3(key[1], MRT_VEC3_STANDARD);
 	normal = mrt_parse_vec3(key[2], MRT_VEC3_STANDARD);
+	normal = vec3_normalize(normal);
 	mrt_is_double(key[3], 0);
 	mrt_is_double(key[3], 0);
 	d[0] = ft_parsefloat(key[3]);
