@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 11:53:01 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 12:54:26 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/19 12:56:09 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ void	mrt_parse_square(char **key)
 	double		s;
 	t_color		c;
 
+	if ((key[1] == NULL) || (key[2] == NULL) || (key[3] == NULL)
+		|| (key[4] == NULL) || (key[5] == NULL))
+		mrt_trigger_error(15);
 	p = mrt_parse_vec3(key[1], MRT_VEC3_STANDARD);
 	n = mrt_parse_vec3(key[2], MRT_VEC3_STANDARD);
 	mrt_is_double(key[3], 0);
