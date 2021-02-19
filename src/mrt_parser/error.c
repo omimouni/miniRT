@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:20:40 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 12:50:06 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/19 12:54:24 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char	*g_err_list[] = {
 	"Light intensity should be in range [0.0, 1.0]", //25
 	"sphere diametre can't be null or negative", //26
 	"cylinder dimensions can't be null or negative", //27
+	"square size can't be null or negative", //28
 };
 
 void	mrt_error(void)
