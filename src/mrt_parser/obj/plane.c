@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hooks.c                                            :+:      :+:    :+:   */
+/*   plane.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/31 10:39:40 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 12:25:30 by omimouni         ###   ########.fr       */
+/*   Created: 2021/02/19 11:49:50 by omimouni          #+#    #+#             */
+/*   Updated: 2021/02/19 12:40:40 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 
 extern t_conf	*g_conf;
 
-/*
- ** DOCS:	https://harm-smits.github.io/42docs/libs/minilibx/events.html
- ** @todo:	Learn about hooks
-*/
-
-int	mrt_quit_btn(void)
+void	mrt_parse_plane(char **key)
 {
-	mrt_quit();
-	return (0);
-}
+	t_point3	point;
+	t_vector3	normal;
+	t_color		color;
 
-void	mrt_hooks(void)
-{
-	mlx_hook(g_conf->mlx.win, 17, 0, mrt_quit_btn, NULL);
-	mlx_key_hook(g_conf->mlx.win, mrt_key_handler, NULL);
+	if ((key[1] == NULL) || (key[2] == NULL) || (key[3] == NULL)
+		|| (key[4] != NULL))
+		mrt_trigger_error(15);
+	point = mrt_parse_vec3(key[1], MRT_VEC3_STANDARD);
+	normal = mrt_parse_vec3(key[2], MRT_VEC3_STANDARD);
+	color = mrt_parse_color_valid(key[3]);
+	g_conf->objs = ft_glist_add(g_conf->objs, 
+		plane_new(point, normal, color));
 }

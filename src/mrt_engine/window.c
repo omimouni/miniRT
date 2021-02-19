@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:41:18 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/16 15:44:25 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/19 12:24:50 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ void	mrt_window_loop(void)
 		g_conf->width, g_conf->height, WINDOW_TITLE);
 	camera_calc(mrt_current_camera());
 	mrt_render();
-	mlx_key_hook(g_conf->mlx.win, mrt_key_handler, NULL);
+	mrt_hooks();
 	mlx_loop(g_conf->mlx.ptr);
 }

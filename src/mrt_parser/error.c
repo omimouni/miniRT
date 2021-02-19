@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:20:40 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/18 18:00:20 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/19 15:02:43 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,13 @@ char	*g_err_list[] = {
 	"Ambient light can only be set once", //19
 	"The parsed file must have R and A.", //20
 	"Value can only be an integer.", //21
-	"Invalid file because of a wrong format", //22
+	"Wrong format .rt file", //22
+	"Float format is invalid.", //23
+	"FOV should be in range [0, 180]", //24
+	"Light intensity should be in range [0.0, 1.0]", //25
+	"sphere diametre can't be null or negative", //26
+	"cylinder dimensions can't be null or negative", //27
+	"square size can't be null or negative", //28
 };
 
 void	mrt_error(void)
