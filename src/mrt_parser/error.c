@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:20:40 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 15:02:43 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/19 15:13:55 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ char	*g_err_list[] = {
 	"sphere diametre can't be null or negative", //26
 	"cylinder dimensions can't be null or negative", //27
 	"square size can't be null or negative", //28
+	"file isn't an .rt file", //29
 };
 
 void	mrt_error(void)

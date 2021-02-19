@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:30:25 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 15:02:49 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/19 15:18:59 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ void			mrt_parser(int argc, char **argv)
 		mrt_trigger_error(1);
 	if ((fd = open(argv[1], O_RDONLY)) <= -1)
 		mrt_trigger_error(2);
+	if (ft_strncmp(ft_strchr(argv[1], '.'), ".rt", ft_strlen(argv[1])))
+		mrt_trigger_error(29);
 	if (argc == 3)
 	{
 		if (!ft_strncmp(argv[2], "--save", 6))
