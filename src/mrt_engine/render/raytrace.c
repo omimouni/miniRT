@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 15:43:13 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/20 17:56:05 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 19:17:02 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,8 @@ static void		mrt_ray_switch(t_object *obj, t_mrt_ray *ray, t_pixel *p)
 		tmp_t = mrt_triangle_intersection(ray, obj);
 	if (obj->type == MRT_TYPE_SQUARE)
 		tmp_t = mrt_square_intersection(ray, obj);
-	if (tmp_t < p->t)
-	{
-		printf("%f \n", tmp_t);
+	if (tmp_t < p->t && tmp_t > 0)
 		mrt_pixel_update(p, tmp_t, ray, obj);
-	}
 }
 
 void			mrt_raytrace(t_mrt_ray *ray)
