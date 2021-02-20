@@ -6,7 +6,7 @@
 #    By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/16 17:02:42 by omimouni          #+#    #+#              #
-#    Updated: 2021/02/16 18:05:16 by omimouni         ###   ########.fr        #
+#    Updated: 2021/02/21 00:05:44 by omimouni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,9 @@ SRC = ft_maths/vector3_op.c\
 			utils/clamp.c\
 			utils/ft_atoi.c\
 			utils/ft_parsefloat.c\
+			utils/is_alpha.c\
+			utils/is_digit.c\
+			utils/ft_calloc.c\
 			utils/gnl.c
 
 OBJ = $(notdir $(SRC:.c=.o))

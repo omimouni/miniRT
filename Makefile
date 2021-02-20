@@ -6,7 +6,7 @@
 #    By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/20 01:58:10 by omimouni          #+#    #+#              #
-#    Updated: 2021/02/20 15:07:14 by omimouni         ###   ########.fr        #
+#    Updated: 2021/02/21 00:05:06 by omimouni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC  =	src/mrt_engine/bmp.c\
 				src/mrt_engine/hooks/cam_translate.c\
 				src/mrt_engine/hooks/hooks.c\
 				src/mrt_engine/hooks/keyhook.c\
+				src/mrt_engine/hooks/quit.c\
 				src/mrt_engine/render/light/light.c\
 				src/mrt_engine/render/light/light_calc.c\
 				src/mrt_engine/render/loop.c\
@@ -31,7 +32,8 @@ SRC  =	src/mrt_engine/bmp.c\
 				src/mrt_engine/utils/ray.c\
 				src/mrt_engine/utils/utils.c\
 				src/mrt_engine/obj/cylinder/cylinder.c\
-				src/mrt_engine/obj/square.c\
+				src/mrt_engine/obj/square/square.c\
+				src/mrt_engine/obj/square/square_calc.c\
 				src/mrt_engine/obj/cylinder/cylinder_calc.c\
 				src/mrt_engine/obj/cylinder/cylinder_cap.c\
 				src/mrt_engine/obj/cylinder/cylinder_normal.c\
@@ -41,12 +43,20 @@ SRC  =	src/mrt_engine/bmp.c\
 				src/mrt_engine/obj/sphere/sphere_uv.c\
 				src/mrt_engine/obj/triangle/triangle.c\
 				src/mrt_engine/obj/triangle/triangle_calc.c\
+				src/mrt_parser/const/ambient.c\
+				src/mrt_parser/const/camera.c\
+				src/mrt_parser/const/light.c\
+				src/mrt_parser/const/resolution.c\
+				src/mrt_parser/obj/cylinder.c\
+				src/mrt_parser/obj/plane.c\
+				src/mrt_parser/obj/sphere.c\
+				src/mrt_parser/obj/square.c\
+				src/mrt_parser/obj/triangle.c\
 				src/mrt_parser/error.c\
 				src/mrt_parser/init.c\
-				src/mrt_parser/parse_cons.c\
-				src/mrt_parser/parse_obj.c\
 				src/mrt_parser/parser.c\
-				src/mrt_parser/utils.c\
+				src/mrt_parser/utils/checker.c\
+				src/mrt_parser/utils/utils.c\
 				src/main.c
 
 LIBFT = libft.a

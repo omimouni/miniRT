@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 11:52:32 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/20 16:42:32 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/21 00:08:17 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void	mrt_parse_triangle(char **key)
 	pb = mrt_parse_vec3(key[2], MRT_VEC3_STANDARD);
 	pc = mrt_parse_vec3(key[3], MRT_VEC3_STANDARD);
 	c = mrt_parse_color_valid(key[4]);
-	g_conf->objs = ft_glist_add(g_conf->objs, triangle_new(pa, pc, pb, c));
+	g_conf->objs = ft_glist_add(g_conf->objs, triangle_new(pa, pb, pc, c));
 }

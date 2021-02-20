@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 18:38:03 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/20 23:56:49 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/21 00:00:57 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ char	mrt_cylinder_check_cap(t_cylinder *cy, t_mrt_ray *ray, double t,
 	}
 	else
 	{
-		dist = vec3_length(vec3_sub(vec3_add(cy->cap, vec3_mult(cy->height + __FLT_EPSILON__,
-				cy->dir)), mrt_ray_point(t, ray)));
+		dist = vec3_length(vec3_sub(vec3_add(cy->cap, vec3_mult(cy->height
+				+ __FLT_EPSILON__, cy->dir)), mrt_ray_point(t, ray)));
 		if (dist <= cy->diameter / 2 && m == cy->height)
 			return (1);
 	}
