@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 10:28:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/20 17:23:24 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 17:43:55 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,7 @@ void			mrt_light_points(t_pixel *p)
 		light->distance = vec3_length(light->dir);
 		light->dir = vec3_normalize(light->dir);
 		light->angle = vec3_dot(light->dir, p->normal);
-		if (p->obj->type != MRT_TYPE_CYLINDER)
-			light->angle = light->angle < 0 ? 0 : light->angle;
-		else
-			light->angle = 1;
+		light->angle = light->angle < 0 ? 0 : light->angle;
 		p->light_cof += light->angle;
 		mrt_light_point_shadow(p, light);
 		p->ray->color = mrt_light_diffuse(p, light);
