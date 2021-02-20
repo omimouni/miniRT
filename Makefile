@@ -6,7 +6,7 @@
 #    By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/20 01:58:10 by omimouni          #+#    #+#              #
-#    Updated: 2021/02/16 18:15:52 by omimouni         ###   ########.fr        #
+#    Updated: 2021/02/20 15:00:28 by omimouni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,8 +51,9 @@ SRC  =	src/mrt_engine/bmp.c\
 
 LIBFT = libft.a
 
-FLAGS = -Wall -Werror -Wextra -lmlx -lX11 -lXext -lm -I$(abspath src/include)\
-				-I$(abspath src/libft/include)
+FLAGS = -Wall -Werror -Wextra -lmlx -lX11 -lXext -lm\
+					-I$(abspath src/include)\
+					-I$(abspath src/libft/include)
 
 all: $(NAME)
 
