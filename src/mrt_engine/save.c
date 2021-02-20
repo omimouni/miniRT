@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:24:39 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/20 22:33:01 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 23:19:46 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,26 @@
 
 extern	t_conf	*g_conf;
 
-void	mrt_save_image(void)
+static int		mrt_save_filename(void)
 {
-	int				fd;
-	unsigned char	*color[3];
-	char			*filename;
-	int				*image;
-	unsigned char	*hrds[2];
-	int				x;
-	int				y;
+	char	*filename;
+	int		fd;
 
-	mrt_img_init();
-	g_conf->current_camera = g_conf->cameras;
-	camera_calc(mrt_current_camera());
-	mrt_render();
 	filename = ft_strjoin(WINDOW_TITLE, ".bmp");
 	fd = open(filename, O_CREAT | O_WRONLY, 777);
-	hrds[0] = bmp_header();
-	hrds[1] = bmp_header_info();
-	write(fd, hrds[0], 14);
-	write(fd, hrds[1], 40);
-	y = g_conf->height + 1;
+	free(filename);
+	return (fd);
+}
+
+static void		mrt_save_loop(int fd)
+{
+	int				*image;
+	size_t			x;
+	size_t			y;
+	unsigned char	*color[3];
+
 	image = ((int *)g_conf->mlx.img.addr);
+	y = g_conf->height + 1;
 	while (y-- > 0)
 	{
 		x = g_conf->width * y - g_conf->width;
@@ -46,9 +44,25 @@ void	mrt_save_image(void)
 			x++;
 		}
 	}
+}
+
+void			mrt_save_image(void)
+{
+	int				fd;
+	unsigned char	*hrds[2];
+
+	mrt_img_init();
+	g_conf->current_camera = g_conf->cameras;
+	camera_calc(mrt_current_camera());
+	mrt_render();
+	fd = mrt_save_filename();
+	hrds[0] = bmp_header();
+	hrds[1] = bmp_header_info();
+	write(fd, hrds[0], 14);
+	write(fd, hrds[1], 40);
 	free(hrds[0]);
 	free(hrds[1]);
-	free(filename);
+	mrt_save_loop(fd);
 	close(fd);
 	mrt_quit();
 }

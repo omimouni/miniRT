@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 16:56:26 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/20 15:43:27 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 22:57:47 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void				bit_insert(unsigned char *ar, int val)
 	}
 }
 
-unsigned	char	*bmp_header(void)
+unsigned char		*bmp_header(void)
 {
 	unsigned char	*header;
 

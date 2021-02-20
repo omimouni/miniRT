@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 18:38:03 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/20 17:27:16 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 23:56:49 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ char	mrt_cylinder_check_cap(t_cylinder *cy, t_mrt_ray *ray, double t,
 	if (type == MRT_CYLINDER_CAP_TOP)
 	{
 		dist = vec3_length(vec3_sub(cy->cap, mrt_ray_point(t, ray)));
-		if (dist < cy->diameter / 2 && m <= __FLT_EPSILON__)
+		if (dist <= cy->diameter / 2 && m <= __FLT_EPSILON__)
 			return (1);
 	}
 	else
 	{
-		dist = vec3_length(vec3_sub(vec3_add(cy->cap, vec3_mult(cy->height,
+		dist = vec3_length(vec3_sub(vec3_add(cy->cap, vec3_mult(cy->height + __FLT_EPSILON__,
 				cy->dir)), mrt_ray_point(t, ray)));
-		if (dist < cy->diameter / 2 && m >= cy->height)
+		if (dist <= cy->diameter / 2 && m == cy->height)
 			return (1);
 	}
 	return (0);
@@ -57,5 +57,5 @@ double	mrt_cylinder_calc_caps(t_cylinder *cy, t_mrt_ray *ray,
 			vec3_mult(cy->height, cy->dir))), normal);
 		b = vec3_dot(ray->direction, normal);
 	}
-	return (b != 0 ? (-a / b) : INFINITY);
+	return (b != 0 ? ((-a / b)) : INFINITY);
 }
