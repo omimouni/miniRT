@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 11:49:50 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 15:22:02 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 16:42:14 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ void	mrt_parse_plane(char **key)
 	normal = mrt_parse_vec3(key[2], MRT_VEC3_STANDARD);
 	normal = vec3_normalize(normal);
 	color = mrt_parse_color_valid(key[3]);
-	g_conf->objs = ft_glist_add(g_conf->objs, 
+	g_conf->objs = ft_glist_add(g_conf->objs,
 		plane_new(point, normal, color));
 }

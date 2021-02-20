@@ -6,13 +6,13 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 10:58:41 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 12:02:42 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 16:44:18 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-char	mrt_is_integer(char *s, char type)
+char			mrt_is_integer(char *s, char type)
 {
 	int	i;
 
@@ -32,7 +32,7 @@ char	mrt_is_integer(char *s, char type)
 	return (0);
 }
 
-static	char mrt_is_double_return (char type)
+static	char	mrt_is_double_return(char type)
 {
 	if (type)
 		return (1);
@@ -41,7 +41,7 @@ static	char mrt_is_double_return (char type)
 	return (0);
 }
 
-char	mrt_is_double(char *s, char type)
+char			mrt_is_double(char *s, char type)
 {
 	int	i;
 	int	flag;

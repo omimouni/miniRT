@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 18:38:33 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/18 09:59:21 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 16:34:55 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,11 @@ static void		mrt_next_cam(void)
 	mrt_render();
 }
 
-static void		mrt_light_switch(void)
-{
-	if (g_conf->is_ambient)
-		g_conf->is_ambient = 0;
-	else
-		g_conf->is_ambient = 1;
-	mrt_render();
-}
-
 int				mrt_key_handler(int keycode)
 {
-	// if (g_conf->is_bonus)
+	if (g_conf->is_bonus)
 		mrt_cam_event(keycode);
 	(keycode == MRT_KEY_NUM5) ? mrt_next_cam() : NULL;
 	(keycode == MRT_KEY_ESC) ? mrt_quit() : NULL;
-	(keycode == MRT_KEY_NUM1) ? mrt_light_switch() : NULL;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 11:49:33 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 12:36:23 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 16:42:08 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void	mrt_parse_sphere(char **key)
 	diameter = ft_parsefloat(key[2]);
 	color = mrt_parse_color_valid(key[3]);
 	(diameter <= 0) ? mrt_trigger_error(26) : NULL;
-	g_conf->objs = ft_glist_add(g_conf->objs, 
+	g_conf->objs = ft_glist_add(g_conf->objs,
 		sphere_new(center, diameter, color));
 }

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 18:20:40 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 15:13:55 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 16:40:46 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,35 @@
 extern t_conf	*g_conf;
 
 char	*g_err_list[] = {
-	"The first argument must be a file", // 1
-	"The scene file isn't valid", // 2
-	"The second argument can only be --save", // 3
-	"Width can't be null or zero", //  4
-	"Height can't be null or zero", //  5
-	"Width and height must be Integers", //  6
-	"Ambient light intensity should be in range [0.0, 1.0]", //  7
-	"The given color format isn't valid", //  8
-	"A color value can only be an Integer", //  9
-	"No camera found", //  10
-	"The cordinates are invalid", //  11
-	"The vector is not normalized", //  12
-	"Camera is invalid", //  13
-	"No light found in the scene.", //  14
-	"Invalid format", // 15
-	"Height and width can't be negative", // 16
-	"input can only be a number", //17
-	"Resolution can only be set once", //18
-	"Ambient light can only be set once", //19
-	"The parsed file must have R and A.", //20
-	"Value can only be an integer.", //21
-	"Wrong format .rt file", //22
-	"Float format is invalid.", //23
-	"FOV should be in range [0, 180]", //24
-	"Light intensity should be in range [0.0, 1.0]", //25
-	"sphere diametre can't be null or negative", //26
-	"cylinder dimensions can't be null or negative", //27
-	"square size can't be null or negative", //28
-	"file isn't an .rt file", //29
+	"The first argument must be a file",
+	"The scene file isn't valid",
+	"The second argument can only be --save",
+	"Width can't be null or zero",
+	"Height can't be null or zero",
+	"Width and height must be Integers",
+	"Ambient light intensity should be in range [0.0, 1.0]",
+	"The given color format isn't valid",
+	"A color value can only be an Integer",
+	"No camera found",
+	"The cordinates are invalid",
+	"The vector is not normalized",
+	"Camera is invalid",
+	"No light found in the scene.",
+	"Invalid format",
+	"Height and width can't be negative",
+	"input can only be a number",
+	"Resolution can only be set once",
+	"Ambient light can only be set once",
+	"The parsed file must have R and A.",
+	"Value can only be an integer.",
+	"Wrong format .rt file",
+	"Float format is invalid.",
+	"FOV should be in range [0, 180]",
+	"Light intensity should be in range [0.0, 1.0]",
+	"sphere diametre can't be null or negative",
+	"cylinder dimensions can't be null or negative",
+	"square size can't be null or negative",
+	"file isn't an .rt file",
 };
 
 void	mrt_error(void)

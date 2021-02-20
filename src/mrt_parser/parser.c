@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:30:25 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 15:18:59 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 16:50:49 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 extern t_conf	*g_conf;
 
-void		mrt_trigger_error(int code)
+void			mrt_trigger_error(int code)
 {
 	g_conf->errcode = code;
 	mrt_error();
 }
 
-void		free_split(char **key)
+void			free_split(char **key)
 {
 	int	i;
 
@@ -34,25 +34,8 @@ void		free_split(char **key)
 	free(key);
 }
 
-int				mrt_parser_switch(char *line)
+static void		mrt_parser_router(char **key)
 {
-	char	**key;
-	int		i;
-
-	// Replace \t by spaces
-	i = 0;
-	while (line[i] != '\0')
-	{
-		if (line[i] == '\t')
-			line[i] = ' ';
-		i++;
-	}
-	key = ft_split(line, ' ');
-	if (key[0] == NULL)
-	{
-		free_split(key);
-		return (0);
-	}
 	if (!ft_strncmp(key[0], "R", 4))
 		mrt_parse_resolution(key);
 	else if (!ft_strncmp(key[0], "A", 4))
@@ -71,18 +54,31 @@ int				mrt_parser_switch(char *line)
 		mrt_parse_triangle(key);
 	else if (!ft_strncmp(key[0], "sq", 4))
 		mrt_parse_square(key);
-	else if (!ft_strncmp(key[0], "#", 1))
-	{
-		free_split(key);
-		return (0);
-	}
 	else
 	{
 		free_split(key);
 		mrt_trigger_error(22);
 	}
-	free_split(key);
+}
 
+int				mrt_parser_switch(char *line)
+{
+	char	**key;
+
+	mrt_parser_replace_whitespace(line);
+	key = ft_split(line, ' ');
+	if (key[0] == NULL)
+	{
+		free_split(key);
+		return (0);
+	}
+	if (!ft_strncmp(key[0], "#", 1))
+	{
+		free_split(key);
+		return (0);
+	}
+	mrt_parser_router(key);
+	free_split(key);
 	return (0);
 }
 

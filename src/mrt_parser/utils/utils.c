@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 15:42:29 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 12:01:58 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 16:51:16 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ t_color		mrt_parse_color_valid(char *color)
 	t_color	c;
 
 	rgb = ft_split(color, ',');
-	if ((rgb[0] == NULL) || (rgb[1] == NULL) || 
+	if ((rgb[0] == NULL) || (rgb[1] == NULL) ||
 	(rgb[2] == NULL) || (rgb[3] != NULL))
 		mrt_trigger_error(8);
-	(ft_strchr(rgb[0], '.') != NULL) ? mrt_trigger_error(9) : NULL; 
-	(ft_strchr(rgb[1], '.') != NULL) ? mrt_trigger_error(9) : NULL; 
+	(ft_strchr(rgb[0], '.') != NULL) ? mrt_trigger_error(9) : NULL;
+	(ft_strchr(rgb[1], '.') != NULL) ? mrt_trigger_error(9) : NULL;
 	(ft_strchr(rgb[2], '.') != NULL) ? mrt_trigger_error(9) : NULL;
 	c.r = ft_atoi(rgb[0]);
 	c.g = ft_atoi(rgb[1]);
@@ -51,7 +51,7 @@ t_color		mrt_parse_color_valid(char *color)
 	if ((c.r > 255 || c.r < 0) || (c.g > 255 || c.g < 0)
 		|| (c.b > 255 || c.b < 0))
 		mrt_trigger_error(8);
-	if (mrt_is_integer(rgb[0], 1) || mrt_is_integer(rgb[1], 1) 
+	if (mrt_is_integer(rgb[0], 1) || mrt_is_integer(rgb[1], 1)
 		|| mrt_is_integer(rgb[2], 1))
 	{
 		free_split(rgb);
@@ -59,4 +59,17 @@ t_color		mrt_parse_color_valid(char *color)
 	}
 	free_split(rgb);
 	return (color_from_rgb(c.r, c.g, c.b));
+}
+
+void		mrt_parser_replace_whitespace(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (line[i] != '\0')
+	{
+		if (line[i] == '\t')
+			line[i] = ' ';
+		i++;
+	}
 }

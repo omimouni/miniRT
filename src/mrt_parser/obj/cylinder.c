@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 11:52:14 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 15:22:29 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 16:42:12 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ void	mrt_parse_cylinder(char **key)
 	if (d[0] <= 0 || d[1] <= 0)
 		mrt_trigger_error(27);
 	color = mrt_parse_color_valid(key[5]);
-	g_conf->objs = ft_glist_add(g_conf->objs, 
+	g_conf->objs = ft_glist_add(g_conf->objs,
 		cylinder_new(base, normal, color, d));
 }

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/20 15:29:36 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 16:45:35 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ void			free_split(char **key);
 
 char			mrt_is_integer(char *s, char type);
 char			mrt_is_double(char *s, char type);
+void			mrt_parser_replace_whitespace(char *line);
 
 /*
 ** mlx and raytracing

@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 11:52:32 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 12:45:10 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 16:42:32 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	mrt_parse_triangle(char **key)
 	t_point3	pb;
 	t_point3	pc;
 	t_color		c;
+
 	if ((key[1] == NULL) || (key[2] == NULL) || (key[3] == NULL)
 		|| (key[4] == NULL) || (key[5] != NULL))
 		mrt_trigger_error(15);
