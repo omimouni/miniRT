@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:24:19 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 10:46:16 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 15:17:14 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,5 @@ int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
+void	*ft_calloc(size_t count, size_t size);
 #endif

@@ -6,7 +6,7 @@
 #    By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/20 01:58:10 by omimouni          #+#    #+#              #
-#    Updated: 2021/02/20 15:00:28 by omimouni         ###   ########.fr        #
+#    Updated: 2021/02/20 15:07:14 by omimouni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,13 +62,16 @@ $(LIBFT):
 	cp $(abspath src/libft/libft.a) $(abspath src/)
 
 $(NAME): $(LIBFT)
-	gcc $(SRC) $(FLAGS) src/libft.a -o $(NAME)
+	gcc $(SRC) $(FLAGS) -D FT_BONUS=0 src/libft.a -o $(NAME)
 
 clean:
 	rm -rf $(OBJ)
-
+	
 fclean: clean
 	rm -rf src/libft.a
 	make -C $(abspath src/libft) fclean
+
+bonus: fclean $(LIBFT)
+	gcc $(SRC) $(FLAGS) -D FT_BONUS=1 src/libft.a -o $(NAME)
 
 re: fclean all

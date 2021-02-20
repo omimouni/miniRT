@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 16:13:52 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/19 12:19:10 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 15:29:36 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ char			mrt_is_double(char *s, char type);
 /*
 ** mlx and raytracing
 */
+
 void			mrt_window_loop(void);
 
 void			mrt_render(void);
@@ -217,4 +218,8 @@ double			mrt_square_intersection(t_mrt_ray *ray, t_object *obj);
 double			mrt_square_cast_shadow(t_pixel *p, t_object *obj,
 				t_light *light);
 void			mrt_put_string(char *str, int x, int y);
+
+unsigned char	*bmp_header(void);
+unsigned char	*bmp_header_info(void);
+void			bit_insert(unsigned char *ar, int val);
 #endif

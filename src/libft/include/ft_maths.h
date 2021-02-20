@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 17:24:43 by omimouni          #+#    #+#             */
-/*   Updated: 2021/02/02 21:19:06 by omimouni         ###   ########.fr       */
+/*   Updated: 2021/02/20 15:24:06 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct		s_vector3 {
 	double			y;
 	double			z;
 }					t_vector3;
+
 typedef	t_vector3	t_point3;
 
 t_vector3			vec3_new(double x, double y, double z);
