@@ -6,7 +6,7 @@
 #    By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/20 01:58:10 by omimouni          #+#    #+#              #
-#    Updated: 2021/02/21 00:05:06 by omimouni         ###   ########.fr        #
+#    Updated: 2021/02/21 00:16:26 by omimouni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,11 +67,9 @@ FLAGS = -Wall -Werror -Wextra -lmlx -lX11 -lXext -lm\
 
 all: $(NAME)
 
-$(LIBFT):
+$(NAME): $(SRC)
 	make -C $(abspath src/libft)
 	cp $(abspath src/libft/libft.a) $(abspath src/)
-
-$(NAME): $(LIBFT)
 	gcc $(SRC) $(FLAGS) -D FT_BONUS=0 src/libft.a -o $(NAME)
 
 clean:
@@ -80,8 +78,11 @@ clean:
 fclean: clean
 	rm -rf src/libft.a
 	make -C $(abspath src/libft) fclean
+	rm -rf $(NAME)
 
-bonus: fclean $(LIBFT)
+bonus: fclean
+	make -C $(abspath src/libft)
+	cp $(abspath src/libft/libft.a) $(abspath src/)
 	gcc $(SRC) $(FLAGS) -D FT_BONUS=1 src/libft.a -o $(NAME)
 
 re: fclean all
