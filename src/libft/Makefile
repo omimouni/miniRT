@@ -6,7 +6,7 @@
 #    By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/16 17:02:42 by omimouni          #+#    #+#              #
-#    Updated: 2021/02/21 00:05:44 by omimouni         ###   ########.fr        #
+#    Updated: 2021/02/21 08:33:24 by omimouni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRC = ft_maths/vector3_op.c\
 
 OBJ = $(notdir $(SRC:.c=.o))
 
-FLAGS = -Wall -Werror -Wextra -lm -c -I$(abspath include)
+FLAGS = -Wall -Werror -Wextra -c -I$(abspath include)
 
 all: $(NAME)
 

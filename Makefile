@@ -6,7 +6,7 @@
 #    By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/20 01:58:10 by omimouni          #+#    #+#              #
-#    Updated: 2021/02/21 00:16:26 by omimouni         ###   ########.fr        #
+#    Updated: 2021/02/21 08:32:47 by omimouni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,8 @@ SRC  =	src/mrt_engine/bmp.c\
 
 LIBFT = libft.a
 
-FLAGS = -Wall -Werror -Wextra -lmlx -lX11 -lXext -lm\
+FLAGS = -Wall -Werror -Wextra \
+					-lmlx -lm -framework OpenGL -framework Appkit\
 					-I$(abspath src/include)\
 					-I$(abspath src/libft/include)
 

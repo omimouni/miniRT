@@ -1,0 +1,27 @@
+{
+  "files.associations": {
+    "istream": "c",
+    "locale": "c",
+    "__locale": "c",
+    "__string": "c",
+    "string": "c",
+    "string_view": "c",
+    "bonus.h": "c",
+    "ios": "c",
+    "minirt.h": "c",
+    "libft.h": "c",
+    "ft_string.h": "c",
+    "complex": "c",
+    "algorithm": "c",
+    "linked_list.h": "c",
+    "__hash_table": "c",
+    "functional": "c",
+    "__node_handle": "c",
+    "mrt_types.h": "c"
+  },
+  "C_Cpp.default.includePath": [
+    "./src/include",
+    "./src/libft/include",
+    "${default}"
+  ],
+}
