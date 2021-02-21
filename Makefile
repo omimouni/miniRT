@@ -6,7 +6,7 @@
 #    By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/20 01:58:10 by omimouni          #+#    #+#              #
-#    Updated: 2021/02/21 08:32:47 by omimouni         ###   ########.fr        #
+#    Updated: 2021/02/21 21:09:03 by omimouni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,10 @@ FLAGS = -Wall -Werror -Wextra \
 					-lmlx -lm -framework OpenGL -framework Appkit\
 					-I$(abspath src/include)\
 					-I$(abspath src/libft/include)
+FLAGS_LINUX = -Wall -Werror -Wextra \
+					-lm -lmlx -lX11 -lXext\
+					-I$(abspath src/include)\
+					-I$(abspath src/libft/include)
 
 all: $(NAME)
 
@@ -72,6 +76,11 @@ $(NAME): $(SRC)
 	make -C $(abspath src/libft)
 	cp $(abspath src/libft/libft.a) $(abspath src/)
 	gcc $(SRC) $(FLAGS) -D FT_BONUS=0 src/libft.a -o $(NAME)
+
+linux: $(SRC)
+	make -C $(abspath src/libft)
+	cp $(abspath src/libft/libft.a) $(abspath src/)
+	gcc $(SRC) $(FLAGS_LINUX) -D FT_BONUS=0 src/libft.a -o $(NAME)
 
 clean:
 	rm -rf $(OBJ)
